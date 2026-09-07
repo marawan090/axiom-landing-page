@@ -1,3 +1,12 @@
+import dns from 'dns/promises';
+
+// قائمة الدومينات المجانية الشائعة لمنع الحسابات الشخصية الوهمية
+const BLOCKED_DOMAINS = new Set([
+  'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 
+  'icloud.com', 'protonmail.com', 'mail.com', 'aol.com',
+  'zoho.com', 'yandex.com', 'tempmail.com', '10minutemail.com'
+]);
+
 export default async function handler(req, res) {
   // CORS Preflight
   if (req.method === 'OPTIONS') {
@@ -15,6 +24,31 @@ export default async function handler(req, res) {
 
   if (!full_name || !email || !research_problem) {
     return res.status(422).json({ error: 'Missing required fields' });
+  }
+
+  // 1. فحص صيغة الإيميل (Regex Validation)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Invalid email syntax.' });
+  }
+
+  const domain = email.split('@')[1].toLowerCase().trim();
+
+  // 2. التحقق من أنه إيميل مؤسسي/أكاديمي وليس إيميل تجاري مجاني
+  if (BLOCKED_DOMAINS.has(domain)) {
+    return res.status(400).json({ 
+      error: 'Please provide a valid institutional, research lab, or academic email (e.g., .edu or university domain) instead of a generic email.' 
+    });
+  }
+
+  // 3. فحص هل الدومين حقيقي وله سيرفر إيميلات نشط (DNS MX Check)
+  try {
+    const mxRecords = await dns.resolveMx(domain);
+    if (!mxRecords || mxRecords.length === 0) {
+      return res.status(400).json({ error: 'The email domain does not have valid mail server (MX) records.' });
+    }
+  } catch (dnsErr) {
+    return res.status(400).json({ error: 'The provided email domain does not exist or cannot receive mail.' });
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
@@ -38,7 +72,7 @@ export default async function handler(req, res) {
         html: `
           <h3>New Axiom Closed Beta Application</h3>
           <p><strong>Name:</strong> ${full_name}</p>
-          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Verified Institutional Email:</strong> ${email}</p>
           <p><strong>Level:</strong> ${academic_level || 'N/A'}</p>
           <p><strong>Domain:</strong> ${research_domain || 'N/A'}</p>
           <p><strong>Thesis Problem:</strong><br/>${research_problem}</p>
