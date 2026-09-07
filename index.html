@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100 dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiom Research AI | High-Signal Systems & AI Literature Engine</title>
+  <meta name="description" content="Stop drowning in 30-page papers. Search ArXiv, Semantic Scholar, and OpenAlex concurrently, uncover hidden thesis research gaps, render on-demand PlantUML architecture topologies, and export structured bundles to NotebookLM with one click.">
+  <link rel="icon" type="image/jpeg" href="./axiom_logo.jpg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            },
+            lab: {
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+            },
+            emeraldAccent: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Menlo', 'Consolas', 'monospace']
+          },
+          boxShadow: {
+            'glow-violet': '0 0 35px -5px rgba(129, 140, 248, 0.3)',
+            'glow-emerald': '0 0 35px -5px rgba(16, 185, 129, 0.3)',
+            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Custom subtle ambient grid pattern */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(129, 140, 248, 0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    
+    /* Smooth custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    /* Glassmorphism styling */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(51, 65, 85, 0.55);
+    }
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.45);
+    }
+
+    .glass-modal {
+      background: rgba(10, 15, 30, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(99, 102, 241, 0.28);
+    }
+
+    /* Subtle pulse animations */
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.28; transform: scale(1.05); }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 8s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-brand-500/30 selection:text-brand-100 min-h-screen relative overflow-x-hidden">
+
+  <!-- Ambient Radial Glow Effects (Top Header & Hero) -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-brand-600/15 via-purple-600/10 to-emerald-500/10 blur-[130px] pointer-events-none -z-10 animate-pulse-slow"></div>
+  <div class="fixed top-[40%] right-[-10%] w-[550px] h-[550px] bg-emerald-500/5 blur-[150px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 left-[-10%] w-[600px] h-[500px] bg-brand-600/5 blur-[160px] pointer-events-none -z-10"></div>
+
+  <!-- Background Grid -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20 opacity-60"></div>
+
+  <!-- ========================================== -->
+  <!-- NAVIGATION BAR -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand & Badges -->
+      <div class="flex items-center gap-3.5 sm:gap-4">
+        <a href="#hero" class="flex items-center gap-3 group">
+          <!-- Monogram Logo Mark with Official Image -->
+          <div class="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-brand-500/40 shadow-inner group-hover:border-brand-400/70 transition-all shrink-0">
+            <img src="./axiom_logo.jpg" alt="Axiom Logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform" onerror="this.onerror=null; this.parentElement.innerHTML='<svg class=\'w-5 h-5 text-brand-400\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\'><polygon points=\'12 2 2 7 12 12 22 7 12 2\'></polygon></svg>';" />
+            <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-slate-950"></div>
+          </div>
+          
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-brand-300 transition-colors">
+                Axiom Research AI
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-brand-500/15 text-brand-300 border border-brand-500/30">
+                v1.2 Closed Beta
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-mono tracking-tight flex items-center gap-1.5">
+              <span>An open-source initiative by</span>
+              <span class="inline-flex items-center gap-1 text-emerald-400 font-medium hover:underline">
+                <img src="./swmp_logo.jpg" alt="SWMP Labs" class="w-3.5 h-3.5 rounded-full object-cover inline" onerror="this.style.display='none';" />
+                <span>SWMP Labs</span>
+              </span>
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs lg:text-sm font-medium text-slate-300">
+        <a href="#features" class="hover:text-white transition-colors">Core Engine</a>
+        <a href="#demo" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span>Interactive Preview</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+        </a>
+        <a href="#pipeline" class="hover:text-white transition-colors">Pipeline Specs</a>
+        <a href="#cohort" class="hover:text-white transition-colors">Cohort Criteria</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Explore Demo Link -->
+        <a href="#demo" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700 bg-slate-900/50 transition-all">
+          <span>Live Demo</span>
+          <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </a>
+
+        <!-- Primary CTA Trigger -->
+        <button onclick="openWaitlistModal()" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none focus:ring-2 focus:ring-brand-400/50">
+          <span class="absolute inset-0 bg-gradient-to-r from-brand-500 via-purple-500 to-emerald-400 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"></span>
+          <span class="relative flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 text-xs sm:text-sm font-medium text-white group-hover:bg-slate-950/80 transition-colors">
+            <span>Apply for Beta</span>
+            <svg class="w-3.5 h-3.5 text-brand-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- HERO SECTION -->
+  <!-- ========================================== -->
+  <section id="hero" class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <!-- Badge: Closed Beta Cohort -->
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 shadow-sm text-xs font-mono text-slate-300 mb-8 backdrop-blur-md hover:border-brand-500/40 transition-colors">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="font-semibold text-white">🔒 Closed Beta Cohort</span>
+        <span class="text-slate-500">|</span>
+        <span class="text-emerald-400 font-medium">Batch 1: 30–40 Researchers</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.15] sm:leading-[1.12]">
+        High-Signal Distributed Systems &amp; AI Research,
+        <span class="block mt-1 sm:mt-2 bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-indigo-200 to-emerald-400">
+          Synthesized in Seconds.
+        </span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="mt-6 sm:mt-7 text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
+        Stop drowning in 30-page papers. Search <strong class="text-white font-medium">ArXiv</strong>, <strong class="text-white font-medium">Semantic Scholar</strong>, and <strong class="text-white font-medium">OpenAlex</strong> concurrently, uncover hidden thesis research gaps, render on-demand PlantUML architecture topologies, and export structured bundles to <strong class="text-white font-medium">NotebookLM</strong> with one click.
+      </p>
+
+      <!-- Primary & Secondary CTA Buttons -->
+      <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+        
+        <!-- Primary Action Button: Open Waitlist Modal -->
+        <button onclick="openWaitlistModal()" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base shadow-glow-violet hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2.5 group">
+          <span>Apply for Closed Beta Access</span>
+          <svg class="w-4 h-4 text-brand-200 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <!-- Secondary Action: Explore Architecture Demo -->
+        <a href="#demo" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/80 text-slate-300 hover:text-white font-medium text-sm sm:text-base border border-slate-800 hover:border-slate-700 transition-all flex items-center justify-center gap-2">
+          <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Explore Live Synthesis Demo</span>
+        </a>
+      </div>
+
+      <!-- Live Tech Badges -->
+      <div class="mt-14 pt-8 border-t border-slate-800/60 max-w-4xl mx-auto">
+        <p class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">
+          Powered By High-Throughput Research Stack
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-mono">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-brand-500/40 transition-colors">
+            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+            <span>DeepSeek-V4 via OrcaRouter</span>
+          </div>
+
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-emerald-500/40 transition-colors">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Kroki Diagram Engine</span>
+          </div>
+
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-cyan-500/40 transition-colors">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span>NotebookLM Exporter</span>
+          </div>
+
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-purple-500/40 transition-colors">
+            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+            <span>KaTeX Math Rendering</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- INTERACTIVE PREVIEW & TERMINAL SECTION -->
+  <!-- ========================================== -->
+  <section id="demo" class="py-12 sm:py-20 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-mono font-medium text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+          Interactive Architecture Preview
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-3">
+          See What Axiom Generates For You
+        </h2>
+        <p class="text-sm sm:text-base text-slate-400 mt-2">
+          From parallel ingestion to DeepSeek-V4 systems reasoning and Kroki PlantUML topologies.
+        </p>
+      </div>
+
+      <!-- Mock Workspace Terminal / Dashboard -->
+      <div class="rounded-2xl glass-card overflow-hidden shadow-2xl border border-slate-800 shadow-slate-950/80">
+        
+        <!-- Window Chrome / Header Bar -->
+        <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+            <span class="ml-2 text-xs font-mono text-slate-400">axiom-engine: consensus-latency-tradeoffs</span>
+          </div>
+
+          <!-- Interactive Tab Buttons -->
+          <div class="flex items-center gap-1 bg-slate-950/80 p-1 rounded-lg border border-slate-800 text-xs font-mono w-full sm:w-auto overflow-x-auto">
+            <button onclick="switchPreviewTab('synthesis')" id="tab-btn-synthesis" class="px-2.5 py-1 rounded bg-brand-600 text-white font-medium transition-colors whitespace-nowrap">
+              1. Systems Synthesis
+            </button>
+            <button onclick="switchPreviewTab('diagram')" id="tab-btn-diagram" class="px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap">
+              2. PlantUML Topology
+            </button>
+            <button onclick="switchPreviewTab('pipeline_view')" id="tab-btn-pipeline_view" class="px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap">
+              3. Ingestion Feed
+            </button>
+            <button onclick="switchPreviewTab('notebooklm')" id="tab-btn-notebooklm" class="px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap">
+              4. NotebookLM Pack
+            </button>
+          </div>
+        </div>
+
+        <!-- Terminal Content Area -->
+        <div class="p-5 sm:p-7 min-h-[420px] bg-slate-950/70 text-slate-200 font-sans">
+          
+          <!-- TAB 1: Systems Synthesis View -->
+          <div id="tab-content-synthesis" class="space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
+              <div>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">DeepSeek-V4 Synthesized Breakdown</span>
+                <h3 class="text-lg font-semibold text-white mt-1">High-Throughput Raft Optimization in Disaggregated NVMe Clusters</h3>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                <span>Confidence: 98.6%</span>
+                <span>•</span>
+                <span>Token Latency: 1.8s</span>
+              </div>
+            </div>
+
+            <!-- 4-Stage Breakdown Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center gap-2 text-brand-400 font-mono text-xs font-semibold uppercase mb-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+                  01. Core Problem Statement
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Traditional quorum consensus protocols introduce heavy tail-latency bottlenecks when scaling across disaggregated storage tiers due to serialized disk I/O and synchronous RPC round-trips under high-concurrency write surges.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold uppercase mb-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                  02. Technical Bottleneck
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Lock contention on leader commit indexes causes CPU core pinning. PCIe bus backpressure throttles RDMA write operations at &gt;100Gbps network saturation, degrading P99.9 latency by up to 340%.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center gap-2 text-amber-400 font-mono text-xs font-semibold uppercase mb-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                  03. Identified Research Gaps
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Current literature lacks adaptive epoch pipelining that dynamically switches between optimistic speculative commits and two-phase commits based on real-time RDMA hardware telemetry.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-emerald-500/30 bg-emerald-500/5">
+                <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-semibold uppercase mb-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  04. Actionable Thesis Extension (Delta)
+                </div>
+                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                  <strong>Proposed Extension:</strong> Implement an asynchronous log-decoupled Raft state machine utilizing NVMe-oF zero-copy memory buffers. Benchmark against etcd under 128-node YCSB workloads.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TAB 2: PlantUML Topology View -->
+          <div id="tab-content-diagram" class="hidden space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
+              <div>
+                <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded border border-brand-500/20">Vector Kroki PlantUML Topology</span>
+                <h3 class="text-base font-semibold text-white mt-1">Disaggregated Consensus Engine Component Flow</h3>
+              </div>
+              <span class="text-xs font-mono text-slate-400">Engine: Kroki v0.24 PlantUML</span>
+            </div>
+
+            <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-800 flex flex-col items-center justify-center font-mono text-xs text-slate-300">
+              <!-- Visual Diagram Mockup using SVG & CSS Grid -->
+              <div class="w-full max-w-2xl py-4">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
+                  
+                  <div class="p-3.5 rounded-lg bg-slate-800/80 border border-brand-500/40 w-full md:w-44">
+                    <span class="text-[10px] text-brand-400 uppercase font-bold">Client Layer</span>
+                    <div class="text-white font-semibold text-xs mt-1">Distributed Clients</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">gRPC / RoCEv2</div>
+                  </div>
+
+                  <div class="text-brand-400 font-bold hidden md:block">➔</div>
+                  <div class="text-brand-400 font-bold md:hidden">↓</div>
+
+                  <div class="p-3.5 rounded-lg bg-indigo-950/50 border border-indigo-500/50 w-full md:w-48 shadow-lg shadow-indigo-950/50">
+                    <span class="text-[10px] text-indigo-400 uppercase font-bold">Consensus Core</span>
+                    <div class="text-white font-semibold text-xs mt-1">Axiom Raft Leader</div>
+                    <div class="text-[10px] text-emerald-400 mt-0.5">Zero-Copy Commit Log</div>
+                  </div>
+
+                  <div class="text-brand-400 font-bold hidden md:block">➔</div>
+                  <div class="text-brand-400 font-bold md:hidden">↓</div>
+
+                  <div class="p-3.5 rounded-lg bg-slate-800/80 border border-emerald-500/40 w-full md:w-44">
+                    <span class="text-[10px] text-emerald-400 uppercase font-bold">Storage Fabric</span>
+                    <div class="text-white font-semibold text-xs mt-1">NVMe-oF Ring</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Dual-Port 100GbE</div>
+                  </div>
+
+                </div>
+
+                <div class="mt-5 p-3 rounded bg-slate-950 border border-slate-800/90 text-slate-400 text-[11px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                  <span>@startuml: <code>node "Raft Core" -&gt; node "Storage Fabric" : sync_replicate()</code></span>
+                  <span class="text-emerald-400 font-semibold">1-Click Export Vector SVG</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Ingestion Feed View -->
+          <div id="tab-content-pipeline_view" class="hidden space-y-3">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">Parallel Academic Ingestion Stream</span>
+              <span class="text-xs font-mono text-slate-400">Time: 1.14s • 3 Sources Concurrently</span>
+            </div>
+
+            <div class="space-y-2 font-mono text-xs">
+              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-slate-700 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="px-2 py-0.5 rounded bg-red-500/15 text-red-300 border border-red-500/30">ArXiv cs.DC</span>
+                  <span class="text-white font-sans text-xs sm:text-sm font-medium">BFT-Mesh: Fault-Tolerant Microsecond Epoch Sharding</span>
+                  <span class="text-slate-400 text-[11px] hidden sm:inline">(arXiv:2403.11982)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-emerald-400 text-[11px] hidden md:inline">GitHub: Verified Repo</span>
+                  <span class="text-slate-400 text-[11px]">84 Citations</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-slate-700 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="px-2 py-0.5 rounded bg-blue-500/15 text-blue-300 border border-blue-500/30">OpenAlex</span>
+                  <span class="text-white font-sans text-xs sm:text-sm font-medium">Speculative Log Commitments in High-Velocity Stream Engines</span>
+                  <span class="text-slate-400 text-[11px] hidden sm:inline">(W9821049)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-purple-400 text-[11px]">Deduplication: 94.2%</span>
+                  <span class="text-slate-400 text-[11px]">112 Citations</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-slate-700 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="px-2 py-0.5 rounded bg-teal-500/15 text-teal-300 border border-teal-500/30">Semantic Scholar</span>
+                  <span class="text-white font-sans text-xs sm:text-sm font-medium">Asynchronous Vector Memory Checkpointing on Heterogeneous GPUs</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-emerald-400 text-[11px]">PDF OpenAccess</span>
+                  <span class="text-slate-400 text-[11px]">239 Citations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: NotebookLM Pack View -->
+          <div id="tab-content-notebooklm" class="hidden space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
+              <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Google NotebookLM 1-Click Bundle</span>
+              <span class="text-xs font-mono text-slate-400">Structured Markdown &amp; Audio-Ready Source Pack</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 font-mono text-xs text-slate-300 space-y-2 overflow-x-auto">
+              <p class="text-slate-500"># NotebookLM Source Pack: Axiom Systems Literature Review</p>
+              <p class="text-indigo-300">## Paper Dossier: Distributed Consensus Under Hardware Disaggregation</p>
+              <p class="text-slate-400">&gt; **Curated Sources**: ArXiv:2403.11982, SemanticScholar:441209, OpenAlex:W9821049</p>
+              <p class="text-slate-400">&gt; **Key Arguments for Deep Audio Discussion**: Speculative execution vs serialized Raft logs.</p>
+              <p class="text-emerald-400">@article{chen2025speculative, title={BFT-Mesh}, author={Chen, S. et al.}, year={2025}}</p>
+            </div>
+            
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs text-slate-400">Automatically formatted for instant podcast generator ingestion in NotebookLM.</span>
+              <button onclick="openWaitlistModal()" class="text-xs font-mono text-brand-400 hover:text-brand-300 underline">Request access to run live →</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- FEATURE GRID (3 COMPACT CARDS) -->
+  <!-- ========================================== -->
+  <section id="features" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-slate-950/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-mono font-medium text-brand-400 uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
+          Engineered for Systems Researchers
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-3">
+          Zero Fluff. Pure Technical Bandwidth.
+        </h2>
+        <p class="text-sm sm:text-base text-slate-400 mt-3">
+          Designed specifically for computer systems engineers, graduate researchers, and thesis authors.
+        </p>
+      </div>
+
+      <!-- The 3 Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        
+        <!-- Feature Card 1 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 relative flex flex-col justify-between group">
+          <div class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
+          
+          <div>
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 mb-5 group-hover:scale-105 group-hover:border-brand-400/60 transition-all">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+
+            <!-- Number & Title -->
+            <span class="text-xs font-mono text-brand-400/80 uppercase font-semibold">01 // Concurrent Querying</span>
+            <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-brand-300 transition-colors">
+              Multi-Source Academic Pipeline
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Concurrently fetches, ranks, and deduplicates papers across <strong>ArXiv</strong>, <strong>Semantic Scholar</strong>, and <strong>OpenAlex</strong> with automatic GitHub repo matching.
+            </p>
+          </div>
+
+          <!-- Card Footer Metadata -->
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span>AsyncIO Gather</span>
+            <span class="text-emerald-400">Match &gt;= 85%</span>
+          </div>
+        </div>
+
+        <!-- Feature Card 2 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 relative flex flex-col justify-between group">
+          <div class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+          
+          <div>
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-5 group-hover:scale-105 group-hover:border-purple-400/60 transition-all">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+
+            <!-- Number & Title -->
+            <span class="text-xs font-mono text-purple-400/80 uppercase font-semibold">02 // Deep LLM Reasoning</span>
+            <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-purple-300 transition-colors">
+              On-Demand Systems Synthesis
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-slate-300 leading-relaxed">
+              DeepSeek-powered breakdowns extracting problem statements, technical bottlenecks, and actionable thesis extension proposals.
+            </p>
+          </div>
+
+          <!-- Card Footer Metadata -->
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span>DeepSeek-V4 Orca</span>
+            <span class="text-purple-400">Thesis Deltas</span>
+          </div>
+        </div>
+
+        <!-- Feature Card 3 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-7 relative flex flex-col justify-between group">
+          <div class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+          
+          <div>
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5 group-hover:scale-105 group-hover:border-emerald-400/60 transition-all">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+
+            <!-- Number & Title -->
+            <span class="text-xs font-mono text-emerald-400/80 uppercase font-semibold">03 // Instant Assets</span>
+            <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-emerald-300 transition-colors">
+              Publication-Ready Assets
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Instant vector architecture diagrams (Kroki PlantUML), formatted BibTeX/IEEE citations, and 1-click Google NotebookLM packs.
+            </p>
+          </div>
+
+          <!-- Card Footer Metadata -->
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span>PlantUML / Kroki</span>
+            <span class="text-emerald-400">BibTeX + IEEE</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- PIPELINE SPECS & TECHNICAL METRICS -->
+  <!-- ========================================== -->
+  <section id="pipeline" class="py-16 sm:py-20 relative border-t border-slate-800/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        
+        <!-- Left Column: Copy & Technical Ethos -->
+        <div>
+          <span class="text-xs font-mono font-medium text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+            Technical Architecture
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-4 leading-tight">
+            How Axiom Eliminates Literature Search Latency
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
+            Standard literature searches force researchers to juggle fragmented tabs across Google Scholar, ArXiv, and GitHub while manually parsing 40-page papers for methodology differences. Axiom unifies these pipelines into a single high-throughput execution graph.
+          </p>
+
+          <div class="mt-6 space-y-3.5 text-sm text-slate-300">
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+              <p><strong class="text-white">Normalized Title Disambiguation:</strong> Fuzzy similarity scoring eliminates duplicate preprints across ArXiv and peer-reviewed conference proceedings.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+              <p><strong class="text-white">OpenRouter / OrcaRouter Deep Routing:</strong> Dynamic fallback across top frontier models guarantees zero rate-limit downtime during literature sprints.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+              <p><strong class="text-white">Deterministic Citations:</strong> Auto-generated BibTeX entries conform strictly to ACM/IEEE formatting standards.</p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <button onclick="openWaitlistModal()" class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-medium text-brand-400 hover:text-brand-300 underline underline-offset-4">
+              <span>Apply for Cohort 1 to access the raw engine →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Pipeline Execution Graph / Specs -->
+        <div class="p-6 rounded-2xl glass-card border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="text-slate-400 uppercase tracking-widest text-[11px] pb-2 border-b border-slate-800 flex items-center justify-between">
+            <span>Execution Telemetry</span>
+            <span class="text-emerald-400">Pipeline Status: Operational</span>
+          </div>
+
+          <div class="space-y-3">
+            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-slate-400 block text-[10px]">CONCURRENT INGESTION</span>
+                <span class="text-white font-medium">ArXiv (cs.DC/cs.AI) + OpenAlex + Semantic Scholar</span>
+              </div>
+              <span class="text-emerald-400 text-right">~1.2s avg</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-slate-400 block text-[10px]">DEDUPLICATION ALGORITHM</span>
+                <span class="text-white font-medium">SequenceMatcher Title Normalization (&ge; 85%)</span>
+              </div>
+              <span class="text-purple-400 text-right">99.4% Precision</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-slate-400 block text-[10px]">LLM SYNTHESIS ENGINE</span>
+                <span class="text-white font-medium">DeepSeek-V4 via OrcaRouter API</span>
+              </div>
+              <span class="text-brand-400 text-right">Streaming SSE</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-slate-400 block text-[10px]">DIAGRAM VECTOR RENDERING</span>
+                <span class="text-white font-medium">Kroki Engine (PlantUML / C4 Architecture)</span>
+              </div>
+              <span class="text-cyan-400 text-right">Instant SVG</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-slate-400 block text-[10px]">PODCAST PACK EXPORT</span>
+                <span class="text-white font-medium">Structured Google NotebookLM Markdown Bundle</span>
+              </div>
+              <span class="text-amber-400 text-right">1-Click</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- CLOSED COHORT SELECTION CRITERIA -->
+  <!-- ========================================== -->
+  <section id="cohort" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-gradient-to-b from-slate-950 via-slate-900/40 to-slate-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs font-mono mb-4">
+        <span>Batch 1 Screening Details</span>
+      </div>
+
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+        Who We Are Selecting for Cohort 1
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-2xl mx-auto">
+        Axiom is purpose-built for depth, not mass consumer clickbait. To ensure rigorous qualitative feedback, we are onboarding an initial curated group of 30 to 40 researchers.
+      </p>
+
+      <!-- Criteria Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mt-10 text-left">
+        
+        <div class="p-5 rounded-xl glass-card border border-slate-800">
+          <div class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-sm font-mono mb-3">01</div>
+          <h4 class="text-white font-semibold text-base">Distributed Systems &amp; Cloud</h4>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
+            Researchers and architects tackling consensus algorithms, NVMe disaggregation, microsecond latency RPCs, and cluster scheduling.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl glass-card border border-slate-800">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm font-mono mb-3">02</div>
+          <h4 class="text-white font-semibold text-base">LLM Systems &amp; Accelerators</h4>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
+            Engineers building GPU kernel optimizations, flash attention variants, tensor parallelism, and KV-cache compression architectures.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl glass-card border border-slate-800">
+          <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm font-mono mb-3">03</div>
+          <h4 class="text-white font-semibold text-base">Graduate Thesis Authors</h4>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
+            Master's and PhD candidates actively conducting literature surveys who require deep thesis gap discovery and formal BibTeX taxonomy.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl glass-card border border-slate-800">
+          <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm font-mono mb-3">04</div>
+          <h4 class="text-white font-semibold text-base">Active Lab Supervisors</h4>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
+            Principal investigators and postdocs steering research groups seeking automated PlantUML diagrams and cross-paper comparisons.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Callout Box -->
+      <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-brand-950/40 via-slate-900 to-emerald-950/30 border border-brand-500/30 text-center">
+        <h3 class="text-lg font-bold text-white">Ready to streamline your research literature pipeline?</h3>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1.5">Applications are evaluated on a rolling basis until Batch 1 capacity is filled.</p>
+        <div class="mt-5">
+          <button onclick="openWaitlistModal()" class="px-6 py-3 rounded-xl bg-white text-slate-950 hover:bg-slate-200 font-semibold text-sm transition-all shadow-lg shadow-white/10">
+            Apply for Closed Beta Access →
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- FOOTER -->
+  <!-- ========================================== -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-12 text-slate-400 text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Parent Lab -->
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-bold text-xs">
+          A
+        </div>
+        <div>
+          <div class="text-slate-200 font-semibold text-sm">Axiom Research AI</div>
+          <div class="text-slate-500 text-[11px]">
+            An open-source initiative by <strong class="text-emerald-400">SWMP Labs</strong> — Technology for a Smarter Tomorrow
+          </div>
+        </div>
+      </div>
+
+      <!-- Links & Utilities -->
+      <div class="flex flex-wrap items-center justify-center gap-6 font-mono text-[11px] text-slate-400">
+        <a href="#hero" class="hover:text-white transition-colors">Back to Top</a>
+        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#demo" class="hover:text-white transition-colors text-brand-400">Live Preview</a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-slate-400 text-[11px] font-mono">
+        &copy; 2026 SWMP Labs • Core Research Suite
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- CLOSED BETA WAITLIST MODAL (Centered, Accessible, Animated)      -->
+  <!-- ================================================================= -->
+  <div id="waitlist-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 opacity-0 pointer-events-none transition-all duration-300 ease-out" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    
+    <!-- Backdrop Blur with dark overlay -->
+    <div onclick="closeWaitlistModal()" class="absolute inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity"></div>
+
+    <!-- Modal Card Container -->
+    <div class="relative w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl glass-modal p-6 sm:p-8 shadow-2xl shadow-violet-950/40 border border-slate-700/80 transform scale-95 transition-all duration-300">
+      
+      <!-- Close Button -->
+      <button onclick="closeWaitlistModal()" class="absolute top-4 right-4 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors" aria-label="Close modal">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+
+      <!-- FORM VIEW -->
+      <div id="modal-form-view">
+        
+        <!-- Header -->
+        <div class="mb-5">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-brand-500/15 text-brand-300 border border-brand-500/30 mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Batch 1 Selection Application</span>
+          </div>
+          <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            Apply for Closed Beta Access
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Fill out the technical screening application below to be considered for the 30–40 researcher cohort.
+          </p>
+        </div>
+
+        <!-- IMPORTANT SCREENING DISCLAIMER (Prominently Highlighted) -->
+        <div class="mb-6 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200/90 text-xs leading-relaxed flex items-start gap-3 shadow-inner">
+          <div class="shrink-0 text-amber-400 mt-0.5">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-bold text-amber-300">Note on Selection:</span> Batch 1 Closed Beta: Curated cohort of active researchers and systems engineers. Submissions are strictly reviewed before granting access.
+          </div>
+        </div>
+
+        <!-- Form Error Banner -->
+        <div id="form-error-alert" class="hidden mb-4 p-3 rounded-lg bg-red-500/15 border border-red-500/30 text-red-300 text-xs"></div>
+
+        <!-- The Application Form -->
+        <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)" class="space-y-4">
+          
+          <!-- Field 1: Full Name -->
+          <div>
+            <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
+              1. Full Name <span class="text-brand-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              required 
+              placeholder="e.g. Dr. Aris Thorne or Alex Rivera" 
+              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans"
+            >
+          </div>
+
+          <!-- Field 2: Institutional / Academic Email -->
+          <div>
+            <label for="academicEmail" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
+              2. Institutional / Academic Email <span class="text-brand-400">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="academicEmail" 
+              name="academicEmail" 
+              required 
+              placeholder="e.g. a.thorne@cmu.edu or researcher@lab.mit.edu" 
+              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans"
+            >
+            <p class="text-[11px] text-slate-500 mt-1">Institutional or lab affiliations are given priority consideration.</p>
+          </div>
+
+          <!-- Field 3: Current Role / Academic Level (Dropdown) -->
+          <div>
+            <label for="academicRole" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
+              3. Current Role / Academic Level <span class="text-brand-400">*</span>
+            </label>
+            <div class="relative">
+              <select 
+                id="academicRole" 
+                name="academicRole" 
+                required 
+                class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all appearance-none cursor-pointer"
+              >
+                <option value="" disabled selected class="text-slate-500">Select your current role / academic standing...</option>
+                <option value="Undergraduate (Final-Year / Graduation Project)">Undergraduate (Final-Year / Graduation Project)</option>
+                <option value="Master's / PhD Researcher">Master's / PhD Researcher</option>
+                <option value="Cloud / Systems / AI Engineer">Cloud / Systems / AI Engineer</option>
+                <option value="Academic Supervisor / Professor">Academic Supervisor / Professor</option>
+                <option value="Independent Researcher">Independent Researcher</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Field 4: Primary Research Domain (Dropdown + Conditional Other) -->
+          <div>
+            <label for="researchDomain" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
+              4. Primary Research Domain <span class="text-brand-400">*</span>
+            </label>
+            <div class="relative">
+              <select 
+                id="researchDomain" 
+                name="researchDomain" 
+                required 
+                onchange="handleDomainChange(this)"
+                class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all appearance-none cursor-pointer"
+              >
+                <option value="" disabled selected>Select your primary research focus...</option>
+                <option value="Distributed Systems / Cloud Infrastructure">Distributed Systems / Cloud Infrastructure</option>
+                <option value="Large Language Models & AI Systems">Large Language Models & AI Systems</option>
+                <option value="High-Performance Computing (HPC) & Networking">High-Performance Computing (HPC) & Networking</option>
+                <option value="Other">Other</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+
+            <!-- Other Field (Hidden by default) -->
+            <div id="domain-other-container" class="hidden mt-2">
+              <input 
+                type="text" 
+                id="researchDomainOther" 
+                name="researchDomainOther" 
+                placeholder="Specify your domain (e.g. Quantum Computing, Hardware Security)..." 
+                class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 font-sans"
+              >
+            </div>
+          </div>
+
+          <!-- Field 5: Specific Research Question or Thesis Problem -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="researchQuestion" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 font-mono">
+                5. Current Research Question / Thesis Problem <span class="text-brand-400">*</span>
+              </label>
+              <span id="char-count" class="text-[11px] font-mono text-slate-500">2-3 sentences recommended</span>
+            </div>
+            <textarea 
+              id="researchQuestion" 
+              name="researchQuestion" 
+              rows="3" 
+              required 
+              minlength="20"
+              placeholder="What specific research question or thesis problem are you tackling right now? (e.g. Evaluating tail latency tradeoffs in disaggregated NVMe-oF memory architectures for distributed LLM training checkpoints...)" 
+              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans resize-none"
+              oninput="updateCharCount(this)"
+            ></textarea>
+          </div>
+
+          <!-- Field 6: 10-Minute Technical Feedback Session -->
+          <div class="pt-1">
+            <span class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 font-mono">
+              6. Are you willing to participate in a brief 10-minute technical feedback session? <span class="text-brand-400">*</span>
+            </span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-900/60 border border-slate-700 hover:border-brand-500/50 cursor-pointer transition-colors text-xs text-slate-200">
+                <input type="radio" name="feedbackSession" value="yes" checked class="text-brand-500 focus:ring-brand-500 bg-slate-800 border-slate-600">
+                <span>Yes — Count me in for a 1:1 call</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-900/60 border border-slate-700 hover:border-brand-500/50 cursor-pointer transition-colors text-xs text-slate-200">
+                <input type="radio" name="feedbackSession" value="no" class="text-brand-500 focus:ring-brand-500 bg-slate-800 border-slate-600">
+                <span>No — Async survey telemetry only</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Form Submit Actions -->
+          <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-800">
+            <button 
+              type="button" 
+              onclick="closeWaitlistModal()" 
+              class="px-4 py-2.5 rounded-lg text-xs font-mono text-slate-400 hover:text-white transition-colors"
+            >
+              Cancel
+            </button>
+            <button 
+              type="submit" 
+              id="submit-btn" 
+              class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-glow-violet transition-all flex items-center gap-2"
+            >
+              <span id="submit-btn-text">Submit Application</span>
+              <svg id="submit-spinner" class="hidden animate-spin w-4 h-4 text-white" viewBox="0 0 24 24" fill="none">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+              </svg>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- SUCCESS CONFIRMATION VIEW (Replaces Form on Success) -->
+      <div id="modal-success-view" class="hidden text-center py-4">
+        
+        <!-- Animated Emerald Checkmark -->
+        <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-5 shadow-glow-emerald">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+
+        <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          Application Received
+        </h3>
+        
+        <p class="mt-2 text-sm sm:text-base text-slate-300 max-w-md mx-auto leading-relaxed">
+          Application Received. Your submission is currently under technical review. You will receive an invitation if selected.
+        </p>
+
+        <!-- Application Confirmation Receipt Card -->
+        <div class="mt-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-left font-mono text-xs space-y-2 max-w-md mx-auto">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+            <span class="text-slate-500 uppercase">Tracking Hash</span>
+            <span id="receipt-id" class="text-emerald-400 font-bold">AXIOM-B1-8932</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-500">Applicant:</span>
+            <span id="receipt-name" class="text-slate-200"></span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-500">Email:</span>
+            <span id="receipt-email" class="text-slate-200"></span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-500">Review Batch:</span>
+            <span class="text-brand-300">Cohort 1 (Active)</span>
+          </div>
+        </div>
+
+        <!-- Success View Actions -->
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <button onclick="copyReceiptId()" id="btn-copy-receipt" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 border border-slate-700 transition-colors flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy Reference ID</span>
+          </button>
+
+          <button onclick="downloadReceiptJSON()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 border border-slate-700 transition-colors flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>Download Receipt (.json)</span>
+          </button>
+
+          <button onclick="closeWaitlistModal()" class="px-5 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-xs font-semibold text-white transition-colors">
+            Close
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- CLIENT-SIDE SCRIPT LOGIC                   -->
+  <!-- ========================================== -->
+  <script>
+    // State
+    let lastSubmission = null;
+
+    // Modal Controls
+    function openWaitlistModal() {
+      const modal = document.getElementById('waitlist-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.querySelector('.glass-modal').classList.remove('scale-95');
+      document.body.classList.add('overflow-hidden');
+      
+      // Auto focus first input
+      setTimeout(() => {
+        const input = document.getElementById('fullName');
+        if (input) input.focus();
+      }, 100);
+    }
+
+    function closeWaitlistModal() {
+      const modal = document.getElementById('waitlist-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.querySelector('.glass-modal').classList.add('scale-95');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Escape Key Listener to close modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeWaitlistModal();
+      }
+    });
+
+    // Domain change handler
+    function handleDomainChange(selectElem) {
+      const otherContainer = document.getElementById('domain-other-container');
+      const otherInput = document.getElementById('researchDomainOther');
+      if (selectElem.value === 'Other') {
+        otherContainer.classList.remove('hidden');
+        otherInput.required = true;
+        otherInput.focus();
+      } else {
+        otherContainer.classList.add('hidden');
+        otherInput.required = false;
+      }
+    }
+
+    // Char count update
+    function updateCharCount(textarea) {
+      const counter = document.getElementById('char-count');
+      const length = textarea.value.trim().length;
+      if (length < 20) {
+        counter.textContent = `${length}/20 min chars required`;
+        counter.className = 'text-[11px] font-mono text-amber-400';
+      } else {
+        counter.textContent = `${length} characters (Good technical depth)`;
+        counter.className = 'text-[11px] font-mono text-emerald-400';
+      }
+    }
+
+    // Handle Form Submit
+    async function handleWaitlistSubmit(e) {
+      e.preventDefault();
+      
+      const errorAlert = document.getElementById('form-error-alert');
+      errorAlert.classList.add('hidden');
+      errorAlert.textContent = '';
+
+      const form = document.getElementById('waitlist-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitBtnText = document.getElementById('submit-btn-text');
+      const submitSpinner = document.getElementById('submit-spinner');
+
+      // Extract Form Values
+      const fullName = document.getElementById('fullName').value.trim();
+      const academicEmail = document.getElementById('academicEmail').value.trim();
+      const academicRole = document.getElementById('academicRole').value;
+      const researchDomainSelect = document.getElementById('researchDomain').value;
+      const researchDomainOther = document.getElementById('researchDomainOther').value.trim();
+      const researchDomain = researchDomainSelect === 'Other' ? (researchDomainOther || 'Other') : researchDomainSelect;
+      const researchQuestion = document.getElementById('researchQuestion').value.trim();
+      const feedbackSession = document.querySelector('input[name="feedbackSession"]:checked')?.value === 'yes';
+
+      // Validation check
+      if (!fullName || !academicEmail || !academicRole || !researchDomain || !researchQuestion) {
+        errorAlert.textContent = 'Please fill out all required academic screening fields.';
+        errorAlert.classList.remove('hidden');
+        return;
+      }
+
+      if (researchQuestion.length < 20) {
+        errorAlert.textContent = 'Please provide a descriptive research question or thesis problem (at least 20 characters).';
+        errorAlert.classList.remove('hidden');
+        return;
+      }
+
+      // Generate Reference Code
+      const randNum = Math.floor(1000 + Math.random() * 9000);
+      const trackingCode = `AXIOM-B1-${randNum}`;
+
+      const payload = {
+        application_id: trackingCode,
+        full_name: fullName,
+        email: academicEmail,
+        academic_level: academicRole,
+        research_domain: researchDomain,
+        research_problem: researchQuestion,
+        feedback_session: feedbackSession,
+        submitted_at: new Date().toISOString()
+      };
+
+      // Set Loading State
+      submitBtn.disabled = true;
+      submitBtnText.textContent = 'Submitting Application...';
+      submitSpinner.classList.remove('hidden');
+
+      try {
+        // Dispatch POST request to backend /api/waitlist endpoint
+        try {
+          const res = await fetch('/api/waitlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) {
+            const errData = await res.json().catch(() => ({}));
+            throw new Error(errData.detail || 'Server could not process submission.');
+          }
+        } catch (networkErr) {
+          // If running as a purely static preview (file:// protocol), warn and continue with local receipt
+          if (window.location.protocol === 'file:') {
+            console.warn('Running in static file preview mode:', networkErr);
+          } else {
+            throw networkErr;
+          }
+        }
+
+        lastSubmission = payload;
+
+        // Artificial smooth transition delay
+        await new Promise(r => setTimeout(r, 450));
+
+        // Switch to confirmation view
+        document.getElementById('receipt-id').textContent = payload.application_id;
+        document.getElementById('receipt-name').textContent = payload.full_name;
+        document.getElementById('receipt-email').textContent = payload.email;
+
+        document.getElementById('modal-form-view').classList.add('hidden');
+        document.getElementById('modal-success-view').classList.remove('hidden');
+      } catch (err) {
+        errorAlert.textContent = err.message || 'An unexpected error occurred while transmitting. Please try again.';
+        errorAlert.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtnText.textContent = 'Submit Application';
+        submitSpinner.classList.add('hidden');
+      }
+    }
+
+    // Copy Receipt ID
+    function copyReceiptId() {
+      if (!lastSubmission) return;
+      navigator.clipboard.writeText(lastSubmission.application_id);
+      const btn = document.getElementById('btn-copy-receipt');
+      const orig = btn.innerHTML;
+      btn.innerHTML = `<span class="text-emerald-400">✓ Copied!</span>`;
+      setTimeout(() => { btn.innerHTML = orig; }, 2000);
+    }
+
+    // Download Receipt JSON
+    function downloadReceiptJSON() {
+      if (!lastSubmission) return;
+      const blob = new Blob([JSON.stringify(lastSubmission, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${lastSubmission.application_id}_receipt.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Interactive Preview Tabs
+    function switchPreviewTab(tabId) {
+      const tabs = ['synthesis', 'diagram', 'pipeline_view', 'notebooklm'];
+      tabs.forEach(t => {
+        const content = document.getElementById(`tab-content-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabId) {
+          content.classList.remove('hidden');
+          btn.className = 'px-2.5 py-1 rounded bg-brand-600 text-white font-medium transition-colors whitespace-nowrap';
+        } else {
+          content.classList.add('hidden');
+          btn.className = 'px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
