@@ -1,9 +1,5 @@
 {
-  "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/api/waitlist",
-      "destination": "/api/waitlist.py"
-    }
+    { "source": "/api/waitlist", "destination": "/api/waitlist.js" }
   ]
 }
