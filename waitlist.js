@@ -132,15 +132,21 @@ function handleDeliveryEmailInput(input) {
 // Cohort Capacity Counter (80 Seats)
 const TOTAL_COHORT_SEATS = 80;
 
-function updateCapacityProgress(claimed = 58) {
-  const percentage = Math.min(100, Math.round((claimed / 80) * 100));
+function updateCapacityProgress(claimed = 0) {
+  const currentClaimed = Number(claimed) || 0;
+  const percentage = Math.min(100, Math.round((currentClaimed / 80) * 100));
+  const remaining = Math.max(0, 80 - currentClaimed);
   const textElem = document.getElementById('cohort-progress-text');
   const barElem = document.getElementById('cohort-progress-bar');
+  const remainingElem = document.getElementById('cohort-remaining-text');
   if (textElem) {
-    textElem.textContent = `Spots Claimed: ${claimed} / 80`;
+    textElem.textContent = `Spots Claimed: ${currentClaimed} / 80`;
   }
   if (barElem) {
     barElem.style.width = `${percentage}%`;
+  }
+  if (remainingElem) {
+    remainingElem.textContent = `Seats Remaining: ${remaining} / 80`;
   }
 }
 
@@ -153,7 +159,7 @@ function openWaitlistModal() {
   if (modalBox) modalBox.classList.remove('scale-95');
   document.body.classList.add('overflow-hidden');
   
-  updateCapacityProgress(58);
+  updateCapacityProgress(0);
 
   const b1 = document.getElementById('email-validation-badge');
   const b2 = document.getElementById('delivery-email-validation-badge');
