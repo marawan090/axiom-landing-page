@@ -919,13 +919,34 @@
               oninput="handleEmailInput(this)"
               class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans"
             >
-            <p id="email-hint" class="text-[11px] text-slate-500 mt-1">Institutional or lab affiliations (.edu, .ac.*) receive priority cohort review.</p>
+            <p id="email-hint" class="text-[11px] text-slate-500 mt-1">Verification of university or lab affiliation (.edu, .ac.*, or institutional domain).</p>
           </div>
 
-          <!-- Field 3: Current Role / Academic Level (Dropdown) -->
+          <!-- Field 3: Personal / Primary Delivery Email -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="primary-delivery-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 font-mono">
+                3. Personal / Primary Delivery Email <span class="text-brand-400">*</span>
+              </label>
+              <!-- Dynamic Inline Status Badge for Delivery Email -->
+              <span id="delivery-email-validation-badge" class="hidden text-[11px] font-mono font-medium px-2 py-0.5 rounded-full transition-all"></span>
+            </div>
+            <input 
+              type="email" 
+              id="primary-delivery-email" 
+              name="delivery_email" 
+              required 
+              placeholder="e.g., alex.researcher@gmail.com" 
+              oninput="handleDeliveryEmailInput(this)"
+              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans"
+            >
+            <p class="text-xs text-slate-400 mt-1">We use this email to directly deliver your access credentials and private machine key upon approval.</p>
+          </div>
+
+          <!-- Field 4: Current Role / Academic Level (Dropdown) -->
           <div>
             <label for="academicRole" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-              3. Current Role / Academic Level <span class="text-brand-400">*</span>
+              4. Current Role / Academic Level <span class="text-brand-400">*</span>
             </label>
             <div class="relative">
               <select 
@@ -947,10 +968,10 @@
             </div>
           </div>
 
-          <!-- Field 4: Primary Research Domain (Dropdown + Conditional Other) -->
+          <!-- Field 5: Primary Research Domain (Dropdown + Conditional Other) -->
           <div>
             <label for="researchDomain" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-              4. Primary Research Domain <span class="text-brand-400">*</span>
+              5. Primary Research Domain <span class="text-brand-400">*</span>
             </label>
             <div class="relative">
               <select 
@@ -983,11 +1004,11 @@
             </div>
           </div>
 
-          <!-- Field 5: Specific Research Question or Thesis Problem -->
+          <!-- Field 6: Specific Research Question or Thesis Problem -->
           <div>
             <div class="flex items-center justify-between mb-1.5">
               <label for="researchQuestion" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 font-mono">
-                5. Current Research Question / Thesis Problem <span class="text-brand-400">*</span>
+                6. Current Research Question / Thesis Problem <span class="text-brand-400">*</span>
               </label>
               <span id="char-count" class="text-[11px] font-mono text-slate-500">2-3 sentences recommended</span>
             </div>
@@ -1003,10 +1024,10 @@
             ></textarea>
           </div>
 
-          <!-- Field 6: 10-Minute Technical Feedback Session -->
+          <!-- Field 7: 10-Minute Technical Feedback Session -->
           <div class="pt-1">
             <span class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 font-mono">
-              6. Are you willing to participate in a brief 10-minute technical feedback session? <span class="text-brand-400">*</span>
+              7. Are you willing to participate in a brief 10-minute technical feedback session? <span class="text-brand-400">*</span>
             </span>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-900/60 border border-slate-700 hover:border-brand-500/50 cursor-pointer transition-colors text-xs text-slate-200">
@@ -1046,8 +1067,14 @@
       </div>
 
       <!-- SUCCESS CONFIRMATION VIEW (Replaces Form on Success) -->
-      <div id="modal-success-view" class="hidden text-center py-4">
+      <div id="waitlist-success-view" class="hidden text-center py-4">
         
+        <!-- Status Icon: Minimalist emerald checkmark badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-4 shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>✓ Application Received</span>
+        </div>
+
         <!-- Animated Emerald Checkmark -->
         <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-5 shadow-glow-emerald">
           <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1055,27 +1082,38 @@
           </svg>
         </div>
 
+        <!-- Heading -->
         <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-          Application Received
+          Thank You for Applying to Cohort 01
         </h3>
         
-        <p class="mt-2 text-sm sm:text-base text-slate-300 max-w-md mx-auto leading-relaxed">
-          Application Received. Your submission is currently under technical review. You will receive an invitation if selected.
-        </p>
+        <!-- Direct Message -->
+        <div class="mt-4 space-y-3 text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+          <p>
+            Your application is currently being evaluated by our team. Expect an update delivered to your inbox within 2–3 business days.
+          </p>
+          <p class="text-xs text-slate-400">
+            Because Cohort 01 is strictly capped at 15 engineering seats, space is limited. If you are not selected for this initial wave, your application will automatically receive priority placement for Cohort 02.
+          </p>
+        </div>
 
         <!-- Application Confirmation Receipt Card -->
         <div class="mt-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-left font-mono text-xs space-y-2 max-w-md mx-auto">
           <div class="flex items-center justify-between pb-2 border-b border-slate-800">
             <span class="text-slate-500 uppercase">Tracking Hash</span>
-            <span id="receipt-id" class="text-emerald-400 font-bold">AXIOM-B1-8932</span>
+            <span id="receipt-id" class="text-emerald-400 font-bold">AXIOM-C1-8932</span>
           </div>
           <div class="flex items-center justify-between">
             <span class="text-slate-500">Applicant:</span>
             <span id="receipt-name" class="text-slate-200"></span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-slate-500">Email:</span>
+            <span class="text-slate-500">Academic Email:</span>
             <span id="receipt-email" class="text-slate-200"></span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-500">Delivery Email:</span>
+            <span id="receipt-delivery-email" class="text-slate-200"></span>
           </div>
           <div class="flex items-center justify-between">
             <span class="text-slate-500">Review Batch:</span>
@@ -1085,18 +1123,13 @@
 
         <!-- Success View Actions -->
         <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-          <button onclick="copyReceiptId()" id="btn-copy-receipt" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 border border-slate-700 transition-colors flex items-center gap-1.5">
+          <button onclick="copyReceiptId()" id="btn-copy-receipt" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 border border-slate-700 transition-colors flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             <span>Copy Reference ID</span>
           </button>
 
-          <button onclick="downloadReceiptJSON()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 border border-slate-700 transition-colors flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            <span>Download Receipt (.json)</span>
-          </button>
-
-          <button onclick="closeWaitlistModal()" class="px-5 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-xs font-semibold text-white transition-colors">
-            Close
+          <button onclick="resetAndCloseWaitlistModal()" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-xs sm:text-sm font-semibold text-white shadow-glow-violet transition-all">
+            Return to Overview
           </button>
         </div>
 
@@ -1197,6 +1230,44 @@
         input.classList.remove('border-emerald-500/60');
         input.classList.add('border-slate-700');
       }
+    // Real-time Delivery Email Input Handler
+    function handleDeliveryEmailInput(input) {
+      const email = input.value.trim();
+      const badge = document.getElementById('delivery-email-validation-badge');
+      if (!badge) return;
+
+      if (!email || !email.includes('@')) {
+        badge.classList.add('hidden');
+        badge.textContent = '';
+        input.classList.remove('border-red-500', 'border-emerald-500/60');
+        input.classList.add('border-slate-700');
+        return;
+      }
+
+      const parts = email.split('@');
+      const domain = parts[1] || '';
+
+      if (!isValidEmailStructure(email) || !domain.includes('.')) {
+        badge.classList.add('hidden');
+        input.classList.remove('border-red-500', 'border-emerald-500/60');
+        input.classList.add('border-slate-700');
+        return;
+      }
+
+      if (isDisposableDomain(domain)) {
+        badge.className = 'text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-red-500/15 border border-red-500/30 text-red-300';
+        badge.textContent = '✕ Disposable Email Blocked';
+        badge.classList.remove('hidden');
+        input.classList.remove('border-slate-700', 'border-emerald-500/60');
+        input.classList.add('border-red-500');
+        return;
+      }
+
+      badge.className = 'text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300';
+      badge.textContent = '✓ Valid Delivery Destination';
+      badge.classList.remove('hidden');
+      input.classList.remove('border-red-500', 'border-slate-700');
+      input.classList.add('border-emerald-500/60');
     }
 
     // Modal Controls
@@ -1206,10 +1277,12 @@
       modal.querySelector('.glass-modal').classList.remove('scale-95');
       document.body.classList.add('overflow-hidden');
       
-      const badge = document.getElementById('email-validation-badge');
-      if (badge && !document.getElementById('academicEmail').value.trim()) {
-        badge.classList.add('hidden');
-      }
+      const b1 = document.getElementById('email-validation-badge');
+      const b2 = document.getElementById('delivery-email-validation-badge');
+      const academicInput = document.getElementById('academicEmail');
+      const deliveryInput = document.getElementById('primary-delivery-email');
+      if (b1 && academicInput && !academicInput.value.trim()) b1.classList.add('hidden');
+      if (b2 && deliveryInput && !deliveryInput.value.trim()) b2.classList.add('hidden');
 
       // Auto focus first input
       setTimeout(() => {
@@ -1223,6 +1296,30 @@
       modal.classList.add('opacity-0', 'pointer-events-none');
       modal.querySelector('.glass-modal').classList.add('scale-95');
       document.body.classList.remove('overflow-hidden');
+    }
+
+    // Reset Form and Return to Overview
+    function resetAndCloseWaitlistModal() {
+      closeWaitlistModal();
+      setTimeout(() => {
+        const form = document.getElementById('waitlist-form');
+        if (form) form.reset();
+        const formView = document.getElementById('modal-form-view');
+        const successView = document.getElementById('waitlist-success-view') || document.getElementById('modal-success-view');
+        if (formView) formView.classList.remove('hidden');
+        if (successView) successView.classList.add('hidden');
+        
+        const b1 = document.getElementById('email-validation-badge');
+        const b2 = document.getElementById('delivery-email-validation-badge');
+        if (b1) b1.classList.add('hidden');
+        if (b2) b2.classList.add('hidden');
+
+        const errAlert = document.getElementById('form-error-alert');
+        if (errAlert) {
+          errAlert.classList.add('hidden');
+          errAlert.textContent = '';
+        }
+      }, 350);
     }
 
     // Escape Key Listener to close modal
@@ -1275,6 +1372,7 @@
       // Extract Form Values
       const fullName = document.getElementById('fullName').value.trim();
       const academicEmail = document.getElementById('academicEmail').value.trim();
+      const delivery_email = document.getElementById('primary-delivery-email').value.trim();
       const academicRole = document.getElementById('academicRole').value;
       const researchDomainSelect = document.getElementById('researchDomain').value;
       const researchDomainOther = document.getElementById('researchDomainOther').value.trim();
@@ -1282,19 +1380,36 @@
       const researchQuestion = document.getElementById('researchQuestion').value.trim();
       const feedbackSession = document.querySelector('input[name="feedbackSession"]:checked')?.value === 'yes';
 
-      // Validation check
-      if (!fullName || !academicEmail || !academicRole || !researchDomain || !researchQuestion) {
+      // Validation check: Required fields
+      if (!fullName || !academicEmail || !delivery_email || !academicRole || !researchDomain || !researchQuestion) {
         errorAlert.textContent = 'Please fill out all required academic screening fields.';
         errorAlert.classList.remove('hidden');
         return;
       }
 
-      // Robust Email & Disposable Filter Validation
-      const emailDomain = academicEmail.split('@')[1] || '';
-      if (!isValidEmailStructure(academicEmail) || isDisposableDomain(emailDomain)) {
+      // 1. Validate Academic Email
+      const academicEmailInput = document.getElementById('academicEmail');
+      const academicDomain = academicEmail.split('@')[1] || '';
+      if (!isValidEmailStructure(academicEmail) || isDisposableDomain(academicDomain)) {
         errorAlert.textContent = 'Please enter a valid institution or work email address.';
         errorAlert.classList.remove('hidden');
-        document.getElementById('academicEmail').focus();
+        academicEmailInput.focus();
+        return;
+      }
+
+      // 2. Validate Primary Delivery Email
+      const deliveryEmailInput = document.getElementById('primary-delivery-email');
+      const deliveryDomain = delivery_email.split('@')[1] || '';
+      if (!isValidEmailStructure(delivery_email)) {
+        errorAlert.textContent = 'Please enter a valid personal or delivery email address.';
+        errorAlert.classList.remove('hidden');
+        deliveryEmailInput.focus();
+        return;
+      }
+      if (isDisposableDomain(deliveryDomain)) {
+        errorAlert.textContent = 'Disposable email addresses are not permitted. Please enter a valid delivery email.';
+        errorAlert.classList.remove('hidden');
+        deliveryEmailInput.focus();
         return;
       }
 
@@ -1312,6 +1427,7 @@
         application_id: trackingCode,
         full_name: fullName,
         email: academicEmail,
+        delivery_email: delivery_email,
         academic_level: academicRole,
         research_domain: researchDomain,
         research_problem: researchQuestion,
@@ -1334,7 +1450,7 @@
           });
           if (!res.ok) {
             const errData = await res.json().catch(() => ({}));
-            throw new Error(errData.detail || 'Server could not process submission.');
+            throw new Error(errData.detail || errData.error || 'Server could not process submission.');
           }
         } catch (networkErr) {
           // If running as a purely static preview (file:// protocol), warn and continue with local receipt
@@ -1354,9 +1470,12 @@
         document.getElementById('receipt-id').textContent = payload.application_id;
         document.getElementById('receipt-name').textContent = payload.full_name;
         document.getElementById('receipt-email').textContent = payload.email;
+        const receiptDelivery = document.getElementById('receipt-delivery-email');
+        if (receiptDelivery) receiptDelivery.textContent = payload.delivery_email;
 
         document.getElementById('modal-form-view').classList.add('hidden');
-        document.getElementById('modal-success-view').classList.remove('hidden');
+        const successView = document.getElementById('waitlist-success-view') || document.getElementById('modal-success-view');
+        if (successView) successView.classList.remove('hidden');
       } catch (err) {
         errorAlert.textContent = err.message || 'An unexpected error occurred while transmitting. Please try again.';
         errorAlert.classList.remove('hidden');
@@ -1407,6 +1526,8 @@
       });
     }
   </script>
+  <!-- Dedicated External Waitlist Script -->
+  <script src="./waitlist.js"></script>
 
 </body>
 </html>

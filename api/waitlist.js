@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { full_name, email, academic_level, research_domain, research_problem, feedback_session } = req.body || {};
+  const { full_name, email, delivery_email, academic_level, research_domain, research_problem, feedback_session } = req.body || {};
 
   if (!full_name || !email || !research_problem) {
     return res.status(422).json({ error: 'Missing required fields' });
@@ -29,16 +29,29 @@ export default async function handler(req, res) {
   // 1. فحص صيغة الإيميل (Regex Validation)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    return res.status(400).json({ error: 'Invalid email syntax.' });
+    return res.status(400).json({ error: 'Invalid institutional email syntax.' });
+  }
+
+  if (delivery_email && !emailRegex.test(delivery_email)) {
+    return res.status(400).json({ error: 'Invalid delivery email syntax.' });
   }
 
   const domain = email.split('@')[1].toLowerCase().trim();
+  const deliveryDomain = delivery_email ? delivery_email.split('@')[1].toLowerCase().trim() : '';
 
-  // 2. التحقق من أنه إيميل مؤسسي/أكاديمي وليس إيميل تجاري مجاني
+  // 2. التحقق من أنه إيميل مؤسسي/أكاديمي وليس إيميل تجاري مجاني للإيميل الأكاديمي
   if (BLOCKED_DOMAINS.has(domain)) {
     return res.status(400).json({ 
       error: 'Please provide a valid institutional, research lab, or academic email (e.g., .edu or university domain) instead of a generic email.' 
     });
+  }
+
+  // منع الإيميلات الوهمية والمؤقتة لإيميل الاستلام
+  const DISPOSABLE_DOMAINS = new Set([
+    'tempmail.com', '10minutemail.com', 'mailinator.com', 'guerrillamail.com', 'throwawaymail.com', 'trashmail.com'
+  ]);
+  if (deliveryDomain && DISPOSABLE_DOMAINS.has(deliveryDomain)) {
+    return res.status(400).json({ error: 'Disposable email addresses are not permitted for delivery.' });
   }
 
   // 3. فحص هل الدومين حقيقي وله سيرفر إيميلات نشط (DNS MX Check)
@@ -73,6 +86,7 @@ export default async function handler(req, res) {
           <h3>New Axiom Closed Beta Application</h3>
           <p><strong>Name:</strong> ${full_name}</p>
           <p><strong>Verified Institutional Email:</strong> ${email}</p>
+          <p><strong>Primary Delivery Email:</strong> ${delivery_email || email}</p>
           <p><strong>Level:</strong> ${academic_level || 'N/A'}</p>
           <p><strong>Domain:</strong> ${research_domain || 'N/A'}</p>
           <p><strong>Thesis Problem:</strong><br/>${research_problem}</p>
