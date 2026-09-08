@@ -129,24 +129,21 @@ function handleDeliveryEmailInput(input) {
   input.classList.add('border-emerald-500/60');
 }
 
-// Cohort Capacity Counter (80 Seats)
-const TOTAL_COHORT_SEATS = 80;
-
+// Cohort Capacity Counter (Safeguard)
 function updateCapacityProgress(claimed = 0) {
-  const currentClaimed = Number(claimed) || 0;
-  const percentage = Math.min(100, Math.round((currentClaimed / 80) * 100));
-  const remaining = Math.max(0, 80 - currentClaimed);
+  const progressBar = document.getElementById('cohort-progress-bar');
+  if (progressBar) {
+    const currentClaimed = Number(claimed) || 0;
+    const percentage = Math.min(100, Math.round((currentClaimed / 80) * 100));
+    progressBar.style.width = `${percentage}%`;
+  }
   const textElem = document.getElementById('cohort-progress-text');
-  const barElem = document.getElementById('cohort-progress-bar');
-  const remainingElem = document.getElementById('cohort-remaining-text');
   if (textElem) {
-    textElem.textContent = `Spots Claimed: ${currentClaimed} / 80`;
+    textElem.textContent = `Spots Claimed: ${claimed}`;
   }
-  if (barElem) {
-    barElem.style.width = `${percentage}%`;
-  }
+  const remainingElem = document.getElementById('cohort-remaining-text');
   if (remainingElem) {
-    remainingElem.textContent = `Seats Remaining: ${remaining} / 80`;
+    remainingElem.textContent = `Seats Remaining: ${claimed}`;
   }
 }
 
@@ -158,8 +155,6 @@ function openWaitlistModal() {
   const modalBox = modal.querySelector('.glass-modal');
   if (modalBox) modalBox.classList.remove('scale-95');
   document.body.classList.add('overflow-hidden');
-  
-  updateCapacityProgress(0);
 
   const b1 = document.getElementById('email-validation-badge');
   const b2 = document.getElementById('delivery-email-validation-badge');
