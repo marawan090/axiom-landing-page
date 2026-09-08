@@ -129,6 +129,21 @@ function handleDeliveryEmailInput(input) {
   input.classList.add('border-emerald-500/60');
 }
 
+// Cohort Capacity Counter (80 Seats)
+const TOTAL_COHORT_SEATS = 80;
+
+function updateCapacityProgress(claimed = 58) {
+  const percentage = Math.min(100, Math.round((claimed / 80) * 100));
+  const textElem = document.getElementById('cohort-progress-text');
+  const barElem = document.getElementById('cohort-progress-bar');
+  if (textElem) {
+    textElem.textContent = `Spots Claimed: ${claimed} / 80`;
+  }
+  if (barElem) {
+    barElem.style.width = `${percentage}%`;
+  }
+}
+
 // Modal Controls
 function openWaitlistModal() {
   const modal = document.getElementById('waitlist-modal');
@@ -138,6 +153,8 @@ function openWaitlistModal() {
   if (modalBox) modalBox.classList.remove('scale-95');
   document.body.classList.add('overflow-hidden');
   
+  updateCapacityProgress(58);
+
   const b1 = document.getElementById('email-validation-badge');
   const b2 = document.getElementById('delivery-email-validation-badge');
   const academicInput = document.getElementById('academicEmail');

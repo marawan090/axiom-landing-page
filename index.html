@@ -200,7 +200,7 @@
         </span>
         <span class="font-semibold text-white">Closed Beta</span>
         <span class="text-slate-500">•</span>
-        <span class="text-emerald-400 font-medium">Cohort 01 (15 Researchers)</span>
+        <span class="text-emerald-400 font-medium">Cohort 01 (80 Researchers)</span>
       </div>
 
       <!-- Main Headline -->
@@ -239,7 +239,7 @@
       <!-- Early Access Terms Minimalist Pill -->
       <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-mono text-slate-300 shadow-sm backdrop-blur-md">
         <span class="text-amber-400 font-semibold">🔒 Cohort 01 Terms:</span>
-        <span>Capped at 15 engineering seats • Machine-bound private keys valid for 30 days</span>
+        <span>Capped at 80 engineering seats • Machine-bound private keys valid for 30 days</span>
       </div>
 
       <!-- Live Tech Badges -->
@@ -747,7 +747,7 @@
         Who We Are Selecting for Cohort 01
       </h2>
       <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-2xl mx-auto">
-        Axiom is purpose-built for depth, not mass consumer clickbait. To ensure rigorous qualitative feedback, we are onboarding an initial curated group of 15 researchers.
+        Axiom is purpose-built for depth, not mass consumer clickbait. To ensure rigorous qualitative feedback, we are onboarding an initial curated group of 80 researchers.
       </p>
 
       <!-- Criteria Cards -->
@@ -790,7 +790,7 @@
       <!-- Callout Box -->
       <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-brand-950/40 via-slate-900 to-emerald-950/30 border border-brand-500/30 text-center">
         <h3 class="text-lg font-bold text-white">Ready to streamline your research literature pipeline?</h3>
-        <p class="text-xs sm:text-sm text-slate-300 mt-1.5">Applications are evaluated on a rolling basis until Cohort 01 capacity (15 seats) is filled.</p>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1.5">Applications are evaluated on a rolling basis until Cohort 01 capacity (80 seats) is filled.</p>
         <div class="mt-5">
           <button onclick="openWaitlistModal()" class="px-6 py-3 rounded-xl bg-white text-slate-950 hover:bg-slate-200 font-semibold text-sm transition-all shadow-lg shadow-white/10">
             Apply for Closed Beta Access →
@@ -864,8 +864,23 @@
             Apply for Closed Beta Access
           </h3>
           <p class="text-xs sm:text-sm text-slate-400 mt-1">
-            Fill out the technical screening application below to be considered for Cohort 01 (capped at 15 engineering seats).
+            Fill out the technical screening application below to be considered for Cohort 01 (capped at 80 engineering seats).
           </p>
+        </div>
+
+        <!-- Cohort Capacity Progress Indicator -->
+        <div class="mb-5 p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 font-mono text-xs">
+          <div class="flex items-center justify-between text-[11px] mb-1.5">
+            <span class="text-slate-400">Cohort 01 Capacity:</span>
+            <span id="cohort-progress-text" class="text-emerald-400 font-semibold">Spots Claimed: 58 / 80</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+            <div id="cohort-progress-bar" class="h-full bg-gradient-to-r from-brand-500 to-emerald-400 rounded-full transition-all duration-500" style="width: 73%;"></div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-slate-500 mt-1.5">
+            <span>Rolling application review</span>
+            <span class="text-brand-300">Seats Remaining: 22 / 80</span>
+          </div>
         </div>
 
         <!-- IMPORTANT SCREENING DISCLAIMER (Prominently Highlighted) -->
@@ -876,7 +891,7 @@
             </svg>
           </div>
           <div>
-            <span class="font-bold text-amber-300">Cohort 01 Terms:</span> Capped at 15 engineering seats. Machine-bound private keys valid for 30 days. Submissions are strictly reviewed before granting access.
+            <span class="font-bold text-amber-300">Cohort 01 Terms:</span> Capped at 80 engineering seats. Machine-bound private keys valid for 30 days. Submissions are strictly reviewed before granting access.
           </div>
         </div>
 
@@ -1093,7 +1108,7 @@
             Your application is currently being evaluated by our team. Expect an update delivered to your inbox within 2–3 business days.
           </p>
           <p class="text-xs text-slate-400">
-            Because Cohort 01 is strictly capped at 15 engineering seats, space is limited. If you are not selected for this initial wave, your application will automatically receive priority placement for Cohort 02.
+            Because Cohort 01 is strictly capped at 80 engineering seats, space is allocated on a rolling review basis. If you are not selected for this initial wave, your application will automatically receive priority placement for Cohort 02.
           </p>
         </div>
 
@@ -1117,7 +1132,7 @@
           </div>
           <div class="flex items-center justify-between">
             <span class="text-slate-500">Review Batch:</span>
-            <span class="text-brand-300">Cohort 01 (15 Seats Capped)</span>
+            <span class="text-brand-300">Cohort 01 (80 Seats Capped)</span>
           </div>
         </div>
 
@@ -1270,6 +1285,21 @@
       input.classList.add('border-emerald-500/60');
     }
 
+    // Cohort Capacity Counter (80 Seats)
+    const TOTAL_COHORT_SEATS = 80;
+
+    function updateCapacityProgress(claimed = 58) {
+      const percentage = Math.min(100, Math.round((claimed / 80) * 100));
+      const textElem = document.getElementById('cohort-progress-text');
+      const barElem = document.getElementById('cohort-progress-bar');
+      if (textElem) {
+        textElem.textContent = `Spots Claimed: ${claimed} / 80`;
+      }
+      if (barElem) {
+        barElem.style.width = `${percentage}%`;
+      }
+    }
+
     // Modal Controls
     function openWaitlistModal() {
       const modal = document.getElementById('waitlist-modal');
@@ -1277,6 +1307,8 @@
       modal.querySelector('.glass-modal').classList.remove('scale-95');
       document.body.classList.add('overflow-hidden');
       
+      updateCapacityProgress(58);
+
       const b1 = document.getElementById('email-validation-badge');
       const b2 = document.getElementById('delivery-email-validation-badge');
       const academicInput = document.getElementById('academicEmail');
