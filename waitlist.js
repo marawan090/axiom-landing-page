@@ -337,23 +337,17 @@ async function handleWaitlistSubmit(e) {
 
   try {
     // Dispatch POST request to backend /api/waitlist endpoint
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) {
-        const errData = await res.json().catch(() => ({}));
-        throw new Error(errData.detail || errData.error || 'Server could not process submission.');
-      }
-    } catch (networkErr) {
-      // If running as a purely static preview (file:// protocol), warn and continue with local receipt
-      if (window.location.protocol === 'file:') {
-        console.warn('Running in static file preview mode:', networkErr);
-      } else {
-        throw networkErr;
-      }
+    const res = await fetch('/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(err => {
+      throw new Error('Unable to connect to the waitlist service. Please check your connection or contact hello@swmp-labs.tech directly.');
+    });
+
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.detail || errData.error || 'Server could not process your submission. Please try again.');
     }
 
     lastSubmission = payload;
@@ -422,10 +416,12 @@ function switchPreviewTab(tabId) {
     if (!content || !btn) return;
     if (t === tabId) {
       content.classList.remove('hidden');
-      btn.className = 'px-2.5 py-1 rounded bg-brand-600 text-white font-medium transition-colors whitespace-nowrap';
+      btn.setAttribute('aria-selected', 'true');
+      btn.className = 'px-2.5 py-1 rounded bg-brand-600 text-white font-medium transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400';
     } else {
       content.classList.add('hidden');
-      btn.className = 'px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap';
+      btn.setAttribute('aria-selected', 'false');
+      btn.className = 'px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400';
     }
   });
 }

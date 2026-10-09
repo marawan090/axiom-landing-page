@@ -1,0 +1,26 @@
+# SWMP Labs
+
+> AI-assisted scientific research workflows for literature exploration, cross-paper synthesis, research gap discovery, and structured research insights.
+
+## Company Information
+- **Name**: SWMP Labs
+- **Website**: https://swmp-labs.tech/
+- **Stage**: Early-stage AI research startup (Bootstrapped, currently in active development)
+- **Founder & CEO**: Marawan Mohamed (Cloud Engineer)
+- **Contact**: hello@swmp-labs.tech
+
+## What SWMP Labs Builds
+SWMP Labs is developing tools to help researchers explore scientific literature, compare findings across papers, and investigate potential research gaps through structured AI-assisted workflows.
+
+## Key Focus Areas
+- **Literature Exploration**: Multi-source querying across repositories (arXiv, Semantic Scholar, OpenAlex) [In Development].
+- **Evidence Synthesis**: Structuring problem statements, bottlenecks, and empirical findings across papers [In Development].
+- **Research Gap Discovery**: Investigating unaddressed directions and methodology tradeoffs in scientific literature [In Development].
+- **Model Evaluation**: Evaluating advanced language models (including Claude) for multi-step scientific reasoning, paper analysis, citation fidelity, and factual consistency [Under Evaluation].
+
+## Current Development Status
+SWMP Labs is currently in active development. Workflows and output demonstrations on the website are illustrative examples undergoing evaluation. No production claims or benchmark performance scores are claimed.
+
+## Links
+- [Homepage](https://swmp-labs.tech/)
+- [Contact Email](mailto:hello@swmp-labs.tech)
