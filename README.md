@@ -1,8 +1,8 @@
-# Axiom Research AI — Standalone Landing Page & Waitlist
+# SWMP Labs — Standalone Landing Page & Waitlist
 
 > **An open-source initiative by SWMP Labs — Technology for a Smarter Tomorrow**
 
-A completely standalone, sleek, high-converting dark-themed landing page and Closed Beta Waitlist Application Portal for **Axiom Research AI**. Engineered for zero-friction serverless deployment on **Vercel** with direct **Resend** email alerts.
+A completely standalone, sleek, high-converting dark-themed landing page and Closed Beta Waitlist Application Portal for **SWMP Labs**. Engineered for zero-friction serverless deployment on **Vercel** with direct **Resend** email alerts.
 
 ---
 
@@ -96,7 +96,7 @@ vercel
    cd axiom-landing-page
    git init
    git add .
-   git commit -m "Initial commit: Axiom Research AI Landing Page & Serverless Waitlist"
+   git commit -m "Initial commit: SWMP Labs Landing Page & Serverless Waitlist"
    ```
 2. Import the repository into your [Vercel Dashboard](https://vercel.com/new).
 

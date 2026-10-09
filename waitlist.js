@@ -1,4 +1,4 @@
-// Axiom Research AI - Waitlist Application & Dual-Email Intake Handler
+// SWMP Labs - Waitlist Application & Dual-Email Intake Handler
 
 // State
 let lastSubmission = null;
