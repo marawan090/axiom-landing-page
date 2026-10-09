@@ -316,7 +316,7 @@ async function handleWaitlistSubmit(e) {
 
   // Generate Reference Code
   const randNum = Math.floor(1000 + Math.random() * 9000);
-  const trackingCode = `AXIOM-C1-${randNum}`;
+  const trackingCode = `SWMP-C1-${randNum}`;
 
   const payload = {
     application_id: trackingCode,

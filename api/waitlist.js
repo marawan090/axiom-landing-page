@@ -79,11 +79,11 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Axiom Waitlist <onboarding@resend.dev>',
+        from: 'SWMP Labs <onboarding@resend.dev>',
         to: [adminEmail],
-        subject: `New Beta Application: ${full_name} (${academic_level || 'Researcher'})`,
+        subject: `New SWMP Labs Beta Application: ${full_name} (${academic_level || 'Researcher'})`,
         html: `
-          <h3>New Axiom Closed Beta Application</h3>
+          <h3>New SWMP Labs Closed Beta Application</h3>
           <p><strong>Name:</strong> ${full_name}</p>
           <p><strong>Verified Institutional Email:</strong> ${email}</p>
           <p><strong>Primary Delivery Email:</strong> ${delivery_email || email}</p>

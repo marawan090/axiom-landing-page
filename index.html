@@ -3,9 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SWMP Labs | High-Signal Systems & AI Literature Engine</title>
-  <meta name="description" content="Stop drowning in 30-page papers. Search ArXiv, Semantic Scholar, and OpenAlex concurrently, uncover hidden thesis research gaps, render on-demand PlantUML architecture topologies, and export structured bundles to NotebookLM with one click.">
-  <link rel="icon" type="image/jpeg" href="./axiom_logo.jpg">
+  <title>SWMP Labs | AI-Powered Intelligence for Scientific Research</title>
+  <meta name="description" content="SWMP Labs is building tools that help researchers explore scientific literature, uncover potential research gaps, connect findings, and develop research ideas more efficiently.">
+  <meta name="keywords" content="SWMP Labs, AI research, scientific exploration, literature analysis, research gaps, academic intelligence, systems research">
+  <meta name="author" content="SWMP Labs">
+  <link rel="canonical" href="https://swmp-labs.tech">
+  <link rel="icon" type="image/jpeg" href="./swmp_logo.jpg">
+
+  <!-- Open Graph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://swmp-labs.tech">
+  <meta property="og:title" content="SWMP Labs | AI-Powered Intelligence for Scientific Research">
+  <meta property="og:description" content="SWMP Labs is building tools that help researchers explore scientific literature, uncover potential research gaps, connect findings, and develop research ideas more efficiently.">
+  <meta property="og:image" content="https://swmp-labs.tech/swmp_logo.jpg">
+  <meta property="og:site_name" content="SWMP Labs">
+
+  <!-- Twitter Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://swmp-labs.tech">
+  <meta name="twitter:title" content="SWMP Labs | AI-Powered Intelligence for Scientific Research">
+  <meta name="twitter:description" content="SWMP Labs is building tools that help researchers explore scientific literature, uncover potential research gaps, connect findings, and develop research ideas more efficiently.">
+  <meta name="twitter:image" content="https://swmp-labs.tech/swmp_logo.jpg">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SWMP Labs",
+    "url": "https://swmp-labs.tech",
+    "logo": "https://swmp-labs.tech/swmp_logo.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Marawan Mohamed",
+      "jobTitle": "Founder & CEO, Cloud Engineer"
+    },
+    "description": "Early-stage AI research startup building tools that help researchers explore scientific literature, uncover potential research gaps, connect findings, and develop research ideas more efficiently.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@swmp-labs.tech",
+      "contactType": "General Inquiries"
+    }
+  }
+  </script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -129,9 +169,9 @@
       <!-- Brand & Badges -->
       <div class="flex items-center gap-3.5 sm:gap-4">
         <a href="#hero" class="flex items-center gap-3 group">
-          <!-- Monogram Logo Mark with Official Image -->
+          <!-- Official SWMP Labs Logo -->
           <div class="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-brand-500/40 shadow-inner group-hover:border-brand-400/70 transition-all shrink-0">
-            <img src="./axiom_logo.jpg" alt="Axiom Logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform" onerror="this.onerror=null; this.parentElement.innerHTML='<svg class=\'w-5 h-5 text-brand-400\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\'><polygon points=\'12 2 2 7 12 12 22 7 12 2\'></polygon></svg>';" />
+            <img src="./swmp_logo.jpg" alt="SWMP Labs Logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-xs text-brand-400\'>SWMP</span>';" />
             <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-slate-950"></div>
           </div>
           
@@ -141,15 +181,11 @@
                 SWMP Labs
               </span>
               <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-brand-500/15 text-brand-300 border border-brand-500/30">
-                v1.2 Closed Beta
+                AI Research Lab
               </span>
             </div>
-            <p class="text-[11px] text-slate-400 font-mono tracking-tight flex items-center gap-1.5">
-              <span>An open-source initiative by</span>
-              <span class="inline-flex items-center gap-1 text-emerald-400 font-medium hover:underline">
-                <img src="./swmp_logo.jpg" alt="SWMP Labs" class="w-3.5 h-3.5 rounded-full object-cover inline" onerror="this.style.display='none';" />
-                <span>SWMP Labs</span>
-              </span>
+            <p class="text-[11px] text-slate-400 font-mono tracking-tight">
+              <span>Scientific Research Intelligence</span>
             </p>
           </div>
         </a>
@@ -157,28 +193,29 @@
 
       <!-- Center Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-7 text-xs lg:text-sm font-medium text-slate-300">
-        <a href="#features" class="hover:text-white transition-colors">Core Engine</a>
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#features" class="hover:text-white transition-colors">Capabilities</a>
         <a href="#demo" class="hover:text-white transition-colors flex items-center gap-1.5">
           <span>Interactive Preview</span>
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
         </a>
-        <a href="#pipeline" class="hover:text-white transition-colors">Pipeline Specs</a>
-        <a href="#cohort" class="hover:text-white transition-colors">Cohort Criteria</a>
+        <a href="#research" class="hover:text-white transition-colors">Claude &amp; AI Research</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
       </nav>
 
       <!-- Right Header Actions -->
       <div class="flex items-center gap-3">
-        <!-- Explore Demo Link -->
-        <a href="#demo" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700 bg-slate-900/50 transition-all">
-          <span>Live Demo</span>
-          <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <!-- Contact Link -->
+        <a href="mailto:hello@swmp-labs.tech" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700 bg-slate-900/50 transition-all">
+          <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>Contact Us</span>
         </a>
 
         <!-- Primary CTA Trigger -->
         <button onclick="openWaitlistModal()" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none focus:ring-2 focus:ring-brand-400/50">
           <span class="absolute inset-0 bg-gradient-to-r from-brand-500 via-purple-500 to-emerald-400 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"></span>
           <span class="relative flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 text-xs sm:text-sm font-medium text-white group-hover:bg-slate-950/80 transition-colors">
-            <span>Apply for Beta</span>
+            <span>Apply for Early Access</span>
             <svg class="w-3.5 h-3.5 text-brand-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </span>
         </button>
@@ -192,84 +229,192 @@
   <section id="hero" class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-      <!-- Badge: Closed Beta Cohort -->
+      <!-- Badge: Early-Stage Research -->
       <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 shadow-sm text-xs font-mono text-slate-300 mb-8 backdrop-blur-md hover:border-brand-500/40 transition-colors">
         <span class="flex h-2 w-2 relative">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        <span class="font-semibold text-white">Closed Beta</span>
+        <span class="font-semibold text-white">SWMP Labs</span>
         <span class="text-slate-500">•</span>
-        <span class="text-emerald-400 font-medium">Cohort 01 (Selective Review)</span>
+        <span class="text-emerald-400 font-medium">Early-Stage AI Research Startup • In Active Development</span>
       </div>
 
       <!-- Main Headline -->
       <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.15] sm:leading-[1.12]">
-        Fast, Architectural Insights
+        AI-Powered Intelligence
         <span class="block mt-1 sm:mt-2 bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-indigo-200 to-emerald-400">
-          for CS Literature.
+          for Scientific Research
         </span>
       </h1>
 
       <!-- Subheadline -->
       <p class="mt-6 sm:mt-7 text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-        Stop drowning in 20-page papers. Synthesize core bottlenecks, generate PlantUML system topologies, and query literature across <strong class="text-white font-medium">arXiv</strong> &amp; <strong class="text-white font-medium">OpenAlex</strong> in seconds.
+        SWMP Labs is building tools that help researchers explore scientific literature, uncover potential research gaps, connect findings, and develop research ideas more efficiently.
       </p>
 
       <!-- Primary & Secondary CTA Buttons -->
       <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
         
-        <!-- Primary Action Button: Open Waitlist Modal -->
-        <button onclick="openWaitlistModal()" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base shadow-glow-violet hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2.5 group">
-          <span>Apply for Closed Beta Access</span>
+        <!-- Primary Action Button: Explore the Platform -->
+        <a href="#demo" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base shadow-glow-violet hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2.5 group">
+          <span>Explore the Platform</span>
           <svg class="w-4 h-4 text-brand-200 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
-        </button>
-
-        <!-- Secondary Action: Explore Architecture Demo -->
-        <a href="#demo" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/80 text-slate-300 hover:text-white font-medium text-sm sm:text-base border border-slate-800 hover:border-slate-700 transition-all flex items-center justify-center gap-2">
-          <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Explore Live Synthesis Demo</span>
         </a>
+
+        <!-- Secondary Action: Contact Us -->
+        <a href="mailto:hello@swmp-labs.tech" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/80 text-slate-300 hover:text-white font-medium text-sm sm:text-base border border-slate-800 hover:border-slate-700 transition-all flex items-center justify-center gap-2">
+          <svg class="w-4 h-4 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>Contact Us</span>
+        </a>
+
+        <!-- Early Access Action Button -->
+        <button onclick="openWaitlistModal()" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 hover:text-emerald-200 font-medium text-sm sm:text-base border border-emerald-500/30 transition-all flex items-center justify-center gap-2">
+          <span>Apply for Early Access</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        </button>
       </div>
 
       <!-- Early Access Terms Minimalist Pill -->
       <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-mono text-slate-300 shadow-sm backdrop-blur-md">
-        <span class="text-amber-400 font-semibold">🔒 Cohort 01 Terms:</span>
-        <span>Capped at 80 engineering seats • Machine-bound private keys valid for 30 days</span>
+        <span class="text-emerald-400 font-semibold">🔒 Development Status:</span>
+        <span>Early-stage • Bootstrapped • Curated access cycles per evaluation batch</span>
       </div>
 
-      <!-- Live Tech Badges -->
+      <!-- Research Tooling Badges (No provider-specific models) -->
       <div class="mt-14 pt-8 border-t border-slate-800/60 max-w-4xl mx-auto">
         <p class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">
-          Powered By High-Throughput Research Stack
+          Research Workflows &amp; Scientific Tooling Stack
         </p>
         <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-mono">
           
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-brand-500/40 transition-colors">
             <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-            <span>DeepSeek-V4 via OrcaRouter</span>
+            <span>Multi-Step Scientific Reasoning</span>
           </div>
 
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-emerald-500/40 transition-colors">
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>Kroki Diagram Engine</span>
+            <span>Kroki Architecture Engine</span>
           </div>
 
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-cyan-500/40 transition-colors">
             <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-            <span>NotebookLM Exporter</span>
+            <span>NotebookLM Structured Exporter</span>
           </div>
 
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-purple-500/40 transition-colors">
             <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-            <span>KaTeX Math Rendering</span>
+            <span>Multi-Source Ingestion Pipeline</span>
           </div>
 
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- ABOUT SECTION                              -->
+  <!-- ========================================== -->
+  <section id="about" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-slate-950/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left: About Copy & Product Status -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-300 text-xs font-mono">
+            <span>About SWMP Labs</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+            Structuring Scientific Exploration for Modern Researchers
+          </h2>
+
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            SWMP Labs is an early-stage AI research startup focused on making scientific exploration more structured, accessible, and efficient. We are developing workflows that help researchers analyze scientific literature, organize evidence, and investigate potential research directions.
+          </p>
+
+          <!-- Product Status Callout Box -->
+          <div class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2.5">
+            <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-semibold">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Product Status: Active Development</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              SWMP Labs is currently in active development. We are refining the platform, evaluating research workflows, and improving the quality and reliability of generated insights before broader release.
+            </p>
+          </div>
+
+          <!-- Core Research Objectives List -->
+          <div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-slate-300">
+            <div class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
+              <span class="text-brand-400">✓</span>
+              <span>Explore scientific literature</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
+              <span class="text-brand-400">✓</span>
+              <span>Uncover potential research gaps</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
+              <span class="text-brand-400">✓</span>
+              <span>Connect empirical findings</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
+              <span class="text-brand-400">✓</span>
+              <span>Evaluate research directions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Founder & Company Profile Card -->
+        <div class="lg:col-span-5 p-6 sm:p-7 rounded-2xl glass-card border border-slate-800 space-y-5">
+          <div class="flex items-center gap-3.5 pb-4 border-b border-slate-800">
+            <div class="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-900 border border-brand-500/40 flex items-center justify-center shrink-0">
+              <img src="./swmp_logo.jpg" alt="SWMP Labs" class="w-full h-full object-cover" onerror="this.style.display='none';" />
+            </div>
+            <div>
+              <h3 class="text-white font-semibold text-base">SWMP Labs</h3>
+              <p class="text-xs font-mono text-slate-400">Early-Stage AI Research Startup</p>
+            </div>
+          </div>
+
+          <div class="space-y-3 font-mono text-xs">
+            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
+              <span class="text-slate-400">Founder &amp; CEO</span>
+              <span class="text-white font-medium">Marawan Mohamed</span>
+            </div>
+            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
+              <span class="text-slate-400">Founder Background</span>
+              <span class="text-slate-200">Cloud Engineer</span>
+            </div>
+            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
+              <span class="text-slate-400">Company Stage</span>
+              <span class="text-emerald-400 font-medium">Bootstrapped, In Development</span>
+            </div>
+            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
+              <span class="text-slate-400">Website Domain</span>
+              <a href="https://swmp-labs.tech" class="text-brand-300 hover:underline">swmp-labs.tech</a>
+            </div>
+            <div class="flex items-center justify-between py-1.5">
+              <span class="text-slate-400">Contact Email</span>
+              <a href="mailto:hello@swmp-labs.tech" class="text-brand-300 hover:underline">hello@swmp-labs.tech</a>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="mailto:hello@swmp-labs.tech" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs flex items-center justify-center gap-2 border border-slate-700 transition-colors">
+              <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Contact Founder &amp; Team →</span>
+            </a>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -287,10 +432,10 @@
           Interactive Architecture Preview
         </span>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-3">
-          See What Axiom Generates For You
+          Explore SWMP Labs Research Workflows
         </h2>
         <p class="text-sm sm:text-base text-slate-400 mt-2">
-          From parallel ingestion to DeepSeek-V4 systems reasoning and Kroki PlantUML topologies.
+          From parallel literature ingestion to structured research synthesis and vector PlantUML topologies.
         </p>
       </div>
 
@@ -303,7 +448,7 @@
             <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
             <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
             <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-            <span class="ml-2 text-xs font-mono text-slate-400">axiom-engine: consensus-latency-tradeoffs</span>
+            <span class="ml-2 text-xs font-mono text-slate-400">swmp-engine: consensus-latency-tradeoffs</span>
           </div>
 
           <!-- Interactive Tab Buttons -->
@@ -330,13 +475,13 @@
           <div id="tab-content-synthesis" class="space-y-5">
             <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
               <div>
-                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">DeepSeek-V4 Synthesized Breakdown</span>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Structured Research Synthesis (Illustrative Example)</span>
                 <h3 class="text-lg font-semibold text-white mt-1">High-Throughput Raft Optimization in Disaggregated NVMe Clusters</h3>
               </div>
               <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
-                <span>Confidence: 98.6%</span>
+                <span class="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Illustrative Output</span>
                 <span>•</span>
-                <span>Token Latency: 1.8s</span>
+                <span>Sample Research Analysis</span>
               </div>
             </div>
 
@@ -359,7 +504,7 @@
                   02. Technical Bottleneck
                 </div>
                 <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Lock contention on leader commit indexes causes CPU core pinning. PCIe bus backpressure throttles RDMA write operations at &gt;100Gbps network saturation, degrading P99.9 latency by up to 340%.
+                  Lock contention on leader commit indexes causes CPU core pinning. PCIe bus backpressure throttles RDMA write operations at high network saturation, degrading tail latency under write bursts.
                 </p>
               </div>
 
@@ -376,10 +521,10 @@
               <div class="p-4 rounded-xl bg-slate-900/60 border border-emerald-500/30 bg-emerald-500/5">
                 <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-semibold uppercase mb-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  04. Actionable Thesis Extension (Delta)
+                  04. Actionable Research Extension (Delta)
                 </div>
                 <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                  <strong>Proposed Extension:</strong> Implement an asynchronous log-decoupled Raft state machine utilizing NVMe-oF zero-copy memory buffers. Benchmark against etcd under 128-node YCSB workloads.
+                  <strong>Proposed Direction:</strong> Implement an asynchronous log-decoupled Raft state machine utilizing NVMe-oF zero-copy memory buffers. Benchmark against baseline consensus implementations under clustered write workloads.
                 </p>
               </div>
 
@@ -393,7 +538,7 @@
                 <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded border border-brand-500/20">Vector Kroki PlantUML Topology</span>
                 <h3 class="text-base font-semibold text-white mt-1">Disaggregated Consensus Engine Component Flow</h3>
               </div>
-              <span class="text-xs font-mono text-slate-400">Engine: Kroki v0.24 PlantUML</span>
+              <span class="text-xs font-mono text-slate-400">Engine: Kroki PlantUML</span>
             </div>
 
             <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-800 flex flex-col items-center justify-center font-mono text-xs text-slate-300">
@@ -412,7 +557,7 @@
 
                   <div class="p-3.5 rounded-lg bg-indigo-950/50 border border-indigo-500/50 w-full md:w-48 shadow-lg shadow-indigo-950/50">
                     <span class="text-[10px] text-indigo-400 uppercase font-bold">Consensus Core</span>
-                    <div class="text-white font-semibold text-xs mt-1">Axiom Raft Leader</div>
+                    <div class="text-white font-semibold text-xs mt-1">Consensus Protocol Leader</div>
                     <div class="text-[10px] text-emerald-400 mt-0.5">Zero-Copy Commit Log</div>
                   </div>
 
@@ -428,7 +573,7 @@
                 </div>
 
                 <div class="mt-5 p-3 rounded bg-slate-950 border border-slate-800/90 text-slate-400 text-[11px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                  <span>@startuml: <code>node "Raft Core" -&gt; node "Storage Fabric" : sync_replicate()</code></span>
+                  <span>@startuml: <code>node "Consensus Core" -&gt; node "Storage Fabric" : sync_replicate()</code></span>
                   <span class="text-emerald-400 font-semibold">1-Click Export Vector SVG</span>
                 </div>
               </div>
@@ -439,7 +584,7 @@
           <div id="tab-content-pipeline_view" class="hidden space-y-3">
             <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
               <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">Parallel Academic Ingestion Stream</span>
-              <span class="text-xs font-mono text-slate-400">Time: 1.14s • 3 Sources Concurrently</span>
+              <span class="text-xs font-mono text-slate-400">Concurrent Query Across Repositories</span>
             </div>
 
             <div class="space-y-2 font-mono text-xs">
@@ -450,7 +595,7 @@
                   <span class="text-slate-400 text-[11px] hidden sm:inline">(arXiv:2403.11982)</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-emerald-400 text-[11px] hidden md:inline">GitHub: Verified Repo</span>
+                  <span class="text-emerald-400 text-[11px] hidden md:inline">GitHub: Matched Repo</span>
                   <span class="text-slate-400 text-[11px]">84 Citations</span>
                 </div>
               </div>
@@ -462,7 +607,7 @@
                   <span class="text-slate-400 text-[11px] hidden sm:inline">(W9821049)</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-purple-400 text-[11px]">Deduplication: 94.2%</span>
+                  <span class="text-purple-400 text-[11px]">Normalized Match: Deduplicated</span>
                   <span class="text-slate-400 text-[11px]">112 Citations</span>
                 </div>
               </div>
@@ -488,7 +633,7 @@
             </div>
 
             <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 font-mono text-xs text-slate-300 space-y-2 overflow-x-auto">
-              <p class="text-slate-500"># NotebookLM Source Pack: Axiom Systems Literature Review</p>
+              <p class="text-slate-500"># NotebookLM Source Pack: SWMP Labs Systems Literature Review</p>
               <p class="text-indigo-300">## Paper Dossier: Distributed Consensus Under Hardware Disaggregation</p>
               <p class="text-slate-400">&gt; **Curated Sources**: ArXiv:2403.11982, SemanticScholar:441209, OpenAlex:W9821049</p>
               <p class="text-slate-400">&gt; **Key Arguments for Deep Audio Discussion**: Speculative execution vs serialized Raft logs.</p>
@@ -497,7 +642,7 @@
             
             <div class="flex items-center justify-between pt-2">
               <span class="text-xs text-slate-400">Automatically formatted for instant podcast generator ingestion in NotebookLM.</span>
-              <button onclick="openWaitlistModal()" class="text-xs font-mono text-brand-400 hover:text-brand-300 underline">Request access to run live →</button>
+              <button onclick="openWaitlistModal()" class="text-xs font-mono text-brand-400 hover:text-brand-300 underline">Request early access to run live →</button>
             </div>
           </div>
 
@@ -509,7 +654,7 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- FEATURE GRID (3 COMPACT CARDS) -->
+  <!-- FEATURE GRID (3 COMPACT CARDS)             -->
   <!-- ========================================== -->
   <section id="features" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-slate-950/60">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -517,13 +662,13 @@
       <!-- Section Header -->
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-xs font-mono font-medium text-brand-400 uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
-          Engineered for Systems Researchers
+          Engineered for Scientific Researchers
         </span>
         <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-3">
           Zero Fluff. Pure Technical Bandwidth.
         </h2>
         <p class="text-sm sm:text-base text-slate-400 mt-3">
-          Designed specifically for computer systems engineers, graduate researchers, and thesis authors.
+          Designed specifically for systems engineers, graduate researchers, and thesis authors.
         </p>
       </div>
 
@@ -552,14 +697,14 @@
 
             <!-- Description -->
             <p class="text-sm text-slate-300 leading-relaxed">
-              Query up to 100 papers across <strong>arXiv</strong>, <strong>Semantic Scholar</strong>, and <strong>OpenAlex</strong> by topic, author, or university lab.
+              Query literature concurrently across <strong>arXiv</strong>, <strong>Semantic Scholar</strong>, and <strong>OpenAlex</strong> by topic, author, or research lab.
             </p>
           </div>
 
           <!-- Card Footer Metadata -->
           <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span>AsyncIO Pipeline</span>
-            <span class="text-emerald-400">Up to 100 Papers</span>
+            <span>Async Literature Query</span>
+            <span class="text-emerald-400">Concurrent Ingestion</span>
           </div>
         </div>
 
@@ -580,19 +725,19 @@
             <!-- Number & Title -->
             <span class="text-xs font-mono text-purple-400/80 uppercase font-semibold">02 // Systems Synthesis</span>
             <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-purple-300 transition-colors">
-              Deep Architectural Breakdown
+              Structured Evidence Synthesis
             </h3>
 
             <!-- Description -->
             <p class="text-sm text-slate-300 leading-relaxed">
-              Extract core bottlenecks, technical fixes, and open research gaps—not just generic summaries.
+              Extract core bottlenecks, technical trade-offs, and open research gaps—not just superficial summaries.
             </p>
           </div>
 
           <!-- Card Footer Metadata -->
           <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span>DeepSeek-V4 Orca</span>
-            <span class="text-purple-400">Bottlenecks &amp; Deltas</span>
+            <span>Multi-Step Reasoning</span>
+            <span class="text-purple-400">Bottlenecks &amp; Gaps</span>
           </div>
         </div>
 
@@ -613,21 +758,21 @@
             </div>
 
             <!-- Number & Title -->
-            <span class="text-xs font-mono text-emerald-400/80 uppercase font-semibold">03 // Diagrams &amp; Outreach</span>
+            <span class="text-xs font-mono text-emerald-400/80 uppercase font-semibold">03 // Visuals &amp; Export</span>
             <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-emerald-300 transition-colors">
-              PlantUML &amp; Outreach Tools
+              PlantUML &amp; Export Tools
             </h3>
 
             <!-- Description -->
             <p class="text-sm text-slate-300 leading-relaxed">
-              Instant system architecture diagrams, cross-paper trade-off tables, and 1-click professor cold outreach emails.
+              Generate system architecture diagrams, cross-paper comparison matrices, and 1-click Google NotebookLM source bundles.
             </p>
           </div>
 
           <!-- Card Footer Metadata -->
           <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
             <span>PlantUML / Kroki</span>
-            <span class="text-emerald-400">Outreach Generator</span>
+            <span class="text-emerald-400">NotebookLM Exporter</span>
           </div>
         </div>
 
@@ -637,7 +782,88 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- PIPELINE SPECS & TECHNICAL METRICS -->
+  <!-- CLAUDE & AI RESEARCH EVALUATION SECTION    -->
+  <!-- ========================================== -->
+  <section id="research" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-gradient-to-b from-slate-950 via-slate-900/40 to-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-mono font-medium text-purple-400 uppercase tracking-widest bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
+          Research &amp; Development
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-3">
+          AI-Assisted Scientific Research Workflows
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
+          We are actively developing and evaluating AI-assisted research workflows, with a focus on output quality, reliability, and useful scientific insights. Our current priority is to improve the research experience and validate the system through systematic testing.
+        </p>
+      </div>
+
+      <!-- Claude Exploration Focus Card -->
+      <div class="p-6 sm:p-8 rounded-2xl glass-card border border-purple-500/30 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-mono text-purple-300 bg-purple-500/15 border border-purple-500/30 mb-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+              <span>Claude &amp; AI Research Evaluation</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Exploring Claude for Complex Scientific Workflows</h3>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
+            Status: Exploration &amp; Evaluation
+          </span>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-300 mt-5 leading-relaxed">
+          We are exploring Claude's capabilities for complex reasoning, scientific text analysis, and evidence synthesis. Our goal is to evaluate how advanced language models can support research workflows while maintaining clear distinctions between evidence, interpretation, and unverified hypotheses.
+        </p>
+
+        <!-- 5 Potential Use Cases Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+          
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">01 // Reasoning</div>
+            <h4 class="text-white font-medium text-sm">Multi-Step Scientific Reasoning</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Evaluating reasoning chains across dense systems literature, distributed protocols, and formal algorithms.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">02 // Text Analysis</div>
+            <h4 class="text-white font-medium text-sm">Scientific Text Analysis</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Extracting core problem statements, empirical constraints, and architectural assumptions from long-form papers.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">03 // Synthesis</div>
+            <h4 class="text-white font-medium text-sm">Evidence Synthesis Across Papers</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Connecting findings across multiple publications to construct structured comparison matrices.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">04 // Discovery</div>
+            <h4 class="text-white font-medium text-sm">Identifying Finding Relationships</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Discovering relationships, methodological tensions, and unaddressed research gaps across disciplines.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 sm:col-span-2 lg:col-span-1">
+            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">05 // Evaluation</div>
+            <h4 class="text-white font-medium text-sm">Research Workflow Evaluation</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Evaluating workflow reliability, citation fidelity, and factual consistency in AI-assisted discovery.</p>
+          </div>
+
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-400 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <span>Laboratory Prototyping &amp; Workflow Evaluation</span>
+          <span class="text-purple-300">Clear Separation of Evidence vs. Unverified Hypotheses</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- PIPELINE SPECS & TECHNICAL ARCHITECTURE    -->
   <!-- ========================================== -->
   <section id="pipeline" class="py-16 sm:py-20 relative border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -650,10 +876,10 @@
             Technical Architecture
           </span>
           <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-4 leading-tight">
-            How Axiom Eliminates Literature Search Latency
+            How SWMP Labs Optimizes Literature Workflows
           </h2>
           <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
-            Standard literature searches force researchers to juggle fragmented tabs across Google Scholar, ArXiv, and GitHub while manually parsing 40-page papers for methodology differences. Axiom unifies these pipelines into a single high-throughput execution graph.
+            Standard literature searches force researchers to juggle fragmented tabs across Google Scholar, ArXiv, and GitHub while manually parsing 40-page papers for methodology differences. SWMP Labs unifies these pipelines into a single high-throughput execution graph.
           </p>
 
           <div class="mt-6 space-y-3.5 text-sm text-slate-300">
@@ -663,17 +889,17 @@
             </div>
             <div class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
-              <p><strong class="text-white">OpenRouter / OrcaRouter Deep Routing:</strong> Dynamic fallback across top frontier models guarantees zero rate-limit downtime during literature sprints.</p>
+              <p><strong class="text-white">Resilient Model Routing:</strong> Multi-provider architecture ensures consistent availability during research sprints.</p>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
-              <p><strong class="text-white">Deterministic Citations:</strong> Auto-generated BibTeX entries conform strictly to ACM/IEEE formatting standards.</p>
+              <p><strong class="text-white">Deterministic Citations:</strong> Auto-generated BibTeX entries conform strictly to standard ACM/IEEE formatting.</p>
             </div>
           </div>
 
           <div class="mt-8">
             <button onclick="openWaitlistModal()" class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-medium text-brand-400 hover:text-brand-300 underline underline-offset-4">
-              <span>Apply for Cohort 1 to access the raw engine →</span>
+              <span>Apply for early access to test the platform →</span>
             </button>
           </div>
         </div>
@@ -691,39 +917,39 @@
                 <span class="text-slate-400 block text-[10px]">CONCURRENT INGESTION</span>
                 <span class="text-white font-medium">ArXiv (cs.DC/cs.AI) + OpenAlex + Semantic Scholar</span>
               </div>
-              <span class="text-emerald-400 text-right">~1.2s avg</span>
+              <span class="text-emerald-400 text-right">Multi-Source Async</span>
             </div>
 
             <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
               <div>
                 <span class="text-slate-400 block text-[10px]">DEDUPLICATION ALGORITHM</span>
-                <span class="text-white font-medium">SequenceMatcher Title Normalization (&ge; 85%)</span>
+                <span class="text-white font-medium">SequenceMatcher Title Normalization</span>
               </div>
-              <span class="text-purple-400 text-right">99.4% Precision</span>
+              <span class="text-purple-400 text-right">Heuristic Matching</span>
             </div>
 
             <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
               <div>
                 <span class="text-slate-400 block text-[10px]">LLM SYNTHESIS ENGINE</span>
-                <span class="text-white font-medium">DeepSeek-V4 via OrcaRouter API</span>
+                <span class="text-white font-medium">Specialized Scientific Synthesis Pipeline</span>
               </div>
-              <span class="text-brand-400 text-right">Streaming SSE</span>
+              <span class="text-brand-400 text-right">Streaming Output</span>
             </div>
 
             <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
               <div>
                 <span class="text-slate-400 block text-[10px]">DIAGRAM VECTOR RENDERING</span>
-                <span class="text-white font-medium">Kroki Engine (PlantUML / C4 Architecture)</span>
+                <span class="text-white font-medium">Kroki Engine (PlantUML / Architecture Graphs)</span>
               </div>
-              <span class="text-cyan-400 text-right">Instant SVG</span>
+              <span class="text-cyan-400 text-right">Vector SVG</span>
             </div>
 
             <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
               <div>
-                <span class="text-slate-400 block text-[10px]">PODCAST PACK EXPORT</span>
+                <span class="text-slate-400 block text-[10px]">NOTEBOOKLM PACK EXPORT</span>
                 <span class="text-white font-medium">Structured Google NotebookLM Markdown Bundle</span>
               </div>
-              <span class="text-amber-400 text-right">1-Click</span>
+              <span class="text-amber-400 text-right">1-Click Export</span>
             </div>
           </div>
         </div>
@@ -734,20 +960,20 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- CLOSED COHORT SELECTION CRITERIA -->
+  <!-- EARLY ACCESS SELECTION CRITERIA            -->
   <!-- ========================================== -->
   <section id="cohort" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-gradient-to-b from-slate-950 via-slate-900/40 to-slate-950">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs font-mono mb-4">
-        <span>Cohort 01 Screening Details</span>
+        <span>Early Access Onboarding</span>
       </div>
 
       <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
-        Who We Are Selecting for Cohort 01
+        Who We Are Onboarding for Early Access
       </h2>
       <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-2xl mx-auto">
-        Axiom is purpose-built for depth, not mass consumer clickbait. To ensure rigorous qualitative feedback, we are onboarding an initial curated cohort of researchers.
+        SWMP Labs is purpose-built for depth, not mass consumer clickbait. To ensure rigorous qualitative feedback, we are onboarding an initial curated cohort of researchers.
       </p>
 
       <!-- Criteria Cards -->
@@ -757,7 +983,7 @@
           <div class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-sm font-mono mb-3">01</div>
           <h4 class="text-white font-semibold text-base">Distributed Systems &amp; Cloud</h4>
           <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Researchers and architects tackling consensus algorithms, NVMe disaggregation, microsecond latency RPCs, and cluster scheduling.
+            Researchers and architects tackling consensus algorithms, disaggregated storage, low-latency RPCs, and cluster scheduling.
           </p>
         </div>
 
@@ -765,7 +991,7 @@
           <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm font-mono mb-3">02</div>
           <h4 class="text-white font-semibold text-base">LLM Systems &amp; Accelerators</h4>
           <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Engineers building GPU kernel optimizations, flash attention variants, tensor parallelism, and KV-cache compression architectures.
+            Engineers building GPU kernel optimizations, attention mechanisms, parallelism strategies, and model inference systems.
           </p>
         </div>
 
@@ -773,7 +999,7 @@
           <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm font-mono mb-3">03</div>
           <h4 class="text-white font-semibold text-base">Graduate Thesis Authors</h4>
           <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Master's and PhD candidates actively conducting literature surveys who require deep thesis gap discovery and formal BibTeX taxonomy.
+            Master's and PhD candidates actively conducting literature surveys who require deep gap discovery and formal citation taxonomy.
           </p>
         </div>
 
@@ -781,7 +1007,7 @@
           <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm font-mono mb-3">04</div>
           <h4 class="text-white font-semibold text-base">Active Lab Supervisors</h4>
           <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Principal investigators and postdocs steering research groups seeking automated PlantUML diagrams and cross-paper comparisons.
+            Principal investigators and postdocs steering research groups seeking automated architecture diagrams and cross-paper comparisons.
           </p>
         </div>
 
@@ -790,10 +1016,10 @@
       <!-- Callout Box -->
       <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-brand-950/40 via-slate-900 to-emerald-950/30 border border-brand-500/30 text-center">
         <h3 class="text-lg font-bold text-white">Ready to streamline your research literature pipeline?</h3>
-        <p class="text-xs sm:text-sm text-slate-300 mt-1.5">Applications are evaluated on a rolling basis until Cohort 01 capacity is filled.</p>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1.5">Applications are evaluated on a rolling basis per evaluation cycle.</p>
         <div class="mt-5">
           <button onclick="openWaitlistModal()" class="px-6 py-3 rounded-xl bg-white text-slate-950 hover:bg-slate-200 font-semibold text-sm transition-all shadow-lg shadow-white/10">
-            Apply for Closed Beta Access →
+            Apply for Early Access →
           </button>
         </div>
       </div>
@@ -802,34 +1028,85 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- FOOTER -->
+  <!-- CONTACT SECTION                            -->
+  <!-- ========================================== -->
+  <section id="contact" class="py-16 sm:py-20 relative border-t border-slate-800/70 bg-slate-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-300 text-xs font-mono mb-4">
+        <span>Contact &amp; Inquiries</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+        Get in Touch with SWMP Labs
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-xl mx-auto leading-relaxed">
+        Whether you are a researcher interested in early evaluation, an engineer with workflow feedback, or reaching out for general inquiries, we'd love to hear from you.
+      </p>
+
+      <div class="mt-8 p-6 sm:p-8 rounded-2xl glass-card border border-slate-800 max-w-xl mx-auto text-left font-mono text-xs space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-800">
+          <span class="text-slate-400 uppercase tracking-wider text-[11px]">General Inquiries</span>
+          <a href="mailto:hello@swmp-labs.tech" class="text-emerald-400 font-semibold text-sm hover:underline">hello@swmp-labs.tech</a>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-800">
+          <span class="text-slate-400 uppercase tracking-wider text-[11px]">Founder &amp; CEO</span>
+          <span class="text-white font-medium">Marawan Mohamed <span class="text-slate-400">(Cloud Engineer)</span></span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-800">
+          <span class="text-slate-400 uppercase tracking-wider text-[11px]">Official Website</span>
+          <a href="https://swmp-labs.tech" class="text-brand-300 hover:underline">https://swmp-labs.tech</a>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <span class="text-slate-400 uppercase tracking-wider text-[11px]">Company Stage</span>
+          <span class="text-slate-300">Early-stage, bootstrapped, in active development</span>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
+        <a href="mailto:hello@swmp-labs.tech" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs sm:text-sm shadow-glow-violet transition-all flex items-center gap-2">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>Send an Email</span>
+        </a>
+        <button onclick="openWaitlistModal()" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs sm:text-sm border border-slate-700 transition-colors">
+          <span>Apply for Early Access</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
   <!-- ========================================== -->
   <footer class="border-t border-slate-800/80 bg-slate-950 py-12 text-slate-400 text-xs">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
       
       <!-- Brand & Parent Lab -->
       <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 font-bold text-xs">
-          A
+        <div class="relative w-8 h-8 rounded-lg overflow-hidden bg-slate-900 border border-brand-500/30 flex items-center justify-center shrink-0">
+          <img src="./swmp_logo.jpg" alt="SWMP Labs" class="w-full h-full object-cover" onerror="this.style.display='none';" />
         </div>
         <div>
           <div class="text-slate-200 font-semibold text-sm">SWMP Labs</div>
           <div class="text-slate-500 text-[11px]">
-            An open-source initiative by <strong class="text-emerald-400">SWMP Labs</strong> — Technology for a Smarter Tomorrow
+            AI-Powered Intelligence for Scientific Research • <a href="mailto:hello@swmp-labs.tech" class="text-emerald-400 hover:underline">hello@swmp-labs.tech</a>
           </div>
         </div>
       </div>
 
       <!-- Links & Utilities -->
       <div class="flex flex-wrap items-center justify-center gap-6 font-mono text-[11px] text-slate-400">
-        <a href="#hero" class="hover:text-white transition-colors">Back to Top</a>
-        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#hero" class="hover:text-white transition-colors">Top</a>
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#features" class="hover:text-white transition-colors">Capabilities</a>
         <a href="#demo" class="hover:text-white transition-colors text-brand-400">Live Preview</a>
+        <a href="#research" class="hover:text-white transition-colors">Claude &amp; Research</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
       </div>
 
-      <!-- Copyright -->
-      <div class="text-slate-400 text-[11px] font-mono">
-        &copy; 2026 SWMP Labs • Core Research Suite
+      <!-- Copyright & Founder Credit -->
+      <div class="text-slate-400 text-[11px] font-mono text-center md:text-right">
+        <div>&copy; 2026 SWMP Labs • Marawan Mohamed (Founder &amp; CEO)</div>
+        <div class="text-slate-500 text-[10px] mt-0.5"><a href="https://swmp-labs.tech" class="hover:text-slate-400">https://swmp-labs.tech</a></div>
       </div>
 
     </div>
@@ -1102,7 +1379,7 @@
         <div class="mt-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-left font-mono text-xs space-y-2 max-w-md mx-auto">
           <div class="flex items-center justify-between pb-2 border-b border-slate-800">
             <span class="text-slate-500 uppercase">Tracking Hash</span>
-            <span id="receipt-id" class="text-emerald-400 font-bold">AXIOM-C1-8932</span>
+            <span id="receipt-id" class="text-emerald-400 font-bold">SWMP-C1-8932</span>
           </div>
           <div class="flex items-center justify-between">
             <span class="text-slate-500">Applicant:</span>
@@ -1440,7 +1717,7 @@
 
       // Generate Reference Code
       const randNum = Math.floor(1000 + Math.random() * 9000);
-      const trackingCode = `AXIOM-C1-${randNum}`;
+      const trackingCode = `SWMP-C1-${randNum}`;
 
       const payload = {
         application_id: trackingCode,
