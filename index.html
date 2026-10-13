@@ -1,1859 +1,630 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-slate-950 text-slate-100 dark scroll-smooth">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SWMP Labs — AI-Assisted Scientific Research Workflows</title>
-  <meta name="description" content="SWMP Labs is developing AI-assisted research workflows for scientific literature exploration, cross-paper synthesis, research gap discovery, and structured research insights.">
-  <meta name="keywords" content="SWMP Labs, AI research workflows, scientific literature exploration, research gap discovery, cross-paper synthesis, academic intelligence, systems research">
+  <title>SWMP Labs | Systems research, read more clearly</title>
+  <meta name="description" content="SWMP Labs searches arXiv, Semantic Scholar and OpenAlex together, compares papers side by side, and helps you write to the researchers behind them. Early-stage, free to try.">
   <meta name="author" content="SWMP Labs">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#020617">
+  <meta name="theme-color" content="#FAF8F4">
   <link rel="canonical" href="https://swmp-labs.tech/">
   <link rel="icon" type="image/jpeg" href="./swmp_logo.jpg">
 
-  <!-- Open Graph / Social Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://swmp-labs.tech/">
-  <meta property="og:title" content="SWMP Labs — AI-Assisted Scientific Research Workflows">
-  <meta property="og:description" content="SWMP Labs is developing AI-assisted research workflows for scientific literature exploration, cross-paper synthesis, research gap discovery, and structured research insights.">
+  <meta property="og:title" content="SWMP Labs | Systems research, read more clearly">
+  <meta property="og:description" content="SWMP Labs searches arXiv, Semantic Scholar and OpenAlex together, compares papers side by side, and helps you write to the researchers behind them. Early-stage, free to try.">
   <meta property="og:image" content="https://swmp-labs.tech/swmp_logo.jpg">
   <meta property="og:site_name" content="SWMP Labs">
 
-  <!-- Twitter Metadata -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://swmp-labs.tech/">
-  <meta name="twitter:title" content="SWMP Labs — AI-Assisted Scientific Research Workflows">
-  <meta name="twitter:description" content="SWMP Labs is developing AI-assisted research workflows for scientific literature exploration, cross-paper synthesis, research gap discovery, and structured research insights.">
+  <meta name="twitter:title" content="SWMP Labs | Systems research, read more clearly">
+  <meta name="twitter:description" content="SWMP Labs searches arXiv, Semantic Scholar and OpenAlex together, compares papers side by side, and helps you write to the researchers behind them. Early-stage, free to try.">
   <meta name="twitter:image" content="https://swmp-labs.tech/swmp_logo.jpg">
 
-  <!-- JSON-LD Structured Data (Schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://swmp-labs.tech/#website",
-        "url": "https://swmp-labs.tech/",
-        "name": "SWMP Labs",
-        "description": "AI-assisted scientific research workflows for literature exploration, cross-paper synthesis, and research gap discovery."
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://swmp-labs.tech/#organization",
-        "name": "SWMP Labs",
-        "url": "https://swmp-labs.tech/",
-        "logo": "https://swmp-labs.tech/swmp_logo.jpg",
-        "email": "hello@swmp-labs.tech",
-        "description": "SWMP Labs is an early-stage AI research startup building AI-assisted scientific research workflows to help researchers explore scientific literature, compare findings, identify potential research gaps, and structure research insights.",
-        "founder": {
-          "@type": "Person",
-          "@id": "https://swmp-labs.tech/#founder",
-          "name": "Marawan Mohamed",
-          "jobTitle": "Founder & CEO",
-          "description": "Cloud Engineer, Founder & CEO of SWMP Labs"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "hello@swmp-labs.tech",
-          "contactType": "General Inquiries"
-        }
-      }
+    "@type": "Organization",
+    "name": "SWMP Labs",
+    "url": "https://swmp-labs.tech/",
+    "logo": "https://swmp-labs.tech/swmp_logo.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Marawan Mohamed"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/marawan-mohamed-elkzaz-07178a2a7/",
+      "https://github.com/marawan090/swmp-labs/"
     ]
   }
   </script>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-            },
-            accent: {
-              300: '#7dd3fc',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-            },
-            lab: {
-              400: '#2dd4bf',
-              500: '#14b8a6',
-              600: '#0d9488',
-            },
-            emeraldAccent: {
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            mono: ['JetBrains Mono', 'Menlo', 'Consolas', 'monospace']
-          },
-          boxShadow: {
-            'glow-violet': '0 0 35px -5px rgba(129, 140, 248, 0.3)',
-            'glow-emerald': '0 0 35px -5px rgba(16, 185, 129, 0.3)',
-            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Custom subtle ambient grid pattern */
-    .bg-grid-pattern {
-      background-image: radial-gradient(rgba(129, 140, 248, 0.08) 1px, transparent 1px);
-      background-size: 28px 28px;
+    :root {
+      --bg: #FAF8F4;
+      --text: #1B1B1A;
+      --muted: #6B6A66;
+      --border: #E4E0D8;
+      --accent: #2F5D50;
+      --accent-soft: rgba(47, 93, 80, 0.08);
+      --card: #FFFFFF;
+      --input-bg: #FFFFFF;
+      --error: #9C3A2E;
+      --focus: #2F5D50;
+      --radius: 10px;
+      --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-head: 'Newsreader', 'Fraunces', Georgia, serif;
     }
-    
-    /* Smooth custom scrollbars */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141413;
+        --text: #ECE9E2;
+        --muted: #A09D95;
+        --border: #2A2926;
+        --accent: #7FB5A3;
+        --accent-soft: rgba(127, 181, 163, 0.1);
+        --card: #1B1B19;
+        --input-bg: #1B1B19;
+        --error: #E09A90;
+        --focus: #7FB5A3;
+      }
+      :root meta { color-scheme: dark; }
     }
-    ::-webkit-scrollbar-track {
-      background: #020617;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 9999px;
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
-    }
+    h1, h2, h3 { font-family: var(--font-head); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
+    h1 { font-size: clamp(2rem, 5vw, 3.1rem); }
+    h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); margin-bottom: 0.6rem; }
+    h3 { font-size: 1.15rem; font-family: var(--font-body); font-weight: 600; }
+    p { margin: 0 0 1rem 0; }
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 150ms ease; }
+    a:hover { color: var(--text); }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
 
-    /* Glassmorphism styling */
-    .glass-card {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(51, 65, 85, 0.55);
-    }
-    .glass-card:hover {
-      border-color: rgba(99, 102, 241, 0.45);
-    }
+    .skip-link { position: absolute; left: -9999px; top: 0; background: var(--text); color: var(--bg); padding: 0.6rem 1rem; z-index: 200; border-radius: 0 0 8px 0; font-size: 0.9rem; }
+    .skip-link:focus { left: 0; }
 
-    .glass-modal {
-      background: rgba(10, 15, 30, 0.95);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(99, 102, 241, 0.28);
-    }
+    .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem; }
+    .wrap-wide { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
 
-    /* Subtle pulse animations */
-    @keyframes pulse-slow {
-      0%, 100% { opacity: 0.15; transform: scale(1); }
-      50% { opacity: 0.28; transform: scale(1.05); }
+    header.site { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: 62rem; margin: 0 auto; padding: 0.8rem 1.25rem; }
+    .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--text); }
+    .brand img { width: 34px; height: 34px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); display: block; }
+    .brand span { font-family: var(--font-head); font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
+    nav.links { display: flex; align-items: center; gap: 1.1rem; font-size: 0.95rem; }
+    nav.links a { color: var(--muted); text-decoration: none; }
+    nav.links a:hover { color: var(--text); }
+    .btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; border: none; cursor: pointer; font: inherit; font-size: 0.98rem; font-weight: 500; padding: 0.7rem 1.3rem; border-radius: var(--radius); transition: opacity 180ms ease, background 180ms ease; }
+    @media (prefers-color-scheme: dark) { .btn { color: #141413; } }
+    .btn:hover { opacity: 0.88; color: #fff; }
+    @media (prefers-color-scheme: dark) { .btn:hover { color: #141413; } }
+    .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    @media (prefers-color-scheme: dark) { .btn-secondary:hover { color: var(--accent); } }
+    .nav-cta { padding: 0.5rem 1rem; font-size: 0.9rem; }
+    @media (max-width: 760px) { nav.links { display: none; } }
+
+    section.block { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+    .eyebrow { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .hero { padding: 4rem 0 3.5rem 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; margin: 1.6rem 0 1rem 0; }
+    .hero-note, .status-line { font-size: 0.92rem; color: var(--muted); }
+    .status-line { margin-top: 0.4rem; }
+
+    .feature-list { display: grid; gap: 0; margin-top: 1.8rem; }
+    .feature { padding: 1.4rem 0; border-top: 1px solid var(--border); }
+    .feature:last-child { border-bottom: 1px solid var(--border); }
+    .feature h3 { margin: 0 0 0.35rem 0; }
+    .feature p { margin: 0; color: var(--muted); }
+
+    /* Preview */
+    .preview { border: 1px solid var(--border); border-radius: 12px; background: var(--card); overflow: hidden; margin-top: 1.6rem; }
+    .preview-bar { display: flex; gap: 0.6rem; padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--border); align-items: center; flex-wrap: wrap; }
+    .search-input { flex: 1; min-width: 180px; border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.8rem; font: inherit; font-size: 0.92rem; color: var(--muted); background: var(--bg); }
+    .mode-row { display: flex; gap: 0.5rem; flex-wrap: wrap; padding: 0.8rem 1.1rem; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+    .mode { border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.75rem; }
+    .preview-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0; }
+    @media (max-width: 760px) { .preview-grid { grid-template-columns: 1fr; } }
+    .preview-col { padding: 1.1rem; border-bottom: 1px solid var(--border); }
+    .preview-grid .preview-col:nth-child(odd) { border-right: 1px solid var(--border); }
+    @media (max-width: 760px) { .preview-grid .preview-col:nth-child(odd) { border-right: none; } }
+    .preview-label { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
+    .skel { border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.8rem; margin-bottom: 0.6rem; background: var(--bg); }
+    .skel-title { font-weight: 600; font-size: 0.95rem; }
+    .skel-meta { font-size: 0.85rem; color: var(--muted); }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 0.5rem 0.6rem; border: 1px solid var(--border); vertical-align: top; }
+    .compare-table th { font-weight: 600; background: var(--bg); }
+    .graph-box { border: 1px dashed var(--border); border-radius: 8px; min-height: 150px; display: flex; align-items: center; justify-content: center; gap: 0.8rem; padding: 1rem; flex-wrap: wrap; }
+    .graph-node { border: 1px solid var(--border); background: var(--bg); border-radius: 8px; padding: 0.5rem 0.8rem; font-size: 0.85rem; color: var(--muted); }
+    .cite-row { display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.85rem; }
+    .cite-tag { border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.7rem; color: var(--muted); }
+    .email-draft { border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; font-size: 0.9rem; color: var(--muted); background: var(--bg); }
+    .preview-foot { padding: 1rem 1.1rem; display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; justify-content: space-between; font-size: 0.9rem; color: var(--muted); }
+
+    .points { margin: 1.4rem 0 0 0; padding: 0; list-style: none; }
+    .points li { padding: 1.1rem 0; border-top: 1px solid var(--border); }
+    .points li:last-child { border-bottom: 1px solid var(--border); }
+    .points strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 0.25rem; }
+    .points p { margin: 0; color: var(--muted); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.4rem; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+    .two-col h3 { margin-bottom: 0.6rem; }
+    .two-col ul { margin: 0; padding-left: 1.2rem; color: var(--muted); }
+    .two-col li { margin-bottom: 0.5rem; }
+
+    .who-list { list-style: none; margin: 1rem 0 0 0; padding: 0; }
+    .who-list li { padding: 0.55rem 0; border-top: 1px solid var(--border); color: var(--muted); }
+    .who-list li:last-child { border-bottom: 1px solid var(--border); }
+
+    .about-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; font-size: 0.95rem; }
+    .byline { margin-top: 1.4rem; font-weight: 600; }
+
+    footer.site { padding: 2.2rem 0; font-size: 0.9rem; color: var(--muted); }
+    footer.site .wrap-wide { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; align-items: center; justify-content: space-between; }
+    footer.site nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+    footer.site a { color: var(--muted); text-decoration: none; }
+    footer.site a:hover { color: var(--text); text-decoration: underline; }
+
+    .legal h2 { margin-bottom: 0.5rem; }
+    .legal p { color: var(--muted); font-size: 0.95rem; }
+
+    /* ---------- Modal + form (visual restyle only; functional hooks preserved) ---------- */
+    .hidden { display: none !important; }
+    .opacity-0 { opacity: 0 !important; }
+    .pointer-events-none { pointer-events: none !important; }
+    .scale-95 { transform: scale(0.97); }
+    #waitlist-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1rem; transition: opacity 180ms ease; }
+    #waitlist-modal .backdrop { position: absolute; inset: 0; background: rgba(20, 20, 19, 0.55); }
+    .glass-modal { position: relative; width: 100%; max-width: 36rem; max-height: 92vh; overflow-y: auto; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 14px; padding: 1.8rem; transition: transform 180ms ease, opacity 180ms ease; }
+    @media (prefers-color-scheme: dark) { .glass-modal { background: #1B1B19; } }
+    .modal-close { position: absolute; top: 0.8rem; right: 0.8rem; border: 1px solid var(--border); background: transparent; color: var(--muted); border-radius: 8px; width: 2.2rem; height: 2.2rem; cursor: pointer; font-size: 1.1rem; line-height: 1; transition: border-color 150ms ease, color 150ms ease; }
+    .modal-close:hover { border-color: var(--accent); color: var(--text); }
+    .cohort-tag { display: inline-block; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.8rem; margin-bottom: 0.8rem; }
+    #modal-title { margin-bottom: 0.4rem; }
+    .modal-sub { color: var(--muted); font-size: 0.95rem; }
+    .notice-box { border: 1px solid var(--border); border-radius: var(--radius); background: var(--accent-soft); padding: 1rem 1.1rem; font-size: 0.92rem; color: var(--muted); margin: 1.2rem 0; }
+    #form-error-alert { border: 1px solid var(--error); color: var(--error); border-radius: 8px; padding: 0.7rem 0.9rem; font-size: 0.9rem; margin-bottom: 1rem; background: transparent; }
+    #waitlist-form { display: grid; gap: 1.15rem; }
+    #waitlist-form label, #waitlist-form .field-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+    #waitlist-form input[type="text"], #waitlist-form input[type="email"], #waitlist-form select, #waitlist-form textarea {
+      width: 100%; font: inherit; font-size: 0.98rem; color: var(--text); background: var(--input-bg);
+      border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.85rem; transition: border-color 150ms ease;
     }
-    .animate-pulse-slow {
-      animation: pulse-slow 8s ease-in-out infinite;
-    }
+    #waitlist-form input:focus, #waitlist-form select:focus, #waitlist-form textarea:focus { outline: 2px solid var(--focus); outline-offset: 2px; border-color: var(--accent); }
+    #waitlist-form input::placeholder, #waitlist-form textarea::placeholder { color: var(--muted); opacity: 0.8; }
+    .border-red-500 { border-color: var(--error) !important; }
+    .border-emerald-500\/60 { border-color: var(--accent) !important; }
+    .border-slate-700 { border-color: var(--border) !important; }
+    #email-validation-badge, #delivery-email-validation-badge { display: inline-block; font-size: 0.78rem; border: 1px solid var(--border); border-radius: 6px; padding: 0.15rem 0.65rem; color: var(--muted); }
+    .hint { font-size: 0.85rem; color: var(--muted); margin-top: 0.35rem; }
+    #char-count { font-size: 0.8rem; color: var(--muted); }
+    .radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    @media (max-width: 520px) { .radio-grid { grid-template-columns: 1fr; } }
+    .radio-grid label { display: flex; align-items: center; gap: 0.6rem; border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.8rem; font-size: 0.9rem; font-weight: 400; cursor: pointer; margin: 0; transition: border-color 150ms ease; }
+    .radio-grid label:hover { border-color: var(--accent); }
+    .radio-grid input[type="radio"] { accent-color: var(--accent); width: 1rem; height: 1rem; }
+    .form-actions { display: flex; justify-content: flex-end; gap: 0.8rem; align-items: center; border-top: 1px solid var(--border); padding-top: 1.2rem; margin-top: 0.3rem; }
+    .link-cancel { background: none; border: none; color: var(--muted); font: inherit; font-size: 0.92rem; cursor: pointer; padding: 0.6rem 0.8rem; }
+    .link-cancel:hover { color: var(--text); }
+    #submit-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); padding: 0.7rem 1.3rem; font: inherit; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: opacity 180ms ease; }
+    @media (prefers-color-scheme: dark) { #submit-btn { color: #141413; } }
+    #submit-btn:hover { opacity: 0.88; }
+    #submit-btn:disabled { opacity: 0.6; cursor: wait; }
+    #submit-spinner { width: 1rem; height: 1rem; }
+    .receipt { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; font-size: 0.9rem; margin-top: 1.2rem; }
+    .receipt-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); }
+    .receipt-row:last-child { border-bottom: none; }
+    .receipt-row span:first-child { color: var(--muted); }
+    .success-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.4rem; }
+    #btn-copy-receipt { background: transparent; border: 1px solid var(--border); color: var(--text); border-radius: var(--radius); padding: 0.65rem 1.1rem; font: inherit; font-size: 0.9rem; cursor: pointer; transition: border-color 150ms ease; }
+    #btn-copy-receipt:hover { border-color: var(--accent); }
+
+    /* Gentle reveal */
+    .reveal { opacity: 0; transform: translateY(10px); transition: opacity 400ms ease, transform 400ms ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans selection:bg-brand-500/30 selection:text-brand-100 min-h-screen relative overflow-x-hidden">
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Accessible Skip to Main Content Link -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none">
-    Skip to main content
-  </a>
-
-  <!-- Ambient Radial Glow Effects (Top Header & Hero) -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-tr from-brand-600/15 via-purple-600/10 to-emerald-500/10 blur-[130px] pointer-events-none -z-10 animate-pulse-slow"></div>
-  <div class="fixed top-[40%] right-[-10%] w-[550px] h-[550px] bg-emerald-500/5 blur-[150px] pointer-events-none -z-10"></div>
-  <div class="fixed bottom-0 left-[-10%] w-[600px] h-[500px] bg-brand-600/5 blur-[160px] pointer-events-none -z-10"></div>
-
-  <!-- Background Grid -->
-  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20 opacity-60"></div>
-
-  <!-- ========================================== -->
-  <!-- NAVIGATION BAR -->
-  <!-- ========================================== -->
-  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-      
-      <!-- Brand & Badges -->
-      <div class="flex items-center gap-3.5 sm:gap-4">
-        <a href="#hero" class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded-lg">
-          <!-- Official SWMP Labs Logo -->
-          <div class="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-brand-500/40 shadow-inner group-hover:border-brand-400/70 transition-all shrink-0">
-            <img src="./swmp_logo.jpg" alt="SWMP Labs logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-xs text-brand-400\'>SWMP</span>';" />
-            <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-slate-950"></div>
-          </div>
-          
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-brand-300 transition-colors">
-                SWMP Labs
-              </span>
-              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-brand-500/15 text-brand-300 border border-brand-500/30">
-                AI Research Lab
-              </span>
-            </div>
-            <p class="text-[11px] text-slate-400 font-mono tracking-tight">
-              <span>Scientific Research Intelligence</span>
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Center Desktop Nav Links -->
-      <nav aria-label="Main Navigation" class="hidden md:flex items-center gap-7 text-xs lg:text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-1">About</a>
-        <a href="#features" class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-1">Capabilities</a>
-        <a href="#demo" class="hover:text-white transition-colors flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-1">
-          <span>Interactive Preview</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-        </a>
-        <a href="#research" class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-1">Claude &amp; AI Research</a>
-        <a href="#contact" class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-1">Contact</a>
+  <header class="site">
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="SWMP Labs home">
+        <img src="./swmp_logo.jpg" alt="SWMP Labs logo" loading="lazy">
+        <span>SWMP Labs</span>
+      </a>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#how-it-works">What it does</a>
+        <a href="#why">Where it fits</a>
+        <a href="#research">Claude</a>
+        <a href="#about">About</a>
       </nav>
-
-      <!-- Right Header Actions -->
-      <div class="flex items-center gap-3">
-        <!-- Contact Link -->
-        <a href="mailto:hello@swmp-labs.tech" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700 bg-slate-900/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
-          <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          <span>Contact Us</span>
-        </a>
-
-        <!-- Primary CTA Trigger -->
-        <button onclick="openWaitlistModal()" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none focus:ring-2 focus:ring-brand-400/50" aria-label="Apply for Early Access">
-          <span class="absolute inset-0 bg-gradient-to-r from-brand-500 via-purple-500 to-emerald-400 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"></span>
-          <span class="relative flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 text-xs sm:text-sm font-medium text-white group-hover:bg-slate-950/80 transition-colors">
-            <span>Apply for Early Access</span>
-            <svg class="w-3.5 h-3.5 text-brand-400 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </button>
-      </div>
+      <a class="btn nav-cta" href="https://app.swmp-labs.tech/">Try it</a>
     </div>
   </header>
 
-  <!-- Semantic Main Wrapper -->
   <main id="main-content">
-
-  <!-- ========================================== -->
-  <!-- HERO SECTION -->
-  <!-- ========================================== -->
-  <section id="hero" class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-      <!-- Badge: Early-Stage Research & Development Status -->
-      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 shadow-sm text-xs font-mono text-slate-300 mb-8 backdrop-blur-md hover:border-brand-500/40 transition-colors">
-        <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span>
-        <span class="font-semibold text-white">SWMP Labs</span>
-        <span class="text-slate-500">•</span>
-        <span class="text-emerald-400 font-medium">Early-stage AI research startup · Currently in development</span>
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow">SWMP Labs · Early stage</p>
+        <h1>A quieter way to read systems research.</h1>
+        <p style="margin-top:1rem; color: var(--muted);">Search arXiv, Semantic Scholar and OpenAlex in one place, set two papers side by side, and write to the people behind them. Made for researchers in distributed systems, cloud infrastructure and AI systems.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://app.swmp-labs.tech/">Try it free</a>
+          <a href="#access">Request wider access</a>
+        </div>
+        <p class="hero-note">Create an account to start with a small balance of free credits. The server sleeps when idle, so the first load can take up to 45 seconds.</p>
+        <p class="status-line">Early-stage. Built by one person. Free to try with limited credits.</p>
       </div>
+    </section>
 
-      <!-- Main Headline (Real Semantic H1) -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.15] sm:leading-[1.12]">
-        AI-Powered <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-indigo-200 to-emerald-400">Research Workflows</span>
-      </h1>
-
-      <!-- Subheadline -->
-      <p class="mt-6 sm:mt-7 text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-        SWMP Labs is developing tools to help researchers explore scientific literature, compare findings across papers, and investigate potential research gaps through structured AI-assisted workflows.
-      </p>
-
-      <!-- Primary & Secondary CTA Buttons -->
-      <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
-        
-        <!-- Primary Action Button: Explore the Platform -->
-        <a href="#demo" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-sm sm:text-base shadow-glow-violet hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
-          <span>Explore the Platform</span>
-          <svg class="w-4 h-4 text-brand-200 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-
-        <!-- Secondary Action: Contact Us -->
-        <a href="mailto:hello@swmp-labs.tech" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800/80 text-slate-300 hover:text-white font-medium text-sm sm:text-base border border-slate-800 hover:border-slate-700 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
-          <svg class="w-4 h-4 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <span>Contact Us</span>
-        </a>
-
-        <!-- Early Access Action Button -->
-        <button onclick="openWaitlistModal()" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 hover:text-emerald-200 font-medium text-sm sm:text-base border border-emerald-500/30 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" aria-label="Apply for early access">
-          <span>Apply for Early Access</span>
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-        </button>
-      </div>
-
-      <!-- Concise Status Line Callout -->
-      <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-mono text-slate-300 shadow-sm backdrop-blur-md">
-        <span class="text-emerald-400 font-semibold">🔒 Development Status:</span>
-        <span>Early-stage AI research startup · Currently in development</span>
-      </div>
-
-      <!-- Research Tooling Badges with Accurate Development Labels -->
-      <div class="mt-14 pt-8 border-t border-slate-800/60 max-w-4xl mx-auto">
-        <p class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">
-          Core Focus Areas &amp; Tooling (In Active Development)
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-mono">
-          
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-brand-500/40 transition-colors">
-            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-            <span>Multi-Source Literature Search <span class="text-slate-500 text-[10px]">[In Dev]</span></span>
+    <section class="block reveal" id="how-it-works">
+      <div class="wrap">
+        <h2>What it does today</h2>
+        <div class="feature-list">
+          <div class="feature">
+            <h3>Search</h3>
+            <p>Look up papers by topic, author, or university and lab across arXiv, Semantic Scholar and OpenAlex. Narrow by year and source. Coverage is focused on cs.DC, cs.SE, cs.AI and cs.AR.</p>
           </div>
-
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-emerald-500/40 transition-colors">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>Structured Evidence Synthesis <span class="text-slate-500 text-[10px]">[In Dev]</span></span>
+          <div class="feature">
+            <h3>Compare</h3>
+            <p>Pick two papers and get a side-by-side table of bottlenecks, bounds, complexity ceilings and failure modes. Copy it as Markdown or print it.</p>
           </div>
-
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-cyan-500/40 transition-colors">
-            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-            <span>Research Gap Discovery <span class="text-slate-500 text-[10px]">[In Dev]</span></span>
+          <div class="feature">
+            <h3>Visualize</h3>
+            <p>Turn a paper's system design into an interactive diagram you can drag and zoom, then export it as SVG or PNG.</p>
           </div>
-
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800/90 text-slate-300 hover:border-purple-500/40 transition-colors">
-            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-            <span>Architecture Topologies <span class="text-slate-500 text-[10px]">[In Dev]</span></span>
+          <div class="feature">
+            <h3>Cite and reach out</h3>
+            <p>Export BibTeX, IEEE or APA 7th. Draft a short email to an author or a lab, with placeholders left for you to personalize.</p>
           </div>
-
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- ABOUT SECTION                              -->
-  <!-- ========================================== -->
-  <section id="about" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-slate-950/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        
-        <!-- Left: About Copy & Product Status -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-300 text-xs font-mono">
-            <span>About SWMP Labs</span>
-          </div>
-
-          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
-            Structuring Scientific Exploration for Modern Researchers
-          </h2>
-
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            SWMP Labs is an early-stage AI research startup focused on making scientific exploration more structured and efficient. We are developing workflows that help researchers explore scientific literature, organize evidence, compare findings, and investigate potential research directions.
-          </p>
-
-          <!-- Product Status Callout Box -->
-          <div class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2.5">
-            <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-semibold">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Product Status: Active Development</span>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              SWMP Labs is currently in active development. We are refining the platform, evaluating research workflows, and improving output quality and reliability before broader release.
-            </p>
-          </div>
-
-          <!-- Core Research Objectives List (Semantic HTML List) -->
-          <ul class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-slate-300" role="list">
-            <li class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
-              <span class="text-brand-400 font-bold" aria-hidden="true">✓</span>
-              <span>Explore scientific literature</span>
-            </li>
-            <li class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
-              <span class="text-brand-400 font-bold" aria-hidden="true">✓</span>
-              <span>Uncover potential research gaps</span>
-            </li>
-            <li class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
-              <span class="text-brand-400 font-bold" aria-hidden="true">✓</span>
-              <span>Compare empirical findings</span>
-            </li>
-            <li class="flex items-center gap-2.5 p-3 rounded-lg bg-slate-900/50 border border-slate-800/80">
-              <span class="text-brand-400 font-bold" aria-hidden="true">✓</span>
-              <span>Evaluate research directions</span>
-            </li>
-          </ul>
+    <section class="block reveal" id="preview">
+      <div class="wrap-wide">
+        <div class="wrap" style="padding:0;">
+          <h2>A look inside</h2>
         </div>
-
-        <!-- Right: Founder & Company Profile Card -->
-        <div class="lg:col-span-5 p-6 sm:p-7 rounded-2xl glass-card border border-slate-800 space-y-5">
-          <div class="flex items-center gap-3.5 pb-4 border-b border-slate-800">
-            <div class="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-900 border border-brand-500/40 flex items-center justify-center shrink-0">
-              <img src="./swmp_logo.jpg" alt="SWMP Labs" class="w-full h-full object-cover" onerror="this.style.display='none';" />
+        <div class="preview" aria-label="Static layout preview of the SWMP Labs app">
+          <div class="preview-bar">
+            <div class="search-input" aria-hidden="true">Search papers by topic, author, lab, or custom query</div>
+          </div>
+          <div class="mode-row" aria-label="Search modes">
+            <span class="mode">Topic</span>
+            <span class="mode">Author</span>
+            <span class="mode">University or lab</span>
+            <span class="mode">Custom query</span>
+            <span style="margin-left:auto;">Filtered by year and source</span>
+          </div>
+          <div class="preview-grid">
+            <div class="preview-col">
+              <p class="preview-label">Results</p>
+              <div class="skel"><div class="skel-title">Paper title</div><div class="skel-meta">Authors · Source</div></div>
+              <div class="skel"><div class="skel-title">Paper title</div><div class="skel-meta">Authors · Source</div></div>
+              <div class="skel"><div class="skel-title">Paper title</div><div class="skel-meta">Authors · Source</div></div>
             </div>
-            <div>
-              <h3 class="text-white font-semibold text-base">SWMP Labs</h3>
-              <p class="text-xs font-mono text-slate-400">Early-Stage AI Research Startup</p>
+            <div class="preview-col">
+              <p class="preview-label">Compare</p>
+              <table class="compare-table" aria-label="Comparison table layout">
+                <thead><tr><th scope="col">Trade-off</th><th scope="col">Paper A</th><th scope="col">Paper B</th></tr></thead>
+                <tbody>
+                  <tr><td>Architectural bottlenecks</td><td>—</td><td>—</td></tr>
+                  <tr><td>Bounds</td><td>—</td><td>—</td></tr>
+                  <tr><td>Complexity ceilings</td><td>—</td><td>—</td></tr>
+                  <tr><td>Failure modes</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="preview-col">
+              <p class="preview-label">Architecture diagram</p>
+              <div class="graph-box" aria-hidden="true">
+                <span class="graph-node">Component</span>
+                <span aria-hidden="true">→</span>
+                <span class="graph-node">Component</span>
+                <span aria-hidden="true">→</span>
+                <span class="graph-node">Component</span>
+              </div>
+              <p class="hint">Drag and zoom in the app. Export as SVG or PNG.</p>
+            </div>
+            <div class="preview-col">
+              <p class="preview-label">Citations</p>
+              <div class="cite-row"><span class="cite-tag">BibTeX</span><span class="cite-tag">IEEE</span><span class="cite-tag">APA 7th</span></div>
+              <p class="preview-label" style="margin-top:1rem;">Outreach draft</p>
+              <div class="email-draft">Dear [professor name], I read [paper topic] from your lab and had a question about [specific detail]…</div>
             </div>
           </div>
-
-          <div class="space-y-3 font-mono text-xs">
-            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
-              <span class="text-slate-400">Founder &amp; CEO</span>
-              <span class="text-white font-medium">Marawan Mohamed</span>
-            </div>
-            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
-              <span class="text-slate-400">Founder Background</span>
-              <span class="text-slate-200">Cloud Engineer</span>
-            </div>
-            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
-              <span class="text-slate-400">Company Stage</span>
-              <span class="text-emerald-400 font-medium">Bootstrapped, In Development</span>
-            </div>
-            <div class="flex items-center justify-between py-1.5 border-b border-slate-800/60">
-              <span class="text-slate-400">Website Domain</span>
-              <a href="https://swmp-labs.tech" class="text-brand-300 hover:underline">swmp-labs.tech</a>
-            </div>
-            <div class="flex items-center justify-between py-1.5">
-              <span class="text-slate-400">Contact Email</span>
-              <a href="mailto:hello@swmp-labs.tech" class="text-brand-300 hover:underline">hello@swmp-labs.tech</a>
-            </div>
-          </div>
-
-          <div class="pt-2">
-            <a href="mailto:hello@swmp-labs.tech" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs flex items-center justify-center gap-2 border border-slate-700 transition-colors">
-              <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <span>Contact Founder &amp; Team →</span>
-            </a>
+          <div class="preview-foot">
+            <span>Layout preview. Open the app to see real results.</span>
+            <a class="btn btn-secondary" href="https://app.swmp-labs.tech/">Open the app</a>
           </div>
         </div>
-
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- INTERACTIVE PREVIEW & TERMINAL SECTION -->
-  <!-- ========================================== -->
-  <section id="demo" class="py-12 sm:py-20 relative">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-8">
-        <span class="text-xs font-mono font-medium text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-          Interactive Architecture Preview
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-3">
-          Explore SWMP Labs Research Workflows
-        </h2>
-        <p class="text-sm sm:text-base text-slate-400 mt-2">
-          From parallel literature ingestion to structured research synthesis and vector PlantUML topologies.
-        </p>
+    <section class="block reveal" id="why">
+      <div class="wrap">
+        <h2>Where SWMP Labs fits</h2>
+        <p style="color: var(--muted);">General research tools are strong at what they do. Elicit is good at structured extraction and screening, SciSpace at literature-review drafts and writing help, Consensus at quick evidence-backed answers, Undermind at deep citation-trail search. SWMP Labs is narrower on purpose.</p>
+        <ul class="points">
+          <li><strong>Made for systems papers</strong><p>Most tools cover every field. We cover four arXiv categories and try to do those well.</p></li>
+          <li><strong>Trade-offs, not only summaries</strong><p>The comparison view lines papers up on the things you argue about in a related-work section.</p></li>
+          <li><strong>From reading to writing</strong><p>The place where you read a paper is also where you cite it and draft a note to its authors.</p></li>
+          <li><strong>Public code</strong><p>The code is on <a href="https://github.com/marawan090/swmp-labs/">GitHub</a>, so you can see how it works.</p></li>
+        </ul>
+        <p style="margin-top:1.4rem; color: var(--muted); font-size: 0.95rem;">This comparison is based on the tools' public descriptions as of October 2026. As far as we can tell, none of them puts a systems-focused comparison matrix, architecture diagrams and outreach drafting in one place. If we've missed something, please tell us.</p>
       </div>
+    </section>
 
-      <!-- Mandatory Credibility Disclaimer -->
-      <div class="mb-8 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 max-w-3xl mx-auto flex items-start gap-3 shadow-sm">
-        <span class="text-emerald-400 font-mono font-bold text-sm shrink-0" aria-hidden="true">ⓘ</span>
-        <p class="leading-relaxed">
-          <strong>Illustrative Example:</strong> This preview demonstrates an example research workflow. Outputs are illustrative unless explicitly linked to verified source material. Product capabilities and output quality are being evaluated during development.
-        </p>
-      </div>
-
-      <!-- Mock Workspace Terminal / Dashboard -->
-      <div class="rounded-2xl glass-card overflow-hidden shadow-2xl border border-slate-800 shadow-slate-950/80">
-        
-        <!-- Window Chrome / Header Bar -->
-        <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500/80" aria-hidden="true"></div>
-            <div class="w-3 h-3 rounded-full bg-amber-500/80" aria-hidden="true"></div>
-            <div class="w-3 h-3 rounded-full bg-emerald-500/80" aria-hidden="true"></div>
-            <span class="ml-2 text-xs font-mono text-slate-400">swmp-engine: consensus-latency-tradeoffs</span>
-          </div>
-
-          <!-- Interactive Tab Buttons -->
-          <div role="tablist" aria-label="Research Preview Tabs" class="flex items-center gap-1 bg-slate-950/80 p-1 rounded-lg border border-slate-800 text-xs font-mono w-full sm:w-auto overflow-x-auto">
-            <button role="tab" aria-selected="true" aria-controls="tab-content-synthesis" onclick="switchPreviewTab('synthesis')" id="tab-btn-synthesis" class="px-2.5 py-1 rounded bg-brand-600 text-white font-medium transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400">
-              1. Systems Synthesis
-            </button>
-            <button role="tab" aria-selected="false" aria-controls="tab-content-diagram" onclick="switchPreviewTab('diagram')" id="tab-btn-diagram" class="px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400">
-              2. PlantUML Topology
-            </button>
-            <button role="tab" aria-selected="false" aria-controls="tab-content-pipeline_view" onclick="switchPreviewTab('pipeline_view')" id="tab-btn-pipeline_view" class="px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400">
-              3. Ingestion Feed
-            </button>
-            <button role="tab" aria-selected="false" aria-controls="tab-content-notebooklm" onclick="switchPreviewTab('notebooklm')" id="tab-btn-notebooklm" class="px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400">
-              4. NotebookLM Pack
-            </button>
-          </div>
-        </div>
-
-        <!-- Terminal Content Area -->
-        <div class="p-5 sm:p-7 min-h-[420px] bg-slate-950/70 text-slate-200 font-sans">
-          
-          <!-- TAB 1: Systems Synthesis View -->
-          <div id="tab-content-synthesis" role="tabpanel" aria-labelledby="tab-btn-synthesis" class="space-y-5">
-            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
-              <div>
-                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Structured Research Synthesis (Illustrative Example)</span>
-                <h3 class="text-lg font-semibold text-white mt-1">High-Throughput Raft Optimization in Disaggregated NVMe Clusters</h3>
-              </div>
-              <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
-                <span class="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Illustrative Output</span>
-                <span>•</span>
-                <span>Sample Research Analysis</span>
-              </div>
-            </div>
-
-            <!-- 4-Stage Breakdown Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              
-              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                <div class="flex items-center gap-2 text-brand-400 font-mono text-xs font-semibold uppercase mb-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
-                  01. Core Problem Statement
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Traditional quorum consensus protocols introduce tail-latency bottlenecks when scaling across disaggregated storage tiers due to serialized disk I/O and synchronous round-trips under high-concurrency write surges.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                <div class="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold uppercase mb-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
-                  02. Technical Bottleneck
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Lock contention on leader commit indexes causes CPU core pinning. PCIe bus backpressure throttles RDMA write operations at high network saturation, degrading tail latency under write bursts.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                <div class="flex items-center gap-2 text-amber-400 font-mono text-xs font-semibold uppercase mb-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                  03. Identified Research Gaps
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Existing literature lacks adaptive epoch pipelining that dynamically switches between optimistic speculative commits and two-phase commits based on real-time RDMA hardware telemetry.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-slate-900/60 border border-emerald-500/30 bg-emerald-500/5">
-                <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-semibold uppercase mb-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  04. Actionable Research Extension (Delta)
-                </div>
-                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                  <strong>Proposed Direction:</strong> Implement an asynchronous log-decoupled Raft state machine utilizing NVMe-oF zero-copy memory buffers. Benchmark against baseline consensus implementations under clustered write workloads.
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- TAB 2: PlantUML Topology View -->
-          <div id="tab-content-diagram" role="tabpanel" aria-labelledby="tab-btn-diagram" class="hidden space-y-4">
-            <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
-              <div>
-                <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded border border-brand-500/20">Vector PlantUML Topology (Illustrative Flow · In Development)</span>
-                <h3 class="text-base font-semibold text-white mt-1">Disaggregated Consensus Engine Component Flow</h3>
-              </div>
-              <span class="text-xs font-mono text-slate-400">Renderer: PlantUML / Kroki [In Dev]</span>
-            </div>
-
-            <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-800 flex flex-col items-center justify-center font-mono text-xs text-slate-300">
-              <!-- Visual Diagram Mockup using SVG & CSS Grid -->
-              <div class="w-full max-w-2xl py-4">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-                  
-                  <div class="p-3.5 rounded-lg bg-slate-800/80 border border-brand-500/40 w-full md:w-44">
-                    <span class="text-[10px] text-brand-400 uppercase font-bold">Client Layer</span>
-                    <div class="text-white font-semibold text-xs mt-1">Distributed Clients</div>
-                    <div class="text-[10px] text-slate-400 mt-0.5">gRPC / RoCEv2</div>
-                  </div>
-
-                  <div class="text-brand-400 font-bold hidden md:block" aria-hidden="true">➔</div>
-                  <div class="text-brand-400 font-bold md:hidden" aria-hidden="true">↓</div>
-
-                  <div class="p-3.5 rounded-lg bg-indigo-950/50 border border-indigo-500/50 w-full md:w-48 shadow-lg shadow-indigo-950/50">
-                    <span class="text-[10px] text-indigo-400 uppercase font-bold">Consensus Core</span>
-                    <div class="text-white font-semibold text-xs mt-1">Consensus Protocol Leader</div>
-                    <div class="text-[10px] text-emerald-400 mt-0.5">Zero-Copy Commit Log</div>
-                  </div>
-
-                  <div class="text-brand-400 font-bold hidden md:block" aria-hidden="true">➔</div>
-                  <div class="text-brand-400 font-bold md:hidden" aria-hidden="true">↓</div>
-
-                  <div class="p-3.5 rounded-lg bg-slate-800/80 border border-emerald-500/40 w-full md:w-44">
-                    <span class="text-[10px] text-emerald-400 uppercase font-bold">Storage Fabric</span>
-                    <div class="text-white font-semibold text-xs mt-1">NVMe-oF Ring</div>
-                    <div class="text-[10px] text-slate-400 mt-0.5">Dual-Port 100GbE</div>
-                  </div>
-
-                </div>
-
-                <div class="mt-5 p-3 rounded bg-slate-950 border border-slate-800/90 text-slate-400 text-[11px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                  <span>@startuml: <code>node "Consensus Core" -&gt; node "Storage Fabric" : sync_replicate()</code></span>
-                  <span class="text-emerald-400 font-semibold">1-Click Export Vector SVG</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TAB 3: Ingestion Feed View -->
-          <div id="tab-content-pipeline_view" role="tabpanel" aria-labelledby="tab-btn-pipeline_view" class="hidden space-y-3">
-            <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
-              <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">Parallel Academic Ingestion Stream (Illustrative Feed · In Development)</span>
-              <span class="text-xs font-mono text-slate-400">Concurrent Query Across Repositories</span>
-            </div>
-
-            <div class="space-y-2 font-mono text-xs">
-              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-slate-700 transition-colors">
-                <div class="flex items-center gap-3">
-                  <span class="px-2 py-0.5 rounded bg-red-500/15 text-red-300 border border-red-500/30">ArXiv cs.DC</span>
-                  <span class="text-white font-sans text-xs sm:text-sm font-medium">BFT-Mesh: Fault-Tolerant Microsecond Epoch Sharding</span>
-                  <span class="text-slate-400 text-[11px] hidden sm:inline">(arXiv:2403.11982)</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-emerald-400 text-[11px] hidden md:inline">Matched Repository</span>
-                  <span class="text-slate-400 text-[11px]">84 Citations</span>
-                </div>
-              </div>
-
-              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-slate-700 transition-colors">
-                <div class="flex items-center gap-3">
-                  <span class="px-2 py-0.5 rounded bg-blue-500/15 text-blue-300 border border-blue-500/30">OpenAlex</span>
-                  <span class="text-white font-sans text-xs sm:text-sm font-medium">Speculative Log Commitments in High-Velocity Stream Engines</span>
-                  <span class="text-slate-400 text-[11px] hidden sm:inline">(W9821049)</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-purple-400 text-[11px]">Normalized Match: Deduplicated</span>
-                  <span class="text-slate-400 text-[11px]">112 Citations</span>
-                </div>
-              </div>
-
-              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-slate-700 transition-colors">
-                <div class="flex items-center gap-3">
-                  <span class="px-2 py-0.5 rounded bg-teal-500/15 text-teal-300 border border-teal-500/30">Semantic Scholar</span>
-                  <span class="text-white font-sans text-xs sm:text-sm font-medium">Asynchronous Vector Memory Checkpointing on Heterogeneous GPUs</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-emerald-400 text-[11px]">Open Access Source</span>
-                  <span class="text-slate-400 text-[11px]">239 Citations</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TAB 4: NotebookLM Pack View -->
-          <div id="tab-content-notebooklm" role="tabpanel" aria-labelledby="tab-btn-notebooklm" class="hidden space-y-4">
-            <div class="flex items-center justify-between pb-3 border-b border-slate-800/80">
-              <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">NotebookLM Bundle Formatting (Planned · In Development)</span>
-              <span class="text-xs font-mono text-slate-400">Structured Markdown &amp; Audio-Ready Source Pack</span>
-            </div>
-
-            <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 font-mono text-xs text-slate-300 space-y-2 overflow-x-auto">
-              <p class="text-slate-500"># NotebookLM Source Pack: SWMP Labs Systems Literature Review</p>
-              <p class="text-indigo-300">## Paper Dossier: Distributed Consensus Under Hardware Disaggregation</p>
-              <p class="text-slate-400">&gt; **Curated Sources**: ArXiv:2403.11982, SemanticScholar:441209, OpenAlex:W9821049</p>
-              <p class="text-slate-400">&gt; **Key Arguments for Deep Audio Discussion**: Speculative execution vs serialized Raft logs.</p>
-              <p class="text-emerald-400">@article{chen2025speculative, title={BFT-Mesh}, author={Chen, S. et al.}, year={2025}}</p>
-            </div>
-            
-            <div class="flex items-center justify-between pt-2">
-              <span class="text-xs text-slate-400">Formatted for instant structured ingestion in Google NotebookLM.</span>
-              <button onclick="openWaitlistModal()" class="text-xs font-mono text-brand-400 hover:text-brand-300 underline">Request early access to test live →</button>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- FEATURE GRID (3 COMPACT CARDS)             -->
-  <!-- ========================================== -->
-  <section id="features" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-slate-950/60">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="text-xs font-mono font-medium text-brand-400 uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
-          Core Focus Areas (In Development)
-        </span>
-        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-3">
-          Structured Tools for Scientific Research
-        </h2>
-        <p class="text-sm sm:text-base text-slate-400 mt-3">
-          Developing structured workflows for systems researchers, graduate authors, and research labs.
-        </p>
-      </div>
-
-      <!-- The 3 Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        
-        <!-- Feature Card 1 -->
-        <div class="glass-card rounded-2xl p-6 sm:p-7 relative flex flex-col justify-between group">
-          <div class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
-          
+    <section class="block reveal" id="status">
+      <div class="wrap">
+        <h2>Where things stand</h2>
+        <p style="color: var(--muted);">Early-stage. Built by one person. Free to try with limited credits.</p>
+        <div class="two-col">
           <div>
-            <!-- Icon -->
-            <div class="w-12 h-12 rounded-xl bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 mb-5 group-hover:scale-105 group-hover:border-brand-400/60 transition-all">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-            </div>
-
-            <!-- Number & Title -->
-            <span class="text-xs font-mono text-brand-400/80 uppercase font-semibold">01 // Literature Exploration [In Dev]</span>
-            <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-brand-300 transition-colors">
-              Multi-Source Repository Search
-            </h3>
-
-            <!-- Description -->
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Developing concurrent query capabilities across <strong>arXiv</strong>, <strong>Semantic Scholar</strong>, and <strong>OpenAlex</strong> by topic, author, or research field.
-            </p>
+            <h3>Working today</h3>
+            <ul>
+              <li>Search across three sources</li>
+              <li>Two-paper comparison</li>
+              <li>Architecture diagrams with SVG and PNG export</li>
+              <li>BibTeX, IEEE and APA export</li>
+              <li>Outreach email drafts</li>
+              <li>Saved sessions and bookmarks when signed in</li>
+            </ul>
           </div>
-
-          <!-- Card Footer Metadata -->
-          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span>Multi-Source Literature Query</span>
-            <span class="text-emerald-400">Status: In Development</span>
-          </div>
-        </div>
-
-        <!-- Feature Card 2 -->
-        <div class="glass-card rounded-2xl p-6 sm:p-7 relative flex flex-col justify-between group">
-          <div class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
-          
           <div>
-            <!-- Icon -->
-            <div class="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-5 group-hover:scale-105 group-hover:border-purple-400/60 transition-all">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-            </div>
-
-            <!-- Number & Title -->
-            <span class="text-xs font-mono text-purple-400/80 uppercase font-semibold">02 // Systems Synthesis [In Dev]</span>
-            <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-purple-300 transition-colors">
-              Structured Evidence Synthesis
-            </h3>
-
-            <!-- Description -->
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Extracting core problem statements, technical bottlenecks, empirical trade-offs, and open research gaps from dense scientific papers.
-            </p>
+            <h3>Known limits</h3>
+            <ul>
+              <li>Early-stage and built by one person</li>
+              <li>Free-tier hosting, so cold starts</li>
+              <li>Model-written text can be wrong and should be checked against the paper</li>
+              <li>Coverage limited to three sources and four categories</li>
+              <li>Credits are limited</li>
+            </ul>
           </div>
-
-          <!-- Card Footer Metadata -->
-          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span>Multi-Step Reasoning Workflows</span>
-            <span class="text-purple-400">Status: In Development</span>
-          </div>
-        </div>
-
-        <!-- Feature Card 3 -->
-        <div class="glass-card rounded-2xl p-6 sm:p-7 relative flex flex-col justify-between group">
-          <div class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
-          
-          <div>
-            <!-- Icon -->
-            <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5 group-hover:scale-105 group-hover:border-emerald-400/60 transition-all">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-            </div>
-
-            <!-- Number & Title -->
-            <span class="text-xs font-mono text-emerald-400/80 uppercase font-semibold">03 // Visuals &amp; Export [Planned]</span>
-            <h3 class="text-lg sm:text-xl font-bold text-white mt-1 mb-3 group-hover:text-emerald-300 transition-colors">
-              Architecture Diagrams &amp; Export Tools
-            </h3>
-
-            <!-- Description -->
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Prototyping architecture diagrams (via PlantUML / Kroki) and structured exports (including NotebookLM source bundles) to support literature reviews.
-            </p>
-          </div>
-
-          <!-- Card Footer Metadata -->
-          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span>PlantUML &amp; NotebookLM Exporter</span>
-            <span class="text-emerald-400">Status: Planned / In Dev</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- ========================================== -->
-  <!-- CLAUDE & AI RESEARCH EVALUATION SECTION    -->
-  <!-- ========================================== -->
-  <section id="research" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-gradient-to-b from-slate-950 via-slate-900/40 to-slate-950">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs font-mono font-medium text-purple-400 uppercase tracking-widest bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
-          Research &amp; Development
-        </span>
-        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-3">
-          AI-Assisted Scientific Research Workflows
-        </h2>
-        <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
-          We are actively developing and evaluating AI-assisted research workflows, with a focus on output quality, reliability, and structured scientific insights. Our current priority is to improve the research experience and validate workflow reliability through systematic testing.
-        </p>
-      </div>
-
-      <!-- Claude Exploration Focus Card -->
-      <div class="p-6 sm:p-8 rounded-2xl glass-card border border-purple-500/30 relative overflow-hidden">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-          <div>
-            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-mono text-purple-300 bg-purple-500/15 border border-purple-500/30 mb-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
-              <span>Model Evaluation</span>
-            </div>
-            <h3 class="text-xl font-bold text-white">Evaluating Claude for Research Workflows</h3>
-          </div>
-          <span class="text-xs font-mono text-amber-300 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20">
-            Status: Exploration &amp; Evaluation
-          </span>
-        </div>
-
-        <p class="text-sm sm:text-base text-slate-300 mt-5 leading-relaxed">
-          We are evaluating advanced language models, including Anthropic's Claude, for potential use in scientific text analysis, multi-step reasoning, cross-paper evidence synthesis, research gap exploration, citation fidelity, and output reliability. Claude is currently being evaluated in laboratory research workflows and does not power a production deployment.
-        </p>
-
-        <!-- 5 Potential Use Cases Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-          
-          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">01 // Reasoning</div>
-            <h4 class="text-white font-medium text-sm">Multi-Step Scientific Reasoning</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Evaluating reasoning chains across dense systems literature, distributed protocols, and formal algorithms.</p>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">02 // Text Analysis</div>
-            <h4 class="text-white font-medium text-sm">Scientific Text Analysis</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Extracting core problem statements, empirical constraints, and architectural assumptions from long-form papers.</p>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">03 // Synthesis</div>
-            <h4 class="text-white font-medium text-sm">Cross-Paper Evidence Synthesis</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Connecting findings across multiple publications to construct structured comparison matrices.</p>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">04 // Discovery</div>
-            <h4 class="text-white font-medium text-sm">Research Gap Exploration</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Investigating relationships, methodological tensions, and unaddressed research gaps across literature.</p>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 sm:col-span-2 lg:col-span-1">
-            <div class="text-purple-400 font-mono text-xs font-semibold mb-1">05 // Quality &amp; Fidelity</div>
-            <h4 class="text-white font-medium text-sm">Citation Fidelity &amp; Output Reliability</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Evaluating factual consistency, citation fidelity, and output quality across research workflow prototypes.</p>
-          </div>
-
-        </div>
-
-        <div class="mt-6 pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-400 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <span>Laboratory Prototyping &amp; Workflow Evaluation</span>
-          <span class="text-purple-300">Clear Separation of Evidence vs. Unverified Hypotheses</span>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- PIPELINE SPECS & TECHNICAL ARCHITECTURE    -->
-  <!-- ========================================== -->
-  <section id="pipeline" class="py-16 sm:py-20 relative border-t border-slate-800/70">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        
-        <!-- Left Column: Copy & Technical Ethos -->
-        <div>
-          <span class="text-xs font-mono font-medium text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-            Technical Architecture
-          </span>
-          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-4 leading-tight">
-            How SWMP Labs Approaches Literature Workflows
-          </h2>
-          <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
-            Standard literature searches force researchers to juggle fragmented tabs across academic repositories while manually parsing long papers for methodology differences. SWMP Labs is designing structured workflows to streamline ingestion, disambiguation, and insight extraction.
-          </p>
-
-          <div class="mt-6 space-y-3.5 text-sm text-slate-300">
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">✓</div>
-              <p><strong class="text-white">Normalized Title Disambiguation:</strong> Heuristic similarity matching to reduce duplicate preprints across arXiv and conference proceedings.</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">✓</div>
-              <p><strong class="text-white">Workflow Resilience:</strong> Multi-provider architecture design for reliable processing during research sprints.</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">✓</div>
-              <p><strong class="text-white">Structured Citations:</strong> Standardized BibTeX entry generation for citation management tools.</p>
-            </div>
-          </div>
-
-          <div class="mt-8">
-            <button onclick="openWaitlistModal()" class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-medium text-brand-400 hover:text-brand-300 underline underline-offset-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400">
-              <span>Apply for early access to test the platform →</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Right Column: Pipeline Execution Graph / Specs -->
-        <div class="p-6 rounded-2xl glass-card border border-slate-800 space-y-4 font-mono text-xs">
-          <div class="text-slate-400 uppercase tracking-widest text-[11px] pb-2 border-b border-slate-800 flex items-center justify-between">
-            <span>Workflow Design</span>
-            <span class="text-amber-400">Status: Pipeline in Development</span>
-          </div>
-
-          <div class="space-y-3">
-            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-              <div>
-                <span class="text-slate-400 block text-[10px]">CONCURRENT INGESTION</span>
-                <span class="text-white font-medium">arXiv + OpenAlex + Semantic Scholar</span>
-              </div>
-              <span class="text-emerald-400 text-right">[In Development]</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-              <div>
-                <span class="text-slate-400 block text-[10px]">DEDUPLICATION ALGORITHM</span>
-                <span class="text-white font-medium">Heuristic Title Normalization</span>
-              </div>
-              <span class="text-purple-400 text-right">[Experimental]</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-              <div>
-                <span class="text-slate-400 block text-[10px]">SYNTHESIS ENGINE</span>
-                <span class="text-white font-medium">Scientific Synthesis &amp; Gap Exploration</span>
-              </div>
-              <span class="text-brand-400 text-right">[Under Evaluation]</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-              <div>
-                <span class="text-slate-400 block text-[10px]">DIAGRAM VECTOR RENDERING</span>
-                <span class="text-white font-medium">Kroki Engine (PlantUML Topologies)</span>
-              </div>
-              <span class="text-cyan-400 text-right">[In Development]</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-              <div>
-                <span class="text-slate-400 block text-[10px]">NOTEBOOKLM PACK EXPORT</span>
-                <span class="text-white font-medium">Structured Google NotebookLM Source Bundle</span>
-              </div>
-              <span class="text-amber-400 text-right">[Planned]</span>
-            </div>
-          </div>
-        </div>
-
+    <section class="block reveal" id="research">
+      <div class="wrap">
+        <h2>Where Claude fits</h2>
+        <p style="color: var(--muted);">We're building three parts of SWMP Labs around Claude, mostly because it reads long technical text carefully and writes in a natural voice.</p>
+        <ul class="points">
+          <li><strong>Reading and organizing papers</strong><p>Turning a dense paper into its problem, bottleneck, assumptions and open questions, organized so it's easy to scan.</p></li>
+          <li><strong>Writing to professors</strong><p>Short, specific cold emails tied to a paper or a lab, with placeholders so the researcher adds the personal details before sending.</p></li>
+          <li><strong>Diagrams and summaries</strong><p>Clear architecture diagrams and short summaries that make a paper's design easy to grasp at a glance.</p></li>
+        </ul>
+        <p style="margin-top:1.4rem; color: var(--muted); font-size: 0.95rem;">The prototype currently runs through a configurable model router, and we're integrating Claude for these three tasks. Model output is a draft. We aim to keep what a paper states separate from what the model infers, and we encourage checking anything important against the paper itself.</p>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- EARLY ACCESS SELECTION CRITERIA            -->
-  <!-- ========================================== -->
-  <section id="cohort" class="py-16 sm:py-24 relative border-t border-slate-800/70 bg-gradient-to-b from-slate-950 via-slate-900/40 to-slate-950">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs font-mono mb-4">
-        <span>Early Access Onboarding</span>
-      </div>
-
-      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
-        Who We Are Onboarding for Early Access
-      </h2>
-      <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-2xl mx-auto">
-        We are preparing for early access and evaluating the platform's usefulness across scientific research workflows.
-      </p>
-
-      <!-- Criteria Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mt-10 text-left">
-        
-        <div class="p-5 rounded-xl glass-card border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-sm font-mono mb-3">01</div>
-          <h3 class="text-white font-semibold text-base">Distributed Systems &amp; Cloud</h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Researchers and architects tackling consensus algorithms, disaggregated storage, low-latency RPCs, and cluster scheduling.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl glass-card border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm font-mono mb-3">02</div>
-          <h3 class="text-white font-semibold text-base">LLM Systems &amp; Accelerators</h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Engineers exploring GPU kernel optimizations, attention mechanisms, parallelism strategies, and model inference systems.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl glass-card border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm font-mono mb-3">03</div>
-          <h3 class="text-white font-semibold text-base">Graduate Thesis Authors</h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Master's and PhD candidates actively conducting literature surveys who require deep gap discovery and formal citation taxonomy.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl glass-card border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm font-mono mb-3">04</div>
-          <h3 class="text-white font-semibold text-base">Active Lab Supervisors</h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Principal investigators and postdocs steering research groups seeking automated architecture diagrams and cross-paper comparisons.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Callout Box -->
-      <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-brand-950/40 via-slate-900 to-emerald-950/30 border border-brand-500/30 text-center">
-        <h3 class="text-lg font-bold text-white">Interested in evaluating structured research workflows?</h3>
-        <p class="text-xs sm:text-sm text-slate-300 mt-1.5">Applications are evaluated on a rolling basis during development cycles.</p>
-        <div class="mt-5">
-          <button onclick="openWaitlistModal()" class="px-6 py-3 rounded-xl bg-white text-slate-950 hover:bg-slate-200 font-semibold text-sm transition-all shadow-lg shadow-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
-            Apply for Early Access →
-          </button>
+    <section class="block reveal" id="about">
+      <div class="wrap">
+        <h2>About</h2>
+        <p style="margin-top:1rem;">I'm Marawan, a cloud engineer. Systems research is spread across arXiv, Semantic Scholar and OpenAlex, and reading it usually means a lot of tabs, duplicate entries and notes that never quite get organized. SWMP Labs is my attempt to make that part easier, starting with the areas I know best: distributed systems, cloud infrastructure and AI systems. It's early, it's bootstrapped, and the code is public. If something breaks or feels off, I'd like to hear about it.</p>
+        <p class="byline">Marawan Mohamed, Founder &amp; CEO</p>
+        <div class="about-links">
+          <a href="https://www.linkedin.com/in/marawan-mohamed-elkzaz-07178a2a7/">LinkedIn</a>
+          <a href="https://github.com/marawan090/swmp-labs/">GitHub</a>
+          <a href="mailto:hello@swmp-labs.tech">hello@swmp-labs.tech</a>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- CONTACT SECTION                            -->
-  <!-- ========================================== -->
-  <section id="contact" class="py-16 sm:py-20 relative border-t border-slate-800/70 bg-slate-950">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-300 text-xs font-mono mb-4">
-        <span>Contact &amp; Inquiries</span>
+    <section class="block reveal" id="who">
+      <div class="wrap">
+        <h2>Who it is for</h2>
+        <p style="color: var(--muted);">SWMP Labs is useful if your reading list lives mostly in systems venues.</p>
+        <ul class="who-list">
+          <li>Distributed systems and cloud researchers</li>
+          <li>LLM-systems and accelerator engineers</li>
+          <li>Master's and PhD students writing literature surveys</li>
+          <li>Supervisors and postdocs leading research groups</li>
+        </ul>
       </div>
-      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
-        Get in Touch with SWMP Labs
-      </h2>
-      <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-xl mx-auto leading-relaxed">
-        Whether you are a researcher interested in early evaluation, an engineer with workflow feedback, or reaching out for general inquiries, we'd love to hear from you.
-      </p>
+    </section>
 
-      <div class="mt-8 p-6 sm:p-8 rounded-2xl glass-card border border-slate-800 max-w-xl mx-auto text-left font-mono text-xs space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-800">
-          <span class="text-slate-400 uppercase tracking-wider text-[11px]">General Inquiries</span>
-          <a href="mailto:hello@swmp-labs.tech" class="text-emerald-400 font-semibold text-sm hover:underline">hello@swmp-labs.tech</a>
-        </div>
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-800">
-          <span class="text-slate-400 uppercase tracking-wider text-[11px]">Founder &amp; CEO</span>
-          <span class="text-white font-medium">Marawan Mohamed <span class="text-slate-400">(Cloud Engineer)</span></span>
-        </div>
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-800">
-          <span class="text-slate-400 uppercase tracking-wider text-[11px]">Official Website</span>
-          <a href="https://swmp-labs.tech" class="text-brand-300 hover:underline">https://swmp-labs.tech</a>
-        </div>
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-          <span class="text-slate-400 uppercase tracking-wider text-[11px]">Company Stage</span>
-          <span class="text-slate-300">Early-stage, bootstrapped, in active development</span>
+    <section class="block reveal" id="access">
+      <div class="wrap">
+        <h2>Request wider access</h2>
+        <p style="color: var(--muted);">Everyone can try SWMP Labs with a small balance of free credits. If you need more room for a thesis or a lab project, apply below. Cohort 01 is reviewed on a rolling basis.</p>
+        <div class="hero-actions">
+          <button class="btn" onclick="openWaitlistModal()">Request wider access</button>
         </div>
       </div>
+    </section>
 
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <a href="mailto:hello@swmp-labs.tech" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs sm:text-sm shadow-glow-violet transition-all flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          <span>Send an Email</span>
-        </a>
-        <button onclick="openWaitlistModal()" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs sm:text-sm border border-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
-          <span>Apply for Early Access</span>
-        </button>
+    <section class="block legal reveal" id="privacy">
+      <div class="wrap">
+        <h2>Privacy</h2>
+        <p>Website form: we collect your name, institutional email, delivery email, role, research domain, research question and feedback preference. We use this to review access requests and contact applicants.</p>
+        <p>App: we collect your account email and name, access code, and saved sessions and bookmarks. Operational logs include IP address, timestamps, request paths and a preview of search queries, used for security and abuse prevention.</p>
+        <p>Data is not sold. To ask for deletion, email <a href="mailto:hello@swmp-labs.tech">hello@swmp-labs.tech</a>.</p>
       </div>
+    </section>
 
-    </div>
-  </section>
-
+    <section class="block legal reveal" id="terms">
+      <div class="wrap">
+        <h2>Terms</h2>
+        <p>SWMP Labs is an early-stage service provided as-is. Credits are limited and may change. Model-generated content can be inaccurate and should be checked against the source papers. No scraping or abusive use. Access can be revoked.</p>
+      </div>
+    </section>
   </main>
 
-  <!-- ========================================== -->
-  <!-- FOOTER                                     -->
-  <!-- ========================================== -->
-  <footer class="border-t border-slate-800/80 bg-slate-950 py-12 text-slate-400 text-xs">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-      
-      <!-- Brand & Parent Lab -->
-      <div class="flex items-center gap-3">
-        <div class="relative w-8 h-8 rounded-lg overflow-hidden bg-slate-900 border border-brand-500/30 flex items-center justify-center shrink-0">
-          <img src="./swmp_logo.jpg" alt="SWMP Labs" class="w-full h-full object-cover" onerror="this.style.display='none';" />
-        </div>
-        <div>
-          <div class="text-slate-200 font-semibold text-sm">SWMP Labs</div>
-          <div class="text-slate-500 text-[11px]">
-            AI-Powered Intelligence for Scientific Research • <a href="mailto:hello@swmp-labs.tech" class="text-emerald-400 hover:underline">hello@swmp-labs.tech</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Links & Utilities -->
-      <div class="flex flex-wrap items-center justify-center gap-6 font-mono text-[11px] text-slate-400">
-        <a href="#hero" class="hover:text-white transition-colors">Top</a>
-        <a href="#about" class="hover:text-white transition-colors">About</a>
-        <a href="#features" class="hover:text-white transition-colors">Capabilities</a>
-        <a href="#demo" class="hover:text-white transition-colors text-brand-400">Live Preview</a>
-        <a href="#research" class="hover:text-white transition-colors">Claude &amp; Research</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-      </div>
-
-      <!-- Copyright & Founder Credit -->
-      <div class="text-slate-400 text-[11px] font-mono text-center md:text-right">
-        <div>&copy; 2026 SWMP Labs • Marawan Mohamed (Founder &amp; CEO)</div>
-        <div class="text-slate-500 text-[10px] mt-0.5"><a href="https://swmp-labs.tech" class="hover:text-slate-400">https://swmp-labs.tech</a></div>
-      </div>
-
+  <footer class="site">
+    <div class="wrap-wide">
+      <span>© 2026 SWMP Labs</span>
+      <nav aria-label="Footer">
+        <a href="https://app.swmp-labs.tech/">App</a>
+        <a href="https://github.com/marawan090/swmp-labs/">GitHub</a>
+        <a href="https://www.linkedin.com/in/marawan-mohamed-elkzaz-07178a2a7/">LinkedIn</a>
+        <a href="mailto:hello@swmp-labs.tech">Email</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- ================================================================= -->
-  <!-- CLOSED BETA WAITLIST MODAL (Centered, Accessible, Animated)      -->
-  <!-- ================================================================= -->
-  <div id="waitlist-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 opacity-0 pointer-events-none transition-all duration-300 ease-out" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    
-    <!-- Backdrop Blur with dark overlay -->
-    <div onclick="closeWaitlistModal()" class="absolute inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity"></div>
+  <!-- Application modal: visual restyle only; functional hooks unchanged -->
+  <div id="waitlist-modal" class="opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="backdrop" onclick="closeWaitlistModal()"></div>
+    <div class="glass-modal scale-95">
+      <button class="modal-close" onclick="closeWaitlistModal()" aria-label="Close modal">×</button>
 
-    <!-- Modal Card Container -->
-    <div class="relative w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl glass-modal p-6 sm:p-8 shadow-2xl shadow-violet-950/40 border border-slate-700/80 transform scale-95 transition-all duration-300">
-      
-      <!-- Close Button -->
-      <button onclick="closeWaitlistModal()" class="absolute top-4 right-4 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors" aria-label="Close modal">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-
-      <!-- FORM VIEW -->
       <div id="modal-form-view">
-        
-        <!-- Header -->
-        <div class="mb-5">
-          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-brand-500/15 text-brand-300 border border-brand-500/30 mb-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            <span>Cohort 01 Selection Application</span>
-          </div>
-          <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            Apply for Closed Beta Access
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">
-            Fill out the technical screening application below to be considered for Cohort 01 closed beta access.
-          </p>
+        <div>
+          <span class="cohort-tag">Cohort 01 Selection Application</span>
+          <h3 id="modal-title" style="font-size:1.5rem;">Apply for Closed Beta Access</h3>
+          <p class="modal-sub">Fill out the technical screening application below to be considered for Cohort 01 closed beta access.</p>
         </div>
 
-        <!-- Cohort Screening & Delivery Notice -->
-        <div class="mb-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-xs leading-relaxed shadow-sm">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-mono font-medium bg-brand-500/15 border border-brand-500/30 text-brand-300">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-400 mr-1.5"></span>
-              Selective Cohort Review
-            </span>
-          </div>
-          <p class="text-slate-300 text-xs leading-relaxed">
-            Submitting this application does not guarantee acceptance into this cohort. We select a limited number of active researchers per review cycle to maintain compute performance. If selected, your machine credentials and private access key will be delivered directly to your personal/delivery email, not your institutional address.
-          </p>
+        <div class="notice-box">
+          <p style="margin:0;">Submitting this application does not guarantee acceptance into this cohort. We select a limited number of active researchers per review cycle to keep the service responsive. If selected, your access credentials will be delivered directly to your personal/delivery email, not your institutional address.</p>
         </div>
 
-        <!-- Form Error Banner -->
-        <div id="form-error-alert" class="hidden mb-4 p-3 rounded-lg bg-red-500/15 border border-red-500/30 text-red-300 text-xs"></div>
+        <div id="form-error-alert" class="hidden" role="alert"></div>
 
-        <!-- The Application Form -->
-        <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)" class="space-y-4">
-          
-          <!-- Field 1: Full Name -->
+        <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
           <div>
-            <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-              1. Full Name <span class="text-brand-400">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="fullName" 
-              name="fullName" 
-              required 
-              placeholder="e.g. Dr. Aris Thorne or Alex Rivera" 
-              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans"
-            >
+            <label for="fullName">1. Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="fullName" name="fullName" required placeholder="e.g. Dr. Aris Thorne or Alex Rivera">
           </div>
 
-          <!-- Field 2: Institutional / Academic Email -->
           <div>
-            <div class="flex items-center justify-between mb-1.5">
-              <label for="academicEmail" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 font-mono">
-                2. Institutional / Academic Email <span class="text-brand-400">*</span>
-              </label>
-              <!-- Dynamic Inline Status Badge -->
-              <span id="email-validation-badge" class="hidden text-[11px] font-mono font-medium px-2 py-0.5 rounded-full transition-all"></span>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:0.6rem; margin-bottom:0.4rem;">
+              <label for="academicEmail" style="margin:0;">2. Institutional / Academic Email <span aria-hidden="true">*</span></label>
+              <span id="email-validation-badge" class="hidden"></span>
             </div>
-            <input 
-              type="email" 
-              id="academicEmail" 
-              name="academicEmail" 
-              required 
-              placeholder="e.g. a.thorne@cmu.edu or researcher@lab.mit.edu" 
-              oninput="handleEmailInput(this)"
-              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans"
-            >
-            <p id="email-hint" class="text-[11px] text-slate-500 mt-1">Verification of university or lab affiliation (.edu, .ac.*, or institutional domain).</p>
+            <input type="email" id="academicEmail" name="academicEmail" required placeholder="e.g. a.thorne@cmu.edu or researcher@lab.mit.edu" oninput="handleEmailInput(this)">
+            <p id="email-hint" class="hint">Verification of university or lab affiliation (.edu, .ac.*, or institutional domain).</p>
           </div>
 
-          <!-- Field 3: Personal / Primary Delivery Email -->
           <div>
-            <div class="flex items-center justify-between mb-1.5">
-              <label for="primary-delivery-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 font-mono">
-                3. Personal / Primary Delivery Email <span class="text-brand-400">*</span>
-              </label>
-              <!-- Dynamic Inline Status Badge for Delivery Email -->
-              <span id="delivery-email-validation-badge" class="hidden text-[11px] font-mono font-medium px-2 py-0.5 rounded-full transition-all"></span>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:0.6rem; margin-bottom:0.4rem;">
+              <label for="primary-delivery-email" style="margin:0;">3. Personal / Primary Delivery Email <span aria-hidden="true">*</span></label>
+              <span id="delivery-email-validation-badge" class="hidden"></span>
             </div>
-            <input 
-              type="email" 
-              id="primary-delivery-email" 
-              name="delivery_email" 
-              required 
-              placeholder="e.g., alex.researcher@gmail.com" 
-              oninput="handleDeliveryEmailInput(this)"
-              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans"
-            >
-            <p class="text-xs text-slate-400 mt-1">We use this email to directly deliver your access credentials and private machine key upon approval.</p>
+            <input type="email" id="primary-delivery-email" name="delivery_email" required placeholder="e.g., alex.researcher@gmail.com" oninput="handleDeliveryEmailInput(this)">
+            <p class="hint">We use this email to directly deliver your access credentials and private machine key upon approval.</p>
           </div>
 
-          <!-- Field 4: Current Role / Academic Level (Dropdown) -->
           <div>
-            <label for="academicRole" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-              4. Current Role / Academic Level <span class="text-brand-400">*</span>
-            </label>
-            <div class="relative">
-              <select 
-                id="academicRole" 
-                name="academicRole" 
-                required 
-                class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all appearance-none cursor-pointer"
-              >
-                <option value="" disabled selected class="text-slate-500">Select your current role / academic standing...</option>
-                <option value="Undergraduate (Final-Year / Graduation Project)">Undergraduate (Final-Year / Graduation Project)</option>
-                <option value="Master's / PhD Researcher">Master's / PhD Researcher</option>
-                <option value="Cloud / Systems / AI Engineer">Cloud / Systems / AI Engineer</option>
-                <option value="Academic Supervisor / Professor">Academic Supervisor / Professor</option>
-                <option value="Independent Researcher">Independent Researcher</option>
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
-                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-              </div>
-            </div>
+            <label for="academicRole">4. Current Role / Academic Level <span aria-hidden="true">*</span></label>
+            <select id="academicRole" name="academicRole" required>
+              <option value="" disabled selected>Select your current role / academic standing...</option>
+              <option value="Undergraduate (Final-Year / Graduation Project)">Undergraduate (Final-Year / Graduation Project)</option>
+              <option value="Master's / PhD Researcher">Master's / PhD Researcher</option>
+              <option value="Cloud / Systems / AI Engineer">Cloud / Systems / AI Engineer</option>
+              <option value="Academic Supervisor / Professor">Academic Supervisor / Professor</option>
+              <option value="Independent Researcher">Independent Researcher</option>
+            </select>
           </div>
 
-          <!-- Field 5: Primary Research Domain (Dropdown + Conditional Other) -->
           <div>
-            <label for="researchDomain" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-              5. Primary Research Domain <span class="text-brand-400">*</span>
-            </label>
-            <div class="relative">
-              <select 
-                id="researchDomain" 
-                name="researchDomain" 
-                required 
-                onchange="handleDomainChange(this)"
-                class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all appearance-none cursor-pointer"
-              >
-                <option value="" disabled selected>Select your primary research focus...</option>
-                <option value="Distributed Systems / Cloud Infrastructure">Distributed Systems / Cloud Infrastructure</option>
-                <option value="Large Language Models & AI Systems">Large Language Models & AI Systems</option>
-                <option value="High-Performance Computing (HPC) & Networking">High-Performance Computing (HPC) & Networking</option>
-                <option value="Other">Other</option>
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
-                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-              </div>
-            </div>
-
-            <!-- Other Field (Hidden by default) -->
-            <div id="domain-other-container" class="hidden mt-2">
-              <input 
-                type="text" 
-                id="researchDomainOther" 
-                name="researchDomainOther" 
-                placeholder="Specify your domain (e.g. Quantum Computing, Hardware Security)..." 
-                class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 font-sans"
-              >
+            <label for="researchDomain">5. Primary Research Domain <span aria-hidden="true">*</span></label>
+            <select id="researchDomain" name="researchDomain" required onchange="handleDomainChange(this)">
+              <option value="" disabled selected>Select your primary research focus...</option>
+              <option value="Distributed Systems / Cloud Infrastructure">Distributed Systems / Cloud Infrastructure</option>
+              <option value="Large Language Models & AI Systems">Large Language Models & AI Systems</option>
+              <option value="High-Performance Computing (HPC) & Networking">High-Performance Computing (HPC) & Networking</option>
+              <option value="Other">Other</option>
+            </select>
+            <div id="domain-other-container" class="hidden" style="margin-top:0.6rem;">
+              <input type="text" id="researchDomainOther" name="researchDomainOther" placeholder="Specify your domain (e.g. Quantum Computing, Hardware Security)...">
             </div>
           </div>
 
-          <!-- Field 6: Specific Research Question or Thesis Problem -->
           <div>
-            <div class="flex items-center justify-between mb-1.5">
-              <label for="researchQuestion" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 font-mono">
-                6. Current Research Question / Thesis Problem <span class="text-brand-400">*</span>
-              </label>
-              <span id="char-count" class="text-[11px] font-mono text-slate-500">2-3 sentences recommended</span>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem;">
+              <label for="researchQuestion" style="margin:0;">6. Current Research Question / Thesis Problem <span aria-hidden="true">*</span></label>
+              <span id="char-count">2-3 sentences recommended</span>
             </div>
-            <textarea 
-              id="researchQuestion" 
-              name="researchQuestion" 
-              rows="3" 
-              required 
-              minlength="20"
-              placeholder="What specific research question or thesis problem are you tackling right now? (e.g. Evaluating tail latency tradeoffs in disaggregated NVMe-oF memory architectures for distributed LLM training checkpoints...)" 
-              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-sans resize-none"
-              oninput="updateCharCount(this)"
-            ></textarea>
+            <textarea id="researchQuestion" name="researchQuestion" rows="3" required minlength="20" placeholder="What specific research question or thesis problem are you tackling right now? (e.g. Evaluating tail latency tradeoffs in disaggregated NVMe-oF memory architectures for distributed LLM training checkpoints...)" oninput="updateCharCount(this)"></textarea>
           </div>
 
-          <!-- Field 7: 10-Minute Technical Feedback Session -->
-          <div class="pt-1">
-            <span class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 font-mono">
-              7. Are you willing to participate in a brief 10-minute technical feedback session? <span class="text-brand-400">*</span>
-            </span>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-900/60 border border-slate-700 hover:border-brand-500/50 cursor-pointer transition-colors text-xs text-slate-200">
-                <input type="radio" name="feedbackSession" value="yes" checked class="text-brand-500 focus:ring-brand-500 bg-slate-800 border-slate-600">
-                <span>Yes — Count me in for a 1:1 call</span>
-              </label>
-              <label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-900/60 border border-slate-700 hover:border-brand-500/50 cursor-pointer transition-colors text-xs text-slate-200">
-                <input type="radio" name="feedbackSession" value="no" class="text-brand-500 focus:ring-brand-500 bg-slate-800 border-slate-600">
-                <span>No — Async survey telemetry only</span>
-              </label>
+          <div>
+            <span class="field-label" id="feedback-label">7. Are you willing to participate in a brief 10-minute technical feedback session? <span aria-hidden="true">*</span></span>
+            <div class="radio-grid" role="radiogroup" aria-labelledby="feedback-label">
+              <label><input type="radio" name="feedbackSession" value="yes" checked> Yes — Count me in for a 1:1 call</label>
+              <label><input type="radio" name="feedbackSession" value="no"> No — Async survey telemetry only</label>
             </div>
           </div>
 
-          <!-- Form Submit Actions -->
-          <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-800">
-            <button 
-              type="button" 
-              onclick="closeWaitlistModal()" 
-              class="px-4 py-2.5 rounded-lg text-xs font-mono text-slate-400 hover:text-white transition-colors"
-            >
-              Cancel
-            </button>
-            <button 
-              type="submit" 
-              id="submit-btn" 
-              class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-glow-violet transition-all flex items-center gap-2"
-            >
+          <div class="form-actions">
+            <button type="button" class="link-cancel" onclick="closeWaitlistModal()">Cancel</button>
+            <button type="submit" id="submit-btn">
               <span id="submit-btn-text">Submit Application</span>
-              <svg id="submit-spinner" class="hidden animate-spin w-4 h-4 text-white" viewBox="0 0 24 24" fill="none">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-              </svg>
+              <svg id="submit-spinner" class="hidden" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"></circle><path fill="currentColor" opacity="0.75" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
             </button>
           </div>
-
         </form>
       </div>
 
-      <!-- SUCCESS CONFIRMATION VIEW (Replaces Form on Success) -->
-      <div id="waitlist-success-view" class="hidden text-center py-4">
-        
-        <!-- Status Icon: Minimalist emerald checkmark badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-4 shadow-sm">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          <span>✓ Application Received</span>
+      <div id="waitlist-success-view" class="hidden" style="text-align:center; padding: 0.5rem 0;">
+        <span class="cohort-tag">Application Received</span>
+        <h3 style="font-size:1.4rem;">Thank You for Applying to Cohort 01</h3>
+        <div style="margin-top:1rem; color: var(--muted); font-size:0.95rem;">
+          <p>Your application is currently being evaluated by our team. Expect an update delivered to your inbox within 2–3 business days.</p>
+          <p style="font-size:0.88rem;">Because Cohort 01 admission is strictly limited, space is allocated on a rolling review basis. If you are not selected for this initial wave, your application will automatically receive priority placement for Cohort 02.</p>
         </div>
-
-        <!-- Animated Emerald Checkmark -->
-        <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-5 shadow-glow-emerald">
-          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
+        <div class="receipt" style="text-align:left;">
+          <div class="receipt-row"><span>Tracking Hash</span><span id="receipt-id">SWMP-C1-8932</span></div>
+          <div class="receipt-row"><span>Applicant:</span><span id="receipt-name"></span></div>
+          <div class="receipt-row"><span>Academic Email:</span><span id="receipt-email"></span></div>
+          <div class="receipt-row"><span>Delivery Email:</span><span id="receipt-delivery-email"></span></div>
+          <div class="receipt-row"><span>Review Batch:</span><span>Cohort 01 (Selective Review)</span></div>
         </div>
-
-        <!-- Heading -->
-        <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-          Thank You for Applying to Cohort 01
-        </h3>
-        
-        <!-- Direct Message -->
-        <div class="mt-4 space-y-3 text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
-          <p>
-            Your application is currently being evaluated by our team. Expect an update delivered to your inbox within 2–3 business days.
-          </p>
-          <p class="text-xs text-slate-400">
-            Because Cohort 01 admission is strictly limited, space is allocated on a rolling review basis. If you are not selected for this initial wave, your application will automatically receive priority placement for Cohort 02.
-          </p>
+        <div class="success-actions">
+          <button id="btn-copy-receipt" onclick="copyReceiptId()">Copy Reference ID</button>
+          <button class="btn" onclick="resetAndCloseWaitlistModal()" style="border:none;">Return to Overview</button>
         </div>
-
-        <!-- Application Confirmation Receipt Card -->
-        <div class="mt-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-left font-mono text-xs space-y-2 max-w-md mx-auto">
-          <div class="flex items-center justify-between pb-2 border-b border-slate-800">
-            <span class="text-slate-500 uppercase">Tracking Hash</span>
-            <span id="receipt-id" class="text-emerald-400 font-bold">SWMP-C1-8932</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-500">Applicant:</span>
-            <span id="receipt-name" class="text-slate-200"></span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-500">Academic Email:</span>
-            <span id="receipt-email" class="text-slate-200"></span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-500">Delivery Email:</span>
-            <span id="receipt-delivery-email" class="text-slate-200"></span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-500">Review Batch:</span>
-            <span class="text-brand-300">Cohort 01 (Selective Review)</span>
-          </div>
-        </div>
-
-        <!-- Success View Actions -->
-        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-          <button onclick="copyReceiptId()" id="btn-copy-receipt" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 border border-slate-700 transition-colors flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span>Copy Reference ID</span>
-          </button>
-
-          <button onclick="resetAndCloseWaitlistModal()" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-xs sm:text-sm font-semibold text-white shadow-glow-violet transition-all">
-            Return to Overview
-          </button>
-        </div>
-
       </div>
 
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- CLIENT-SIDE SCRIPT LOGIC                   -->
-  <!-- ========================================== -->
-  <script>
-    // State
-    let lastSubmission = null;
-
-    // Anti-Disposable Email List
-    const DISPOSABLE_EMAIL_DOMAINS = new Set([
-      'tempmail.com', 'temp-mail.org', 'tempmail.net', '10minutemail.com', '10minutemail.net',
-      'mailinator.com', 'guerrillamail.com', 'guerrillamailblock.com', 'guerrillamail.net', 'guerrillamail.biz', 'guerrillamail.org',
-      'throwawaymail.com', 'trashmail.com', 'trashmail.net', 'trashmail.org', 'sharklasers.com',
-      'yopmail.com', 'yopmail.fr', 'yopmail.net', 'dispostable.com', 'getnada.com',
-      'fakemailgenerator.com', 'mohmal.com', 'burnermail.io', 'crazymailing.com',
-      'generator.email', 'inboxkitten.com', 'dropmail.me', 'byom.de', 'mytemp.email',
-      'emailondeck.com', 'temp-mail.io', 'tmpmail.org', 'disposablemail.com'
-    ]);
-
-    function isDisposableDomain(domain) {
-      if (!domain) return false;
-      const dom = domain.toLowerCase().trim();
-      if (DISPOSABLE_EMAIL_DOMAINS.has(dom)) return true;
-      const disposableKeywords = ['tempmail', '10minute', 'throwaway', 'dispostable', 'mailinator', 'guerrillamail', 'trashmail', 'fakemail', 'burnermail', 'temp-mail'];
-      return disposableKeywords.some(kw => dom.includes(kw));
-    }
-
-    function isAcademicDomain(domain) {
-      if (!domain) return false;
-      const dom = domain.toLowerCase().trim();
-      // Matches .edu, .ac.uk, .ac.in, .ac.jp, .edu.au, .edu.eg, etc.
-      if (/\.(edu|ac\.[a-z]{2,3}|edu\.[a-z]{2,3})$/i.test(dom)) return true;
-      if (dom.endsWith('.edu')) return true;
-      // Recognized university / research institutes
-      const academicInstitutes = ['inria.fr', 'cern.ch', 'mpg.de', 'cnrs.fr', 'fraunhofer.de', 'ethz.ch', 'epfl.ch'];
-      return academicInstitutes.some(inst => dom === inst || dom.endsWith('.' + inst));
-    }
-
-    function isValidEmailStructure(email) {
-      // Standard RFC regex pattern matching
-      const rfcRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      return rfcRegex.test(email);
-    }
-
-    // Real-time Email Input Handler
-    function handleEmailInput(input) {
-      const email = input.value.trim();
-      const badge = document.getElementById('email-validation-badge');
-      if (!badge) return;
-
-      if (!email || !email.includes('@')) {
-        badge.classList.add('hidden');
-        badge.textContent = '';
-        input.classList.remove('border-red-500', 'border-emerald-500/60');
-        input.classList.add('border-slate-700');
-        return;
-      }
-
-      const parts = email.split('@');
-      const domain = parts[1] || '';
-
-      if (!isValidEmailStructure(email) || !domain.includes('.')) {
-        // Still typing or incomplete syntax
-        badge.classList.add('hidden');
-        input.classList.remove('border-red-500', 'border-emerald-500/60');
-        input.classList.add('border-slate-700');
-        return;
-      }
-
-      if (isDisposableDomain(domain)) {
-        badge.className = 'text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-red-500/15 border border-red-500/30 text-red-300';
-        badge.textContent = '✕ Disposable Email Blocked';
-        badge.classList.remove('hidden');
-        input.classList.remove('border-slate-700', 'border-emerald-500/60');
-        input.classList.add('border-red-500');
-        return;
-      }
-
-      input.classList.remove('border-red-500');
-
-      if (isAcademicDomain(domain)) {
-        badge.className = 'text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300';
-        badge.textContent = '✓ Academic / Verified Institution';
-        badge.classList.remove('hidden');
-        input.classList.remove('border-slate-700');
-        input.classList.add('border-emerald-500/60');
-      } else {
-        badge.className = 'text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-slate-800/90 border border-slate-700 text-slate-300';
-        badge.textContent = 'Standard Researcher Access';
-        badge.classList.remove('hidden');
-        input.classList.remove('border-emerald-500/60');
-        input.classList.add('border-slate-700');
-      }
-    // Real-time Delivery Email Input Handler
-    function handleDeliveryEmailInput(input) {
-      const email = input.value.trim();
-      const badge = document.getElementById('delivery-email-validation-badge');
-      if (!badge) return;
-
-      if (!email || !email.includes('@')) {
-        badge.classList.add('hidden');
-        badge.textContent = '';
-        input.classList.remove('border-red-500', 'border-emerald-500/60');
-        input.classList.add('border-slate-700');
-        return;
-      }
-
-      const parts = email.split('@');
-      const domain = parts[1] || '';
-
-      if (!isValidEmailStructure(email) || !domain.includes('.')) {
-        badge.classList.add('hidden');
-        input.classList.remove('border-red-500', 'border-emerald-500/60');
-        input.classList.add('border-slate-700');
-        return;
-      }
-
-      if (isDisposableDomain(domain)) {
-        badge.className = 'text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-red-500/15 border border-red-500/30 text-red-300';
-        badge.textContent = '✕ Disposable Email Blocked';
-        badge.classList.remove('hidden');
-        input.classList.remove('border-slate-700', 'border-emerald-500/60');
-        input.classList.add('border-red-500');
-        return;
-      }
-
-      badge.className = 'text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300';
-      badge.textContent = '✓ Valid Delivery Destination';
-      badge.classList.remove('hidden');
-      input.classList.remove('border-red-500', 'border-slate-700');
-      input.classList.add('border-emerald-500/60');
-    }
-
-    // Cohort Capacity Counter (Safeguard)
-    function updateCapacityProgress(claimed = 0) {
-      const progressBar = document.getElementById('cohort-progress-bar');
-      if (progressBar) {
-        const currentClaimed = Number(claimed) || 0;
-        const percentage = Math.min(100, Math.round((currentClaimed / 80) * 100));
-        progressBar.style.width = `${percentage}%`;
-      }
-      const textElem = document.getElementById('cohort-progress-text');
-      if (textElem) {
-        textElem.textContent = `Spots Claimed: ${claimed}`;
-      }
-      const remainingElem = document.getElementById('cohort-remaining-text');
-      if (remainingElem) {
-        remainingElem.textContent = `Seats Remaining: ${claimed}`;
-      }
-    }
-
-    // Modal Controls
-    function openWaitlistModal() {
-      const modal = document.getElementById('waitlist-modal');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      modal.querySelector('.glass-modal').classList.remove('scale-95');
-      document.body.classList.add('overflow-hidden');
-
-      const b1 = document.getElementById('email-validation-badge');
-      const b2 = document.getElementById('delivery-email-validation-badge');
-      const academicInput = document.getElementById('academicEmail');
-      const deliveryInput = document.getElementById('primary-delivery-email');
-      if (b1 && academicInput && !academicInput.value.trim()) b1.classList.add('hidden');
-      if (b2 && deliveryInput && !deliveryInput.value.trim()) b2.classList.add('hidden');
-
-      // Auto focus first input
-      setTimeout(() => {
-        const input = document.getElementById('fullName');
-        if (input) input.focus();
-      }, 100);
-    }
-
-    function closeWaitlistModal() {
-      const modal = document.getElementById('waitlist-modal');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      modal.querySelector('.glass-modal').classList.add('scale-95');
-      document.body.classList.remove('overflow-hidden');
-    }
-
-    // Reset Form and Return to Overview
-    function resetAndCloseWaitlistModal() {
-      closeWaitlistModal();
-      setTimeout(() => {
-        const form = document.getElementById('waitlist-form');
-        if (form) form.reset();
-        const formView = document.getElementById('modal-form-view');
-        const successView = document.getElementById('waitlist-success-view') || document.getElementById('modal-success-view');
-        if (formView) formView.classList.remove('hidden');
-        if (successView) successView.classList.add('hidden');
-        
-        const b1 = document.getElementById('email-validation-badge');
-        const b2 = document.getElementById('delivery-email-validation-badge');
-        if (b1) b1.classList.add('hidden');
-        if (b2) b2.classList.add('hidden');
-
-        const errAlert = document.getElementById('form-error-alert');
-        if (errAlert) {
-          errAlert.classList.add('hidden');
-          errAlert.textContent = '';
-        }
-      }, 350);
-    }
-
-    // Escape Key Listener to close modal
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeWaitlistModal();
-      }
-    });
-
-    // Domain change handler
-    function handleDomainChange(selectElem) {
-      const otherContainer = document.getElementById('domain-other-container');
-      const otherInput = document.getElementById('researchDomainOther');
-      if (selectElem.value === 'Other') {
-        otherContainer.classList.remove('hidden');
-        otherInput.required = true;
-        otherInput.focus();
-      } else {
-        otherContainer.classList.add('hidden');
-        otherInput.required = false;
-      }
-    }
-
-    // Char count update
-    function updateCharCount(textarea) {
-      const counter = document.getElementById('char-count');
-      const length = textarea.value.trim().length;
-      if (length < 20) {
-        counter.textContent = `${length}/20 min chars required`;
-        counter.className = 'text-[11px] font-mono text-amber-400';
-      } else {
-        counter.textContent = `${length} characters (Good technical depth)`;
-        counter.className = 'text-[11px] font-mono text-emerald-400';
-      }
-    }
-
-    // Handle Form Submit
-    async function handleWaitlistSubmit(e) {
-      e.preventDefault();
-      
-      const errorAlert = document.getElementById('form-error-alert');
-      errorAlert.classList.add('hidden');
-      errorAlert.textContent = '';
-
-      const form = document.getElementById('waitlist-form');
-      const submitBtn = document.getElementById('submit-btn');
-      const submitBtnText = document.getElementById('submit-btn-text');
-      const submitSpinner = document.getElementById('submit-spinner');
-
-      // Extract Form Values
-      const fullName = document.getElementById('fullName').value.trim();
-      const academicEmail = document.getElementById('academicEmail').value.trim();
-      const delivery_email = document.getElementById('primary-delivery-email').value.trim();
-      const academicRole = document.getElementById('academicRole').value;
-      const researchDomainSelect = document.getElementById('researchDomain').value;
-      const researchDomainOther = document.getElementById('researchDomainOther').value.trim();
-      const researchDomain = researchDomainSelect === 'Other' ? (researchDomainOther || 'Other') : researchDomainSelect;
-      const researchQuestion = document.getElementById('researchQuestion').value.trim();
-      const feedbackSession = document.querySelector('input[name="feedbackSession"]:checked')?.value === 'yes';
-
-      // Validation check: Required fields
-      if (!fullName || !academicEmail || !delivery_email || !academicRole || !researchDomain || !researchQuestion) {
-        errorAlert.textContent = 'Please fill out all required academic screening fields.';
-        errorAlert.classList.remove('hidden');
-        return;
-      }
-
-      // 1. Validate Academic Email
-      const academicEmailInput = document.getElementById('academicEmail');
-      const academicDomain = academicEmail.split('@')[1] || '';
-      if (!isValidEmailStructure(academicEmail) || isDisposableDomain(academicDomain)) {
-        errorAlert.textContent = 'Please enter a valid institution or work email address.';
-        errorAlert.classList.remove('hidden');
-        academicEmailInput.focus();
-        return;
-      }
-
-      // 2. Validate Primary Delivery Email
-      const deliveryEmailInput = document.getElementById('primary-delivery-email');
-      const deliveryDomain = delivery_email.split('@')[1] || '';
-      if (!isValidEmailStructure(delivery_email)) {
-        errorAlert.textContent = 'Please enter a valid personal or delivery email address.';
-        errorAlert.classList.remove('hidden');
-        deliveryEmailInput.focus();
-        return;
-      }
-      if (isDisposableDomain(deliveryDomain)) {
-        errorAlert.textContent = 'Disposable email addresses are not permitted. Please enter a valid delivery email.';
-        errorAlert.classList.remove('hidden');
-        deliveryEmailInput.focus();
-        return;
-      }
-
-      if (researchQuestion.length < 20) {
-        errorAlert.textContent = 'Please provide a descriptive research question or thesis problem (at least 20 characters).';
-        errorAlert.classList.remove('hidden');
-        return;
-      }
-
-      // Generate Reference Code
-      const randNum = Math.floor(1000 + Math.random() * 9000);
-      const trackingCode = `SWMP-C1-${randNum}`;
-
-      const payload = {
-        application_id: trackingCode,
-        full_name: fullName,
-        email: academicEmail,
-        delivery_email: delivery_email,
-        academic_level: academicRole,
-        research_domain: researchDomain,
-        research_problem: researchQuestion,
-        feedback_session: feedbackSession,
-        submitted_at: new Date().toISOString()
-      };
-
-      // Set Loading State
-      submitBtn.disabled = true;
-      submitBtnText.textContent = 'Submitting Application...';
-      submitSpinner.classList.remove('hidden');
-
-      try {
-        // Dispatch POST request to backend /api/waitlist endpoint
-        const res = await fetch('/api/waitlist', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        }).catch(err => {
-          throw new Error('Unable to connect to the waitlist service. Please check your connection or contact hello@swmp-labs.tech directly.');
-        });
-
-        if (!res.ok) {
-          const errData = await res.json().catch(() => ({}));
-          throw new Error(errData.detail || errData.error || 'Server could not process your submission. Please try again.');
-        }
-
-        lastSubmission = payload;
-
-        // Artificial smooth transition delay
-        await new Promise(r => setTimeout(r, 450));
-
-        // Switch to confirmation view
-        document.getElementById('receipt-id').textContent = payload.application_id;
-        document.getElementById('receipt-name').textContent = payload.full_name;
-        document.getElementById('receipt-email').textContent = payload.email;
-        const receiptDelivery = document.getElementById('receipt-delivery-email');
-        if (receiptDelivery) receiptDelivery.textContent = payload.delivery_email;
-
-        document.getElementById('modal-form-view').classList.add('hidden');
-        const successView = document.getElementById('waitlist-success-view') || document.getElementById('modal-success-view');
-        if (successView) successView.classList.remove('hidden');
-      } catch (err) {
-        errorAlert.textContent = err.message || 'An unexpected error occurred while transmitting. Please try again.';
-        errorAlert.classList.remove('hidden');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtnText.textContent = 'Submit Application';
-        submitSpinner.classList.add('hidden');
-      }
-    }
-
-    // Copy Receipt ID
-    function copyReceiptId() {
-      if (!lastSubmission) return;
-      navigator.clipboard.writeText(lastSubmission.application_id);
-      const btn = document.getElementById('btn-copy-receipt');
-      const orig = btn.innerHTML;
-      btn.innerHTML = `<span class="text-emerald-400">✓ Copied!</span>`;
-      setTimeout(() => { btn.innerHTML = orig; }, 2000);
-    }
-
-    // Download Receipt JSON
-    function downloadReceiptJSON() {
-      if (!lastSubmission) return;
-      const blob = new Blob([JSON.stringify(lastSubmission, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${lastSubmission.application_id}_receipt.json`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    // Interactive Preview Tabs
-    function switchPreviewTab(tabId) {
-      const tabs = ['synthesis', 'diagram', 'pipeline_view', 'notebooklm'];
-      tabs.forEach(t => {
-        const content = document.getElementById(`tab-content-${t}`);
-        const btn = document.getElementById(`tab-btn-${t}`);
-        if (!content || !btn) return;
-        if (t === tabId) {
-          content.classList.remove('hidden');
-          btn.setAttribute('aria-selected', 'true');
-          btn.className = 'px-2.5 py-1 rounded bg-brand-600 text-white font-medium transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400';
-        } else {
-          content.classList.add('hidden');
-          btn.setAttribute('aria-selected', 'false');
-          btn.className = 'px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-400';
-        }
-      });
-    }
-  </script>
-  <!-- Dedicated External Waitlist Script -->
   <script src="./waitlist.js"></script>
-
+  <script>
+    // Gentle reveal on scroll only; no form logic here (lives in waitlist.js).
+    (function () {
+      document.documentElement.classList.remove('no-js');
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
