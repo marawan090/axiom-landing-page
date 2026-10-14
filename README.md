@@ -1,6 +1,6 @@
 # SWMP Labs — Official Website & Research Platform
 
-> **AI-Powered Intelligence for Scientific Research** • [https://swmp-labs.tech](https://swmp-labs.tech) • [hello@swmp-labs.tech](mailto:hello@swmp-labs.tech)
+> **AI-Powered Discovery for Scientific Research** • [https://swmp-labs.tech](https://swmp-labs.tech) • [hello@swmp-labs.tech](mailto:hello@swmp-labs.tech)
 
 Official website and Closed Beta Waitlist Application Portal for **SWMP Labs**, an early-stage, bootstrapped AI research startup building tools that help researchers explore scientific literature, uncover potential research gaps, connect findings, and develop research ideas more efficiently. Engineered for zero-friction serverless deployment on **Vercel** with direct **Resend** email alerts.
 
